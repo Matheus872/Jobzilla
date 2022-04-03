@@ -1,19 +1,19 @@
 package com.iarh.dto.request;
 
-import com.iarh.entities.Adress;
-import com.iarh.entities.Opportunity;
-import com.iarh.entities.Phone;
-import com.iarh.enums.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.List;
+
+import com.iarh.entities.Adress;
+import com.iarh.entities.Opportunity;
+import com.iarh.entities.Phone;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
