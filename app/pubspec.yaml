@@ -36,6 +36,7 @@ flutter:
     - lib/assets/
     - lib/assets/i18n/ 
     - lib/assets/images/
+    - lib/assets/fonts/
 
   fonts:
     - family: Montserrat
@@ -49,13 +50,13 @@ flutter:
       fonts:
         - asset: lib/assets/fonts/Questrial-Regular.ttf
           weight: 400
-        - asset: lib/assets/fonts/Questrial-Bold.ttf
-          weight: 400
-        - asset: lib/assets/fonts/Questrial-LightItalic.ttf
-          weight: 500
-          style: italic
-        - asset: lib/assets/fonts/Questrial-Medium.ttf
-          weight: 700
+      #  - asset: lib/assets/fonts/Questrial-Bold.ttf
+      #    weight: 400
+      #  - asset: lib/assets/fonts/Questrial-LightItalic.ttf
+      #    weight: 500
+      #    style: italic
+      #  - asset: lib/assets/fonts/Questrial-Medium.ttf
+      #    weight: 700
     - family: Nunito
       fonts:
         - asset: lib/assets/fonts/Nunito-Bold.ttf
