@@ -24,7 +24,7 @@ class AppColors {
 
   static const dark_textIcons = Color(0xfff616e78);
   static const dark_primaryText = Color(0xffffefefe);
-  static const dark_secondaryText = Color(0xfff94a0ab);
+  static const dark_secondaryText = Color(0xfff57636C);
   static const dark_divider = Color(0xfffBDBDBD);
 
   //auxiliar collors
@@ -72,8 +72,16 @@ TextStyle get _overline => const TextStyle(
       color: AppColors.dark_primaryText,
     );
 
+TextStyle get _bodyText2 => const TextStyle(
+      fontSize: 14,
+      fontFamily: 'Poppins',
+      fontWeight: FontWeight.w600,
+      fontStyle: FontStyle.normal,
+      color: AppColors.dark_secondaryText,
+    );
+
 ThemeData getTheme() {
-  final theme = ThemeData.light().copyWith(
+  final light = ThemeData.light().copyWith(
       colorScheme: const ColorScheme.light().copyWith(
     primary: AppColors.dark_primary,
     onPrimary: AppColors.dark_textIcons,
@@ -83,5 +91,34 @@ ThemeData getTheme() {
     tertiary: AppColors.dark_accent,
     onTertiary: AppColors.dark_textIcons,
   ));
-  return theme;
+
+  final dark = ThemeData.dark().copyWith(
+    colorScheme: const ColorScheme.light().copyWith(
+      background: AppColors.dark_background,
+      primary: AppColors.dark_primary,
+      onPrimary: AppColors.dark_textIcons,
+      primaryContainer: AppColors.dark_primaryDark,
+      onPrimaryContainer: AppColors.dark_primaryText,
+      secondary: AppColors.dark_secondaryText,
+      tertiary: AppColors.dark_accent,
+      onTertiary: AppColors.dark_textIcons,
+    ),
+    textTheme: const TextTheme(
+        bodyText2: TextStyle(
+          fontSize: 14,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+          color: AppColors.dark_secondaryText,
+        ),
+        subtitle2: TextStyle(
+          fontSize: 16,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+          color: AppColors.dark_primaryText,
+        )),
+  );
+
+  return dark;
 }

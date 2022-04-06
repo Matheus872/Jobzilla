@@ -5,21 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "app (profile mode)",
-            "request": "launch",
+            "name": "Flutter",
             "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "app (release mode)",
             "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "program": "F:/Meus_Documentos/Documentos/GitHub/IARH/app/lib/src/main.dart"
         }
     ]
 }

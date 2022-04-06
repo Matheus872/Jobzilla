@@ -59,6 +59,8 @@ flutter:
       #    weight: 700
     - family: Nunito
       fonts:
+        - asset: lib/assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
         - asset: lib/assets/fonts/Nunito-Bold.ttf
           weight: 700
         - asset: lib/assets/fonts/Nunito-ExtraBold.ttf
@@ -69,3 +71,9 @@ flutter:
         - asset: lib/assets/fonts/Nunito-BlackItalic.ttf
           weight: 900
           style: italic
+    - family: Poppins
+      fonts:
+        - asset: lib/assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+
+    
