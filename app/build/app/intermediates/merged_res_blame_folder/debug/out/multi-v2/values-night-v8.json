@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\Meus_Documentos\\Documentos\\GitHub\\IARH\\app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\1822082032\\IARH\\app\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
-                    "source": "F:\\Meus_Documentos\\Documentos\\GitHub\\IARH\\app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\1822082032\\IARH\\app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
