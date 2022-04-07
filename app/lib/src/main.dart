@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     final theme = getTheme();
 
     return const MaterialApp(
-      home:  LoginPage(),
+      home:  CreateUser(),
     );
   }
 }

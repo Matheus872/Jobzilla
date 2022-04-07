@@ -1,4 +1,4 @@
-#Wed Apr 06 19:55:29 BRT 2022
-base.0=C\:\\Users\\1822082032\\IARH\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Thu Apr 07 00:54:41 BRT 2022
+base.0=D\:\\Faculdade\\PDM\\IARH\\IARH\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
