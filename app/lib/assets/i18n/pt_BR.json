@@ -1,3 +1,10 @@
 {
-    "app_name" : "Aplicativo de Exemplo"
+    "app_name" : "JobZilla",
+
+    "username_hint": "Endereço de e-mail",
+    "password_hint": "Senha",
+    "login": "Entrar",
+    "create_account_label": "Não tem uma conta?",
+    "create_account": "Criar conta",
+    "forgot_password": "Esqueceu a senha?"
 }
