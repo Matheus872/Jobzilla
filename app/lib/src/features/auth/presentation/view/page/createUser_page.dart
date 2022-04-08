@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:basearch/src/theme.dart';
@@ -12,34 +14,22 @@ class CreateUser extends StatefulWidget{
 }
 
 class _CreateUserState extends State<CreateUser>{
-    
-    @override
-    Widget build(BuildContext context){
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.light_primaryDark,
-          title: const Text('Cadastro',
-            style: TextStyle(
-              color: AppColors.light_divider, 
-              fontSize: 25,
-            ),
-          ),
-        ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Padding(
+  get get => null;
+
+    Widget get _padding => const Padding(
               padding: EdgeInsets.all(10.0),
-            ),
-            Text('Primeiro Nome', 
+            );
+    
+    Widget get _firstnameTextField =>
+            const Text('Primeiro Nome', 
               style: TextStyle(
               color: AppColors.dark_background,
               fontSize: 20
             ),
-          ),
-            TextField(
+          );
+
+    
+    Widget get _firstnameDecoration => const TextField(
               decoration: InputDecoration(
                 hintText: 'Informe o seu primeiro nome', 
                 hintStyle: TextStyle(
@@ -63,17 +53,16 @@ class _CreateUserState extends State<CreateUser>{
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            ),
-          Text('Sobrenome', 
+          );
+            
+    Widget get _lastnameTextField => const Text('Sobrenome', 
             style: TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20
             ),
-           ),
-          TextField(
+           );
+    
+    Widget get _lastnameDecoration => const TextField(
             decoration: InputDecoration(
               hintText: 'Informe o seu sobrenome', 
               hintStyle: TextStyle(
@@ -97,17 +86,15 @@ class _CreateUserState extends State<CreateUser>{
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10.0
-            ),
-          ),
-          Text('CPF', 
+          );
+          
+    Widget get _cpfTextField => const Text('CPF', 
             style: TextStyle(
               fontSize: 20
             ),
-           ),
-          TextField(
+           );
+
+    Widget get _cpfDecoration => const TextField(
             decoration: InputDecoration(
               hintText: 'Informe o CPF',
               hintStyle: TextStyle(
@@ -131,18 +118,16 @@ class _CreateUserState extends State<CreateUser>{
               ),
             ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10.0
-            ),
-          ),
-          Text('Data de Nascimento', 
+          );
+    
+    Widget get _birthdateTextField => const Text('Data de Nascimento', 
             style: TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20
             ),
-          ),
-          TextField(
+          );
+
+    Widget get _birthDateDecoration => const TextField(
             decoration: InputDecoration(
               hintText: 'Informe a data de nascimento', 
               hintStyle: TextStyle(
@@ -166,18 +151,16 @@ class _CreateUserState extends State<CreateUser>{
               ),
             ),
           ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10.0
-            ),
-          ),
-          Text('Gênero', 
+          );
+    
+    Widget get _genderTextField => const Text('Gênero', 
             style: TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20
             ),
-          ),
-          TextField(
+          );
+
+    Widget get _genderDecoration => const TextField(
             decoration: InputDecoration(
               hintText: 'Informe o gênero',
               hintStyle: TextStyle(
@@ -201,18 +184,16 @@ class _CreateUserState extends State<CreateUser>{
               ),
             ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(10.0
-            ),
-          ),
-          Text('Telefone', 
+          );
+
+    Widget get _phoneTextField => const  Text('Telefone', 
             style: TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20,
             ),
-          ),
-          TextField(
+          );
+
+    Widget get _phoneDecoration => const TextField(
             decoration: InputDecoration(
               hintText: 'Informe o seu telefone', 
               hintStyle: TextStyle(
@@ -236,10 +217,69 @@ class _CreateUserState extends State<CreateUser>{
                 ),
               ),
             ),
+          ); 
+
+    @override
+    Widget build(BuildContext context){
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.light_primaryDark,
+          title: const Text('Cadastro',
+            style: TextStyle(
+              color: AppColors.light_divider, 
+              fontSize: 25,
+            ),
           ),
+        ),
+      body: Container(
+        color: AppColors.light_background,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children:  [
+            _padding,
+            _firstnameTextField,
+            _firstnameDecoration,
+            _padding,
+            _lastnameTextField,
+            _lastnameDecoration,
+            _padding,
+            _cpfTextField,
+            _cpfDecoration,
+            _padding,
+            _birthdateTextField,
+            _birthDateDecoration,
+            _padding,
+            _genderTextField,
+            _genderDecoration,
+            _padding,
+            _phoneTextField,
+            _phoneDecoration,
+            _padding,
+            _padding,
+            _padding,
+            _buttonUser,
         ],
         ),
       ),
       );
     }
+    Widget get _buttonUser => ButtonTheme(
+                height: 70.0,
+                minWidth: 130.0,
+                child: RaisedButton(
+                  // ignore: avoid_print
+                  onPressed: () => { print("teste"), },
+                  shape: RoundedRectangleBorder(
+                    borderRadius:BorderRadius.circular(20.0
+                    )
+                  ),
+                  child: const Text('Salvar',
+                    style: TextStyle(
+                      color: AppColors.dark_divider, 
+                      fontSize: 25
+                      ),
+                  ),
+                  color: AppColors.dark_primaryLight,
+                ),
+              );
 }
