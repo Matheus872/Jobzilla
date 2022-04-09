@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:localization/localization.dart';
 
 import '../../viewmodel/login_viewmodel.dart';
 
@@ -16,23 +17,32 @@ class ForgotPassword extends StatefulWidget{
 class _ForgotPasswordState extends State<ForgotPassword>{
 
     Widget get _padding => const Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
             );
 
-    Widget get _forgotpasswordTextField =>
-            const Text('', 
-              style: TextStyle(
-              color: AppColors.dark_background,
-              fontSize: 20
-            ),
-          );
+    Widget get _decoration => SizedBox(
+      width: 400.0,
+      height: 220.0,
+      child: Card(child: Text('  send_email'.i18n(),
+             style: const TextStyle(
+                  fontSize: 30,
+                  color: AppColors.dark_background,
+                ),
+                
+             ),
+             color: AppColors.dark_accent,
+             shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+             ),
+);
     
      @override
      Widget build(BuildContext context){
       return Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.light_primaryDark,
-          toolbarHeight: 200,
+          toolbarHeight: 180,
           title: const Text('Alterar minha senha',
             style: TextStyle(
               color: AppColors.light_divider, 
@@ -44,25 +54,9 @@ class _ForgotPasswordState extends State<ForgotPassword>{
         color: AppColors.light_background,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children:  [
-            Container(decoration: const BoxDecoration(
-              color: AppColors.dark_primary,
-              shape: BoxShape.circle,
-              
-            ),child: const Center(
-              child: Text(
-                'O link para redefinir sua senha foi enviado para o seu e-mail cadastrado.'
-             'Favor verificar a sua caixa de entrada.',
-                style: TextStyle(
-                  fontSize: 40,
-                  wordSpacing: 0,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.dark_background,
-                  
-                ),
-              ),
-            ),),
+            _padding,
+            _decoration,
         ],
         ),
       ),

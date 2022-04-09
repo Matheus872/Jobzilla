@@ -28,24 +28,24 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
 
-    Widget get _firstnameDecoration => const TextField(
+    Widget get _firstnameDecoration => TextField(
               decoration: InputDecoration(
-                hintText: 'Informe o seu primeiro nome', 
-                hintStyle: TextStyle(
+                hintText: 'firstname_hint'.i18n(), 
+                hintStyle: const TextStyle(
                   fontSize: 20,
                   color: AppColors.light_primaryDark,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.person, 
                   color:AppColors.dark_primaryLight
                 ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_primaryDark,
               width: 2,
@@ -54,31 +54,31 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
             
-    Widget get _lastnameTextField => const Text('Sobrenome', 
-            style: TextStyle(
+    Widget get _lastnameTextField => Text('last_name'.i18n(), 
+            style: const TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20
             ),
            );
     
-    Widget get _lastnameDecoration => const TextField(
+    Widget get _lastnameDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe o seu sobrenome', 
-              hintStyle: TextStyle(
+              hintText: 'firstname_hint'.i18n(), 
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-              icon: Icon(
+              icon: const Icon(
                 Icons.check, 
                 color:AppColors.dark_primaryLight
               ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_accent,
                 width: 2,
               ),
             ),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -87,30 +87,30 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
           
-    Widget get _cpfTextField => const Text('CPF', 
-            style: TextStyle(
+    Widget get _cpfTextField => Text('cpf'.i18n(), 
+            style: const TextStyle(
               fontSize: 20
             ),
            );
 
-    Widget get _cpfDecoration => const TextField(
+    Widget get _cpfDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe o CPF',
-              hintStyle: TextStyle(
+              hintText: 'cpf_hint'.i18n(),
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-              icon: Icon(
+              icon: const Icon(
                 Icons.check, 
                 color:AppColors.dark_primaryLight
               ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_accent,
                 width: 2,
               ),
             ),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -126,24 +126,24 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
 
-    Widget get _birthDateDecoration => const TextField(
+    Widget get _birthDateDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe a data de nascimento', 
-              hintStyle: TextStyle(
+              hintText: 'birth_date'.i18n(), 
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-            icon: Icon(
+            icon: const Icon(
               Icons.calendar_month, 
               color:AppColors.dark_primaryLight
             ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_accent,
                 width: 2,
               ),
             ),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -152,31 +152,31 @@ class _CreateUserState extends State<CreateUser>{
           ),
           );
     
-    Widget get _genderTextField => const Text('Gênero', 
-            style: TextStyle(
+    Widget get _genderTextField => Text('gender'.i18n(), 
+            style: const TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20
             ),
           );
 
-    Widget get _genderDecoration => const TextField(
+    Widget get _genderDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe o gênero',
-              hintStyle: TextStyle(
+              hintText: 'gender_hint'.i18n(),
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-            icon: Icon(
+            icon: const Icon(
               Icons.check, 
               color:AppColors.dark_primaryLight,
             ),
-            focusedBorder: UnderlineInputBorder(
+            focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-            enabledBorder: UnderlineInputBorder(
+            enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -185,31 +185,31 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
 
-    Widget get _phoneTextField => const  Text('Telefone', 
-            style: TextStyle(
+    Widget get _phoneTextField => Text('phone'.i18n(), 
+            style: const TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20,
             ),
           );
 
-    Widget get _phoneDecoration => const TextField(
+    Widget get _phoneDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe o seu telefone', 
-              hintStyle: TextStyle(
+              hintText: 'phone_hint'.i18n(), 
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-              icon: Icon(
+              icon: const Icon(
                 Icons.phone, 
                 color:AppColors.dark_primaryLight,
               ),
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.light_accent,
                   width: 2,
                 ),
               ),
-              enabledBorder: UnderlineInputBorder(
+              enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -218,31 +218,31 @@ class _CreateUserState extends State<CreateUser>{
             ),
           ); 
 
-     Widget get _emailTextField => const  Text('E-mail', 
-            style: TextStyle(
+     Widget get _emailTextField => Text('email'.i18n(), 
+            style: const TextStyle(
               color: AppColors.dark_background, 
               fontSize: 20,
             ),
           );
 
-    Widget get _emailDecoration => const TextField(
+    Widget get _emailDecoration => TextField(
             decoration: InputDecoration(
-              hintText: 'Informe o seu e-mail', 
-              hintStyle: TextStyle(
+              hintText: 'email_hint'.i18n(), 
+              hintStyle: const TextStyle(
                 fontSize: 20,
                 color: AppColors.light_primaryDark,
               ),
-              icon: Icon(
+              icon: const Icon(
                 Icons.mail, 
                 color:AppColors.dark_primaryLight,
               ),
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                   color: AppColors.light_accent,
                   width: 2,
                 ),
               ),
-              enabledBorder: UnderlineInputBorder(
+              enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
                 color: AppColors.light_primaryDark,
                 width: 2,
@@ -251,33 +251,32 @@ class _CreateUserState extends State<CreateUser>{
             ),
           ); 
 
-    Widget get _passwordTextField =>
-            const Text('Senha', 
-              style: TextStyle(
+    Widget get _passwordTextField => Text('password_hint'.i18n(), 
+              style: const TextStyle(
               color: AppColors.dark_background,
               fontSize: 20
             ),
           );
 
-    Widget get _passwordDecoration => const TextField(
+    Widget get _passwordDecoration => TextField(
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Informe a sua senha', 
-                hintStyle: TextStyle(
+                hintText: 'create_password_hint'.i18n(), 
+                hintStyle: const TextStyle(
                   fontSize: 20,
                   color: AppColors.light_primaryDark,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.lock, 
                   color:AppColors.dark_primaryLight
                 ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_primaryDark,
               width: 2,
@@ -286,33 +285,32 @@ class _CreateUserState extends State<CreateUser>{
             ),
           );
 
-    Widget get _confirmpasswordTextField =>
-            const Text('Confirmar Senha', 
-              style: TextStyle(
+    Widget get _confirmpasswordTextField => Text('confirm_password'.i18n(), 
+              style: const TextStyle(
               color: AppColors.dark_background,
               fontSize: 20
             ),
           );
 
-    Widget get _confirmpasswordDecoration => const TextField(
+    Widget get _confirmpasswordDecoration => TextField(
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Confirme a sua senha', 
-                hintStyle: TextStyle(
+                hintText: 'confirm_password_hint'.i18n(), 
+                hintStyle: const TextStyle(
                   fontSize: 20,
                   color: AppColors.light_primaryDark,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.lock, 
                   color:AppColors.dark_primaryLight
                 ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_primaryDark,
               width: 2,
@@ -331,8 +329,8 @@ class _CreateUserState extends State<CreateUser>{
                     borderRadius:BorderRadius.circular(20.0
                     )
                   ),
-                  child: const Text('Salvar',
-                    style: TextStyle(
+                  child: Text('save'.i18n(),
+                    style: const TextStyle(
                       color: AppColors.dark_divider, 
                       fontSize: 25
                       ),
@@ -346,52 +344,57 @@ class _CreateUserState extends State<CreateUser>{
       return Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.light_primaryDark,
-          title: const Text('Cadastro',
-            style: TextStyle(
+          title: Text('create_user'.i18n(),
+            style: const TextStyle(
               color: AppColors.light_divider, 
               fontSize: 25,
             ),
           ),
         ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            _padding,
-            _firstnameTextField,
-            _firstnameDecoration,
-            _padding,
-            _lastnameTextField,
-            _lastnameDecoration,
-            _padding,
-            _cpfTextField,
-            _cpfDecoration,
-            _padding,
-            _birthdateTextField,
-            _birthDateDecoration,
-            _padding,
-            _genderTextField,
-            _genderDecoration,
-            _padding,
-            _phoneTextField,
-            _phoneDecoration,
-            _padding,
-            _emailTextField,
-            _emailDecoration,
-            _padding,
-            _passwordTextField,
-            _passwordDecoration,
-            _padding,
-            _confirmpasswordTextField,
-            _confirmpasswordDecoration,
-            _padding,
-            _padding,
-            _padding,
-            _buttonUser,
-        ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:  [
+                _padding,
+                _firstnameTextField,
+                _firstnameDecoration,
+                _padding,
+                _lastnameTextField,
+                _lastnameDecoration,
+                _padding,
+                _cpfTextField,
+                _cpfDecoration,
+                _padding,
+                _birthdateTextField,
+                _birthDateDecoration,
+                _padding,
+                _genderTextField,
+                _genderDecoration,
+                _padding,
+                _phoneTextField,
+                _phoneDecoration,
+                _padding,
+                _emailTextField,
+                _emailDecoration,
+                _padding,
+                _passwordTextField,
+                _passwordDecoration,
+                _padding,
+                _confirmpasswordTextField,
+                _confirmpasswordDecoration,
+                _padding,
+                _padding,
+                _padding,
+                _buttonUser,
+                _padding,
+              ],
+            ),
+          ),
         ),
       ),
-      );
-    }
+    );
+  }
 }

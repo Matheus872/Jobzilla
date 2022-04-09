@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:localization/localization.dart';
 
 import '../../viewmodel/login_viewmodel.dart';
 
@@ -20,33 +21,32 @@ class _ChangePasswordState extends State<ChangePassword>{
               padding: EdgeInsets.all(10.0),
             );
     
-    Widget get _newpasswordTextField =>
-            const Text('Digite a nova senha', 
-              style: TextStyle(
+    Widget get _newpasswordTextField => Text('new_password'.i18n(), 
+              style: const TextStyle(
               color: AppColors.dark_background,
               fontSize: 25
             ),
           );
 
-    Widget get _newpasswordDecoration => const TextField(
+    Widget get _newpasswordDecoration => TextField(
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Informe a sua nova senha', 
-                hintStyle: TextStyle(
+                hintText: 'newpassword_hint'.i18n(), 
+                hintStyle: const TextStyle(
                   fontSize: 20,
                   color: AppColors.light_primaryDark,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.lock, 
                   color:AppColors.dark_primaryLight
                 ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_primaryDark,
               width: 2,
@@ -55,34 +55,32 @@ class _ChangePasswordState extends State<ChangePassword>{
             ),
           );
 
-    Widget get _confirmpasswordTextField =>
-            const Text('Confirme a nova senha', 
-              style: TextStyle(
+    Widget get _confirmpasswordTextField => Text('confirm_new_password'.i18n(), 
+              style: const TextStyle(
               color: AppColors.dark_background,
               fontSize: 25
             ),
           );
 
-    
-    Widget get _confirmpasswordDecoration => const TextField(
+    Widget get _confirmpasswordDecoration => TextField(
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Confirme a sua nova senha', 
-                hintStyle: TextStyle(
+                hintText: 'confirmnewpassword_hint'.i18n(), 
+                hintStyle: const TextStyle(
                   fontSize: 20,
                   color: AppColors.light_primaryDark,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.lock, 
                   color:AppColors.dark_primaryLight
                 ),
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_accent,
               width: 2,
             ),
           ),
-          enabledBorder: UnderlineInputBorder(
+          enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
               color: AppColors.light_primaryDark,
               width: 2,
@@ -101,8 +99,8 @@ class _ChangePasswordState extends State<ChangePassword>{
                     borderRadius:BorderRadius.circular(20.0
                     )
                   ),
-                  child: const Text('Salvar',
-                    style: TextStyle(
+                  child: Text('save'.i18n(),
+                    style: const TextStyle(
                       color: AppColors.dark_divider, 
                       fontSize: 25
                       ),
@@ -117,34 +115,40 @@ class _ChangePasswordState extends State<ChangePassword>{
         appBar: AppBar(
           backgroundColor: AppColors.light_primaryDark, 
           toolbarHeight: 200,
-          title: const Text('Redefinir Senha',
-            style: TextStyle(
+          title: Text('change_password'.i18n(),
+            style: const TextStyle(
               color: AppColors.light_divider, 
               fontSize: 35,
             ),
           ),
         ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            _newpasswordTextField,
-            _padding,
-            _newpasswordDecoration,
-            _padding,
-            _padding,
-            _confirmpasswordTextField,
-            _padding,
-            _confirmpasswordDecoration,
-            _padding,
-            _padding,
-            _padding,
-            _buttonPassword,
-        ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:  [
+                _padding,
+                _padding,
+                _newpasswordTextField,
+                _padding,
+                _newpasswordDecoration,
+                _padding,
+                _padding,
+                _confirmpasswordTextField,
+                _padding,
+                _confirmpasswordDecoration,
+                _padding,
+                _padding,
+                _padding,
+                _buttonPassword,
+              ],
+            ),
+          ),
         ),
       ),
-      );
-    }
+    );
+  }
 }
