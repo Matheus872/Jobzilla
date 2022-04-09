@@ -8,13 +8,13 @@ import 'package:localization/localization.dart';
 
 import '../../viewmodel/login_viewmodel.dart';
 
-class CreateUser extends StatefulWidget{
-    const CreateUser({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget{
+    const SignUp({Key? key}) : super(key: key);
     @override
-    State<CreateUser> createState() => _CreateUserState();
+    State<SignUp> createState() => _SignUpState();
 }
 
-class _CreateUserState extends State<CreateUser>{
+class _SignUpState extends State<SignUp>{
 
     Widget get _padding => const Padding(
               padding: EdgeInsets.all(10.0),

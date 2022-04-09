@@ -115,14 +115,14 @@ class LoginPage extends StatelessWidget {
             color: AppColors.dark_secondaryText),
       );
   Widget get _createAccountButton => TextButton(
-      onPressed: () {},
+      onPressed: () {Modular.to.navigate('/signup');},
       child: Text(
         'create_account'.i18n(),
         style: const TextStyle(
             fontFamily: 'Poppins', fontSize: 14, color: AppColors.white),
       ));
   Widget get _forgotPasswordButton => TextButton(
-      onPressed: () {},
+      onPressed: () {Modular.to.navigate('/forgotpswd');},
       child: Text(
         'forgot_password'.i18n(),
         style: const TextStyle(

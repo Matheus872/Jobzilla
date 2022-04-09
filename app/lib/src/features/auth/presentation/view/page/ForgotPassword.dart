@@ -23,19 +23,19 @@ class _ForgotPasswordState extends State<ForgotPassword>{
     Widget get _decoration => SizedBox(
       width: 400.0,
       height: 220.0,
-      child: Card(child: Text('  send_email'.i18n(),
-             style: const TextStyle(
-                  fontSize: 30,
-                  color: AppColors.dark_background,
-                ),
-                
-             ),
-             color: AppColors.dark_accent,
-             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50),
-              ),
-             ),
-);
+      child: Card(
+        child: Text('  send_email'.i18n(),
+            style: const TextStyle(
+              fontSize: 30,
+              color: AppColors.dark_background,
+            ),
+          ),
+        color: AppColors.dark_accent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+          ),
+       ),
+    );
     
      @override
      Widget build(BuildContext context){
@@ -50,16 +50,18 @@ class _ForgotPasswordState extends State<ForgotPassword>{
             ),
           ),
         ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            _padding,
-            _decoration,
-        ],
+      body: SingleChildScrollView(
+        child: Container(
+          color: AppColors.light_background,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:  [
+              _padding,
+              _decoration,
+            ],
+          ),
         ),
       ),
-      );
-    }
+    );
+  }
 }

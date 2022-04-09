@@ -5,16 +5,16 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:localization/localization.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingWelcome extends StatefulWidget {
-  const OnboardingWelcome({Key? key}) : super(key: key);
+class Onboarding extends StatefulWidget {
+  const Onboarding({Key? key}) : super(key: key);
 
   //Widget get
 
   @override
-  State<OnboardingWelcome> createState() => _OnboardingWelcomeWidgetState();
+  State<Onboarding> createState() => _OnboardingWidgetState();
 }
 
-class _OnboardingWelcomeWidgetState extends State<OnboardingWelcome> {
+class _OnboardingWidgetState extends State<Onboarding> {
   //PageController pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final controller =
@@ -215,7 +215,7 @@ class _OnboardingWelcomeWidgetState extends State<OnboardingWelcome> {
         padding: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
         child: Container(
           child: Image.asset(
-            'lib/assets/images/niveisvagas.png',
+            'lib/assets/images/level.png',
             width: 298,
             height: 205,
             fit: BoxFit.cover,
@@ -323,7 +323,7 @@ class _OnboardingWelcomeWidgetState extends State<OnboardingWelcome> {
       );
   Widget get _buttonFive => ElevatedButton(
         child: Text('onboard_button'.i18n()),
-        onPressed: () {},
+        onPressed: (){Modular.to.navigate("/login");},
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
           primary: getTheme().colorScheme.primary,
