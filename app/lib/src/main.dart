@@ -1,3 +1,5 @@
+import 'package:basearch/src/features/auth/presentation/view/page/ForgotPassword.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/changePassword_page.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/createUser_page.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/LoginPage.dart';
 import 'package:basearch/src/theme.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
     final theme = getTheme();
 
     return const MaterialApp(
-      home: CreateUser(),
+      home: ForgotPassword(),
     );
   }
 }

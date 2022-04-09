@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:basearch/src/theme.dart';
+import 'package:localization/localization.dart';
 
 
 import '../../viewmodel/login_viewmodel.dart';
@@ -14,21 +15,19 @@ class CreateUser extends StatefulWidget{
 }
 
 class _CreateUserState extends State<CreateUser>{
-  get get => null;
 
     Widget get _padding => const Padding(
               padding: EdgeInsets.all(10.0),
             );
     
     Widget get _firstnameTextField =>
-            const Text('Primeiro Nome', 
-              style: TextStyle(
+             Text('first_name'.i18n(), 
+              style: const TextStyle(
               color: AppColors.dark_background,
-              fontSize: 20
+              fontSize: 20,
             ),
           );
 
-    
     Widget get _firstnameDecoration => const TextField(
               decoration: InputDecoration(
                 hintText: 'Informe o seu primeiro nome', 
@@ -219,6 +218,129 @@ class _CreateUserState extends State<CreateUser>{
             ),
           ); 
 
+     Widget get _emailTextField => const  Text('E-mail', 
+            style: TextStyle(
+              color: AppColors.dark_background, 
+              fontSize: 20,
+            ),
+          );
+
+    Widget get _emailDecoration => const TextField(
+            decoration: InputDecoration(
+              hintText: 'Informe o seu e-mail', 
+              hintStyle: TextStyle(
+                fontSize: 20,
+                color: AppColors.light_primaryDark,
+              ),
+              icon: Icon(
+                Icons.mail, 
+                color:AppColors.dark_primaryLight,
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.light_accent,
+                  width: 2,
+                ),
+              ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                color: AppColors.light_primaryDark,
+                width: 2,
+                ),
+              ),
+            ),
+          ); 
+
+    Widget get _passwordTextField =>
+            const Text('Senha', 
+              style: TextStyle(
+              color: AppColors.dark_background,
+              fontSize: 20
+            ),
+          );
+
+    Widget get _passwordDecoration => const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Informe a sua senha', 
+                hintStyle: TextStyle(
+                  fontSize: 20,
+                  color: AppColors.light_primaryDark,
+                ),
+                icon: Icon(
+                  Icons.lock, 
+                  color:AppColors.dark_primaryLight
+                ),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+              color: AppColors.light_accent,
+              width: 2,
+            ),
+          ),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+              color: AppColors.light_primaryDark,
+              width: 2,
+                ),
+              ),
+            ),
+          );
+
+    Widget get _confirmpasswordTextField =>
+            const Text('Confirmar Senha', 
+              style: TextStyle(
+              color: AppColors.dark_background,
+              fontSize: 20
+            ),
+          );
+
+    Widget get _confirmpasswordDecoration => const TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Confirme a sua senha', 
+                hintStyle: TextStyle(
+                  fontSize: 20,
+                  color: AppColors.light_primaryDark,
+                ),
+                icon: Icon(
+                  Icons.lock, 
+                  color:AppColors.dark_primaryLight
+                ),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+              color: AppColors.light_accent,
+              width: 2,
+            ),
+          ),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+              color: AppColors.light_primaryDark,
+              width: 2,
+                ),
+              ),
+            ),
+          );
+
+    Widget get _buttonUser => ButtonTheme(
+                height: 70.0,
+                minWidth: 130.0,
+                child: RaisedButton(
+                  // ignore: avoid_print
+                  onPressed: () => { },
+                  shape: RoundedRectangleBorder(
+                    borderRadius:BorderRadius.circular(20.0
+                    )
+                  ),
+                  child: const Text('Salvar',
+                    style: TextStyle(
+                      color: AppColors.dark_divider, 
+                      fontSize: 25
+                      ),
+                  ),
+                  color: AppColors.dark_primaryLight,
+                ),
+              );
+
     @override
     Widget build(BuildContext context){
       return Scaffold(
@@ -255,6 +377,15 @@ class _CreateUserState extends State<CreateUser>{
             _phoneTextField,
             _phoneDecoration,
             _padding,
+            _emailTextField,
+            _emailDecoration,
+            _padding,
+            _passwordTextField,
+            _passwordDecoration,
+            _padding,
+            _confirmpasswordTextField,
+            _confirmpasswordDecoration,
+            _padding,
             _padding,
             _padding,
             _buttonUser,
@@ -263,23 +394,4 @@ class _CreateUserState extends State<CreateUser>{
       ),
       );
     }
-    Widget get _buttonUser => ButtonTheme(
-                height: 70.0,
-                minWidth: 130.0,
-                child: RaisedButton(
-                  // ignore: avoid_print
-                  onPressed: () => { print("teste"), },
-                  shape: RoundedRectangleBorder(
-                    borderRadius:BorderRadius.circular(20.0
-                    )
-                  ),
-                  child: const Text('Salvar',
-                    style: TextStyle(
-                      color: AppColors.dark_divider, 
-                      fontSize: 25
-                      ),
-                  ),
-                  color: AppColors.dark_primaryLight,
-                ),
-              );
 }
