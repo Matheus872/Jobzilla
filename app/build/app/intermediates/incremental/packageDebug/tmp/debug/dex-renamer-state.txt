@@ -1,0 +1,4 @@
+#Sat Apr 09 18:29:54 BRT 2022
+base.0=F\:\\Meus_Documentos\\Documentos\\GitHub\\IARH\\app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
