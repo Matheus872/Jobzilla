@@ -8,13 +8,13 @@ import 'package:localization/localization.dart';
 
 import '../../viewmodel/login_viewmodel.dart';
 
-class CreateUser extends StatefulWidget{
-    const CreateUser({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget{
+    const SignUp({Key? key}) : super(key: key);
     @override
-    State<CreateUser> createState() => _CreateUserState();
+    State<SignUp> createState() => _SignUpState();
 }
 
-class _CreateUserState extends State<CreateUser>{
+class _SignUpState extends State<SignUp>{
 
     Widget get _padding => const Padding(
               padding: EdgeInsets.all(10.0),
@@ -353,43 +353,45 @@ class _CreateUserState extends State<CreateUser>{
             ),
           ),
         ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            _padding,
-            _firstnameTextField,
-            _firstnameDecoration,
-            _padding,
-            _lastnameTextField,
-            _lastnameDecoration,
-            _padding,
-            _cpfTextField,
-            _cpfDecoration,
-            _padding,
-            _birthdateTextField,
-            _birthDateDecoration,
-            _padding,
-            _genderTextField,
-            _genderDecoration,
-            _padding,
-            _phoneTextField,
-            _phoneDecoration,
-            _padding,
-            _emailTextField,
-            _emailDecoration,
-            _padding,
-            _passwordTextField,
-            _passwordDecoration,
-            _padding,
-            _confirmpasswordTextField,
-            _confirmpasswordDecoration,
-            _padding,
-            _padding,
-            _padding,
-            _buttonUser,
-        ],
+      body: SingleChildScrollView(
+        child: Container(
+          color: AppColors.light_background,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:  [
+              _padding,
+              _firstnameTextField,
+              _firstnameDecoration,
+              _padding,
+              _lastnameTextField,
+              _lastnameDecoration,
+              _padding,
+              _cpfTextField,
+              _cpfDecoration,
+              _padding,
+              _birthdateTextField,
+              _birthDateDecoration,
+              _padding,
+              _genderTextField,
+              _genderDecoration,
+              _padding,
+              _phoneTextField,
+              _phoneDecoration,
+              _padding,
+              _emailTextField,
+              _emailDecoration,
+              _padding,
+              _passwordTextField,
+              _passwordDecoration,
+              _padding,
+              _confirmpasswordTextField,
+              _confirmpasswordDecoration,
+              _padding,
+              _padding,
+              _padding,
+              _buttonUser,
+          ],
+          ),
         ),
       ),
       );

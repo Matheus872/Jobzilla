@@ -40,30 +40,32 @@ class _ForgotPasswordState extends State<ForgotPassword>{
             ),
           ),
         ),
-      body: Container(
-        color: AppColors.light_background,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:  [
-            Container(decoration: const BoxDecoration(
-              color: AppColors.dark_primary,
-              shape: BoxShape.circle,
-              
-            ),child: const Center(
-              child: Text(
-                'O link para redefinir sua senha foi enviado para o seu e-mail cadastrado.'
-             'Favor verificar a sua caixa de entrada.',
-                style: TextStyle(
-                  fontSize: 40,
-                  wordSpacing: 0,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.dark_background,
-                  
+      body: SingleChildScrollView(
+        child: Container(
+          color: AppColors.light_background,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+              Container(decoration: const BoxDecoration(
+                color: AppColors.dark_primary,
+                shape: BoxShape.circle,
+                
+              ),child: const Center(
+                child: Text(
+                  'O link para redefinir sua senha foi enviado para o seu e-mail cadastrado.'
+               'Favor verificar a sua caixa de entrada.',
+                  style: TextStyle(
+                    fontSize: 40,
+                    wordSpacing: 0,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.dark_background,
+                    
+                  ),
                 ),
-              ),
-            ),),
-        ],
+              ),),
+          ],
+          ),
         ),
       ),
       );
