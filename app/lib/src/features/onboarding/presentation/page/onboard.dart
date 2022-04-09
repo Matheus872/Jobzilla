@@ -39,9 +39,9 @@ class _OnboardingWidgetState extends State<Onboarding> {
             Text(
               'onboard_title_one'.i18n(),
               style: TextStyle(
-                fontFamily: 'Shaka-Pow',
+                fontFamily: 'Poppins',
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -99,9 +99,9 @@ class _OnboardingWidgetState extends State<Onboarding> {
             Text(
               'onboard_title_two'.i18n(),
               style: TextStyle(
-                fontFamily: 'Shaka-Pow',
+                fontFamily: 'Poppins',
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -159,9 +159,9 @@ class _OnboardingWidgetState extends State<Onboarding> {
             Text(
               'slogan'.i18n(),
               style: TextStyle(
-                fontFamily: 'Shaka-Pow',
+                fontFamily: 'Poppins',
                 color: Colors.white,
-                fontSize: 24,
+                fontSize: 18,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -323,7 +323,9 @@ class _OnboardingWidgetState extends State<Onboarding> {
       );
   Widget get _buttonFive => ElevatedButton(
         child: Text('onboard_button'.i18n()),
-        onPressed: (){Modular.to.navigate("/login");},
+        onPressed: () {
+          Modular.to.navigate("/login");
+        },
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
           primary: getTheme().colorScheme.primary,

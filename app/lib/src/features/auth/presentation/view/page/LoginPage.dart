@@ -4,9 +4,14 @@ import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   Widget get _headerImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
         child: Container(
@@ -115,14 +120,18 @@ class LoginPage extends StatelessWidget {
             color: AppColors.dark_secondaryText),
       );
   Widget get _createAccountButton => TextButton(
-      onPressed: () {Modular.to.navigate('/signup');},
+      onPressed: () {
+        Modular.to.navigate('/signup');
+      },
       child: Text(
         'create_account'.i18n(),
         style: const TextStyle(
             fontFamily: 'Poppins', fontSize: 14, color: AppColors.white),
       ));
   Widget get _forgotPasswordButton => TextButton(
-      onPressed: () {Modular.to.navigate('/forgotpswd');},
+      onPressed: () {
+        Modular.to.navigate('/forgotpswd');
+      },
       child: Text(
         'forgot_password'.i18n(),
         style: const TextStyle(
