@@ -1,10 +1,15 @@
 {
     "app_name" : "JobZilla",
+    "slogan": "Procurar emprego não tem\nque ser assustador",
 
     "username_hint": "Endereço de e-mail",
     "password_hint": "Senha",
     "login": "Entrar",
     "create_account_label": "Não tem uma conta?",
     "create_account": "Criar conta",
-    "forgot_password": "Esqueceu a senha?"
+    "forgot_password": "Esqueceu a senha?",
+
+    "onboard_title_one": "Cansado de procurar emprego ?",
+    "onboard_title_two": "Apresentamos: JobZilla",
+    "onboard_button": "Explorar"
 }

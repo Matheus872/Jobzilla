@@ -1,5 +1,6 @@
 import 'package:basearch/src/features/auth/presentation/view/page/createUser_page.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/LoginPage.dart';
+import 'package:basearch/src/features/onboarding/presentation/page/onboarding_welcome.dart';
 import 'package:basearch/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     final theme = getTheme();
 
     return const MaterialApp(
-      home: CreateUser(),
+      home: LoginPage(),
     );
   }
 }

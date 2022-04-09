@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 10),
         child: Container(
           child: Image.asset(
-            'lib/assets/images/zilla.png',
+            'lib/assets/images/logo.png',
           ),
         ),
       );
@@ -142,7 +142,7 @@ class LoginPage extends StatelessWidget {
       height: 150,
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("lib/assets/images/vetror.png"),
+          image: AssetImage("lib/assets/images/loginBottonImage.png"),
           fit: BoxFit.cover,
         ),
       ),

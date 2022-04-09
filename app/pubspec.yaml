@@ -20,6 +20,7 @@ dependencies:
   flutter_svg: ^1.0.3
   mobx: ^2.0.6+1
   flutter_mobx: ^2.0.4
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:
@@ -75,5 +76,8 @@ flutter:
       fonts:
         - asset: lib/assets/fonts/Poppins-SemiBold.ttf
           weight: 600
-
+    - family: Shaka-Pow
+      fonts:
+        - asset: lib/assets/fonts/Shaka-Pow.ttf
+          weight: 400
     
