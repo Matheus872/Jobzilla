@@ -8,12 +8,16 @@
     "create_account_label": "Don't have an account?",
     "create_account": "Create Account",
     "forgot_password": "Forgot Password?",
+    "forgot_password_title": "Forgot Password",
 
     "choose_password_hint": "Choose Password",
     "confirm_password_hint": "Confirm Password",
-    
+
     "have_account_label": "Already have an account?",
     "have_account": "Login",
+
+    "recovery_email_hint": "Your Email Adress",
+    "send_reset_link": "Send Reset Link",
 
 
     "first_name": "First Name",

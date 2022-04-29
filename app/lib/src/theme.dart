@@ -104,20 +104,21 @@ ThemeData getTheme() {
       onTertiary: AppColors.dark_textIcons,
     ),
     textTheme: const TextTheme(
-        bodyText2: TextStyle(
-          fontSize: 14,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-          fontStyle: FontStyle.normal,
-          color: AppColors.dark_secondaryText,
-        ),
-        subtitle2: TextStyle(
-          fontSize: 16,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w600,
-          fontStyle: FontStyle.normal,
-          color: AppColors.dark_primaryText,
-        )),
+      bodyText2: TextStyle(
+        fontSize: 14,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w600,
+        fontStyle: FontStyle.normal,
+        color: AppColors.dark_secondaryText,
+      ),
+      subtitle2: TextStyle(
+        fontSize: 16,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.w600,
+        fontStyle: FontStyle.normal,
+        color: AppColors.dark_primaryText,
+      ),
+    ),
   );
 
   return dark;
