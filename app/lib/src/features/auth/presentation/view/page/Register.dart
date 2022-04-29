@@ -4,14 +4,14 @@ import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
+class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
   late ThemeData _theme = getTheme();
 
   Widget get _headerImage => Padding(
@@ -29,25 +29,29 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
           child: _emailTextField,
         ),
         Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 30, 0),
+          child: _choosePasswordTextField,
+        ),
+        Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 30, 15),
-          child: _passwordTextField,
+          child: _confirmPasswordTextField,
         ),
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          child: _loginButton,
+          child: _createAccountButton,
         ),
         Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
           child: Row(
             children: [
-              _createAccountLabel,
-              _createAccountButton,
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                child: _haveAccountLabel,
+              ),
+              _haveAccountButton,
             ],
           ),
         ),
-        Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
-            child: _forgotPasswordButton)
         //ElevatedButton(onPressed: onPressed, child: child)
       ]);
   Widget get _emailTextField => TextFormField(
@@ -73,14 +77,14 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
           ),
         ),
       );
-  Widget get _passwordTextField => TextFormField(
+  Widget get _choosePasswordTextField => TextFormField(
         obscureText: true,
         //TODO: Password visibility with controller
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          hintText: 'password_hint'.i18n(),
+          hintText: 'choose_password_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: const Color(0xFF14181B),
@@ -104,8 +108,39 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
           ),
         ),
       );
-  Widget get _loginButton => ElevatedButton(
-        child: Text('login'.i18n()),
+  Widget get _confirmPasswordTextField => TextFormField(
+        obscureText: true,
+        //TODO: Password visibility with controller
+        style: _theme.textTheme.bodyText2,
+        textAlign: TextAlign.start,
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          hintText: 'confirm_password_hint'.i18n(),
+          hintStyle: _theme.textTheme.bodyText2,
+          filled: true,
+          fillColor: const Color(0xFF14181B),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: const BorderSide(
+              color: AppColors.dark_foreground,
+              width: 20,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: const BorderSide(color: AppColors.black, width: 20),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          suffixIcon: InkWell(
+            child: Icon(
+              Icons.visibility_off_outlined,
+              color: AppColors.dark_secondaryText,
+              size: 22,
+            ),
+          ),
+        ),
+      );
+  Widget get _createAccountButton => ElevatedButton(
+        child: Text('create_account'.i18n()),
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
@@ -114,39 +149,22 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
           shape: const StadiumBorder(),
         ),
       );
-  Widget get _createAccountLabel => Text(
-        'create_account_label'.i18n(),
+  Widget get _haveAccountLabel => Text(
+        'have_account_label'.i18n(),
         style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 14,
             color: AppColors.dark_secondaryText),
       );
-  Widget get _createAccountButton => TextButton(
+  Widget get _haveAccountButton => TextButton(
       onPressed: () {
-        Modular.to.navigate('/signup');
+        Modular.to.navigate('/login');
       },
       child: Text(
-        'create_account'.i18n(),
+        'have_account'.i18n(),
         style: const TextStyle(
             fontFamily: 'Poppins', fontSize: 14, color: AppColors.white),
       ));
-  Widget get _forgotPasswordButton => TextButton(
-      onPressed: () {
-        Modular.to.navigate('/forgotpswd');
-      },
-      child: Text(
-        'forgot_password'.i18n(),
-        style: const TextStyle(
-            fontFamily: 'Poppins', fontSize: 14, color: AppColors.white),
-      ));
-
-  Widget get _buttonCompanies => ElevatedButton(
-      child: Text('JobZilla for Companies'),
-      onPressed: () {},
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColors.dark_foreground),
-          padding: MaterialStateProperty.all(EdgeInsets.all(5)),
-          textStyle: MaterialStateProperty.all(_theme.textTheme.overline)));
 
   Widget get _baseboardImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),

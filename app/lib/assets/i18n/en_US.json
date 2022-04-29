@@ -8,6 +8,14 @@
     "create_account_label": "Don't have an account?",
     "create_account": "Create Account",
     "forgot_password": "Forgot Password?",
+
+    "choose_password_hint": "Choose Password",
+    "confirm_password_hint": "Confirm Password",
+    
+    "have_account_label": "Already have an account?",
+    "have_account": "Login",
+
+
     "first_name": "First Name",
     "firstname_hint": "Inform your first name",
     "last_name": "Last Name",
@@ -24,7 +32,6 @@
     "email_hint":"Inform your email",
     "create_password_hint": "Inform your password",
     "confirm_password": "Confirm Password",
-    "confirm_password_hint": "Confirm your password",
     "save": "Save",
     "create_user": "Register",
     "send_email": "The link to reset your password has been sent to your registered email. Please check your caixa inbox.",

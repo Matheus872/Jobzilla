@@ -1,5 +1,6 @@
 import 'package:basearch/src/features/auth/presentation/view/page/ForgotPassword.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/SignUp.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/Register.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../onboarding/presentation/page/onboard.dart';
@@ -21,7 +22,9 @@ class AuthModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (_, __) => const Onboarding(), children: []),
         ChildRoute('/login', child: (_, __) => const LoginPage(), children: []),
-        ChildRoute('/signup', child: (_, __) => const SignUp(), children: []),
-        ChildRoute('/forgotpswd', child: (_, __) => const ForgotPassword(), children: []),
+        ChildRoute('/signup',
+            child: (_, __) => const RegisterPage(), children: []),
+        ChildRoute('/forgotpswd',
+            child: (_, __) => const ForgotPassword(), children: []),
       ];
 }

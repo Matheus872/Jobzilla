@@ -93,7 +93,7 @@ ThemeData getTheme() {
   ));
 
   final dark = ThemeData.dark().copyWith(
-    colorScheme: const ColorScheme.light().copyWith(
+    colorScheme: const ColorScheme.dark().copyWith(
       background: AppColors.dark_background,
       primary: AppColors.dark_primary,
       onPrimary: AppColors.dark_textIcons,
