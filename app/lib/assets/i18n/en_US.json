@@ -19,6 +19,11 @@
     "recovery_email_hint": "Your Email Adress",
     "send_reset_link": "Send Reset Link",
 
+    "job_details_page_label":"Job Details",
+    "job_description": "Job Description",
+    "job_details": "Details",
+
+    "localization": "Localization",
 
     "first_name": "First Name",
     "firstname_hint": "Inform your first name",

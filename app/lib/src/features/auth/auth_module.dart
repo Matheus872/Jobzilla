@@ -2,6 +2,8 @@ import 'package:basearch/src/features/auth/presentation/view/page/ForgotPassword
 import 'package:basearch/src/features/auth/presentation/view/page/SignUp.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/Register.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/forgot_password.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/job_details.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/job_localization.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../onboarding/presentation/page/onboard.dart';
@@ -27,5 +29,12 @@ class AuthModule extends Module {
             child: (_, __) => const RegisterPage(), children: []),
         ChildRoute('/forgotpswd',
             child: (_, __) => const ForgotPasswordPage(), children: []),
+        ChildRoute('/job',
+            child: (_, __) => const JobDetailsPage(), children: []),
+        ChildRoute('/localization',
+            child: (_, __) => const JobLocalizationPage(
+                  title: 'local',
+                ),
+            children: []),
       ];
 }

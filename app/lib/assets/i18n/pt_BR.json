@@ -17,7 +17,13 @@
     "have_account": "Entrar",
 
     "recovery_email_hint": "Seu endereço de Email",
-    "send_reset_link": "Enviar link de redefinição",
+    "send_reset_link": "Enviar link de Redefinição",
+
+    "job_details_page_label":"Detalhes da Oportunidade",
+    "job_description": "Descrição da vaga",
+    "job_details": "Detalhes",
+
+    "localization": "Localização",
 
     "first_name": "Primeiro Nome",
     "firstname_hint": "Informe o seu primeiro nome",
