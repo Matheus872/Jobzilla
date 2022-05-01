@@ -6,74 +6,60 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.iarh.enums.EducationLevel;
+import com.iarh.enums.LevelLanguage;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Opportunity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
     private Long id;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false, unique = true)
     private String cnpjCompany;
 
-    @Getter
-    @Setter
     @Column
     private Float salary;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false)
     private String companyName;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false)
     private String workplace;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false)
     private String trainingArea;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false)
     private String hour;
 
-    @Getter
-    @Setter
-    @Column
-    private String educationLevel;
+    @Column(nullable = false)
+    private EducationLevel educationLevel;
 
-    @Getter
-    @Setter
     @Column
     private String language;
 
-    @Getter
-    @Setter
     @Column
-    private String levelLanguage;
+    private LevelLanguage levelLanguage;
 
-    @Getter
-    @Setter
     @Column
-    private Boolean experience;
+    private String experience;
 
-    @Getter
-    @Setter
-    @Column
+    @Column(nullable = false)
     private String requirementDescription;
 
-    @Getter
-    @Setter
     @Column
     private String benefitDescription;
 }
