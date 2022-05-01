@@ -14,6 +14,7 @@ class JobDetailsPage extends StatefulWidget {
 class _JobDetailsPageState
     extends ModularState<JobDetailsPage, LoginViewModel> {
   late ThemeData _theme = getTheme();
+  bool _isChecked = false;
 
   Widget get _topSection => Container(
         width: MediaQuery.of(context).size.width,
@@ -122,10 +123,17 @@ class _JobDetailsPageState
               mainAxisSize: MainAxisSize.max,
               children: [
                 _companyTitle,
+                _experienceRequirementImage,
+                _workJourney,
+                _salary,
+                _benefits,
                 _descriptionCard,
                 _detailsCard,
                 _localizationCardTitle,
                 _localizationCard,
+                _contact,
+                _sendPitchVideo,
+                _applyButton,
               ],
             ),
           ),
@@ -144,8 +152,133 @@ class _JobDetailsPageState
         ),
       );
 
+  Widget get _experienceRequirementImage => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(15, 20, 0, 0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 45,
+              height: 45,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                'lib/assets/images/seniorOpportunity.png',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+              child: Text(
+                'Senior',
+                style: const TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 16,
+                  color: AppColors.dark_textIcons,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget get _workJourney => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.work_rounded,
+              color: AppColors.black,
+              size: 25,
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(5, 3, 0, 0),
+              child: Text(
+                'Tempo integral',
+                style: const TextStyle(
+                  fontFamily: 'Questrial',
+                  fontSize: 16,
+                  color: AppColors.dark_textIcons,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+              child: Icon(
+                Icons.place,
+                color: AppColors.black,
+                size: 25,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              child: Text(
+                'Escritório IBM',
+                style: const TextStyle(
+                  fontFamily: 'Questrial',
+                  fontSize: 16,
+                  color: AppColors.dark_textIcons,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget get _salary => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(18, 20, 0, 0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.attach_money,
+              color: AppColors.black,
+              size: 25,
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              child: Text(
+                'Faixa salarial: R\$ 2.000,00',
+                style: const TextStyle(
+                  fontFamily: 'Questrial',
+                  fontSize: 16,
+                  color: AppColors.dark_textIcons,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget get _benefits => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(18, 20, 0, 0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.card_giftcard_rounded,
+              color: AppColors.black,
+              size: 25,
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(3, 0, 0, 0),
+              child: Text(
+                'Benefícios: Vale transporte mensal',
+                style: const TextStyle(
+                  fontFamily: 'Questrial',
+                  fontSize: 16,
+                  color: AppColors.dark_textIcons,
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+
   Widget get _descriptionCard => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+        padding: const EdgeInsetsDirectional.fromSTEB(10, 20, 10, 10),
         child: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -249,13 +382,123 @@ class _JobDetailsPageState
   Widget get _localizationCardImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
         child: Container(
+          //height: 200,
           child: GestureDetector(
             onTap: () {
               Modular.to.navigate('/localization');
             },
             child: Image.asset(
-              'lib/assets/images/maps_preview.jpg',
+              'lib/assets/images/mapsPreview.jpg',
             ),
+          ),
+        ),
+      );
+
+  Widget get _contact => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 20, 10),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.supervisor_account,
+                  color: AppColors.black,
+                  size: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                  child: Text(
+                    'Contato: ',
+                    style: const TextStyle(
+                      fontFamily: 'Questrial',
+                      fontSize: 16,
+                      color: AppColors.dark_textIcons,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(5, 10, 0, 5),
+              child: Row(
+                children: [
+                  Text(
+                    'Nome: Thais Cristina',
+                    style: const TextStyle(
+                      fontFamily: 'Questrial',
+                      fontSize: 16,
+                      color: AppColors.dark_textIcons,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 10),
+              child: Row(
+                children: [
+                  Text(
+                    'Departamento: RH',
+                    style: const TextStyle(
+                      fontFamily: 'Questrial',
+                      fontSize: 16,
+                      color: AppColors.dark_textIcons,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              child: Text('Começar conversa'),
+              onPressed: () {
+                Modular.to.navigate('/login');
+              },
+              style: ElevatedButton.styleFrom(
+                textStyle: getTheme().textTheme.subtitle2,
+                primary: _theme.colorScheme.primary,
+                fixedSize: const Size(350, 30),
+              ),
+            ),
+          ],
+        ),
+      );
+  Widget get _sendPitchVideo => Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 0),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Checkbox(
+              checkColor: Colors.white,
+              value: _isChecked,
+              onChanged: (bool? value) {
+                setState(() {
+                  _isChecked = value!;
+                });
+              },
+            ),
+            Text(
+              'Enviar vídeo de apresentação',
+              style: const TextStyle(
+                fontFamily: 'Questrial',
+                fontSize: 16,
+                color: AppColors.dark_textIcons,
+              ),
+            ),
+          ],
+        ),
+      );
+  Widget get _applyButton => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+        child: ElevatedButton(
+          child: Text('Aplicar para Vaga'),
+          onPressed: () {
+            Modular.to.navigate('/login');
+          },
+          style: ElevatedButton.styleFrom(
+            textStyle: getTheme().textTheme.subtitle2,
+            primary: _theme.colorScheme.primary,
+            fixedSize: const Size(350, 50),
           ),
         ),
       );

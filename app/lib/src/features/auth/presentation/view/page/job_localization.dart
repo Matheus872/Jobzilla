@@ -1,6 +1,7 @@
 import 'dart:collection';
 import 'dart:math';
 
+import 'package:basearch/src/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -59,7 +60,22 @@ class _JobLocalizationPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.dark_background,
+        automaticallyImplyLeading: false,
+        leading: InkWell(
+          onTap: () async {
+            Modular.to.navigate('/job');
+          },
+          child: const Icon(
+            Icons.chevron_left_rounded,
+            color: Colors.white,
+            size: 32,
+          ),
+        ),
         title: Text(widget.title),
+        actions: [],
+        centerTitle: false,
+        elevation: 0,
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
