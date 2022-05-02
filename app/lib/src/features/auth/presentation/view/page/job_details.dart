@@ -51,7 +51,9 @@ class _JobDetailsPageState
         ),
       );
   Widget get _backButton => ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Modular.to.navigate('/login');
+        },
         child: Icon(
           Icons.arrow_back_ios_rounded,
           color: getTheme().colorScheme.primary,

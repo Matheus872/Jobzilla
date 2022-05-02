@@ -25,6 +25,16 @@
 
     "localization": "Localization",
 
+    "navegate": "Navegate",
+    "search_bar_hint": "Type to search here...",
+
+    "conversations": "Conversations",
+
+
+
+
+
+
     "first_name": "First Name",
     "firstname_hint": "Inform your first name",
     "last_name": "Last Name",
