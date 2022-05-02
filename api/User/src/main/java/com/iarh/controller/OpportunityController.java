@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/opportunity")
+@RequestMapping("/api/v1/applicant")
 @AllArgsConstructor() 
 public class OpportunityController {
  

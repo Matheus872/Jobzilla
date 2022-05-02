@@ -11,7 +11,6 @@ Create table Company(
 	id serial not null,
 	cnpj char(18) not null unique,
 	name varchar(100) not null,
-	adress varchar(200) not null,
 	Primary key (id)
 );
 Create table Opportunity(

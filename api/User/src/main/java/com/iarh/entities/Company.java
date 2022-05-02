@@ -25,7 +25,7 @@ public class Company extends User{
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @OneToOne
     private Adress adress;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})

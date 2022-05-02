@@ -1,6 +1,8 @@
 package com.iarh.entities;
 
 
+import javax.persistence.Entity;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 

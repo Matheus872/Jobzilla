@@ -2,6 +2,7 @@ package com.iarh.entities;
 
 
 import com.iarh.enums.UF;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

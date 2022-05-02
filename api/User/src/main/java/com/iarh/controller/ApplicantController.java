@@ -20,31 +20,31 @@ public class ApplicantController {
 
     private ApplicantService applicantService;
 
-    @PostMapping
+    @PostMapping(path="/criar")
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createApplicant(@RequestBody @Valid ApplicantDTO applicantDTO) {
         return applicantService.createApplicant(applicantDTO);
     }
 
-    @GetMapping
+    @GetMapping("/encontrar")
     @ResponseStatus(HttpStatus.OK)
     public List<ApplicantDTO> listAll(){
         return applicantService.listAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/encontrar/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ApplicantDTO findById(@PathVariable Long id) throws ApplicantNotFoundException {
         return applicantService.findById(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/excluir/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws ApplicantNotFoundException {
         applicantService.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     @ResponseStatus
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid ApplicantDTO applicantDTO) throws ApplicantNotFoundException {
         return applicantService.updateById(id, applicantDTO);

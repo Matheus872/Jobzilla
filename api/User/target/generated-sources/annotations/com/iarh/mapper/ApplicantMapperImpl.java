@@ -11,7 +11,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-05-01T14:49:50-0300",
+    date = "2022-05-01T22:31:12-0300",
     comments = "version: 1.4.2.Final, compiler: Eclipse JDT (IDE) 1.4.100.v20220318-0906, environment: Java 17.0.2 (Eclipse Adoptium)"
 )
 public class ApplicantMapperImpl implements ApplicantMapper {
