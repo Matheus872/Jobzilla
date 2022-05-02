@@ -2,6 +2,7 @@ import 'package:basearch/src/features/auth/presentation/view/page/ForgotPassword
 import 'package:basearch/src/features/auth/presentation/view/page/SignUp.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/Register.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/forgot_password.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/home.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_localization.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -36,5 +37,6 @@ class AuthModule extends Module {
                   title: 'local',
                 ),
             children: []),
+        ChildRoute('/home', child: (_, __) => const homePage(), children: []),
       ];
 }

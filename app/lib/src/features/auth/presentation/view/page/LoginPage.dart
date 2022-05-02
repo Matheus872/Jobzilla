@@ -107,7 +107,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   Widget get _loginButton => ElevatedButton(
         child: Text('login'.i18n()),
         onPressed: () {
-          Modular.to.navigate('/job');
+          Modular.to.navigate('/home');
         },
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
