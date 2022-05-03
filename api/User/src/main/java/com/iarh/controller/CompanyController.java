@@ -14,37 +14,37 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/appliicant")
+@RequestMapping("/api/v1/company")
 @AllArgsConstructor() //onConstructor = @__(@Autowired)
 public class CompanyController {
 
     private CompanyService companyService;
 
-    @PostMapping
+    @PostMapping(path="/create")
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createCompany(@RequestBody @Valid CompanyDTO companyDTO) {
         return companyService.createCompany(companyDTO);
     }
 
-    @GetMapping
+    @GetMapping(path="/listAll")
     @ResponseStatus(HttpStatus.OK)
     public List<CompanyDTO> listAll(){
         return companyService.listAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path="/list/{id}")
     @ResponseStatus(HttpStatus.OK)
     public CompanyDTO findById(@PathVariable Long id) throws CompanyNotFoundException {
         return companyService.findById(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path="/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws CompanyNotFoundException {
         companyService.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path="/update/{id}")
     @ResponseStatus
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid CompanyDTO companyDTO) throws CompanyNotFoundException {
         return companyService.updateById(id, companyDTO);

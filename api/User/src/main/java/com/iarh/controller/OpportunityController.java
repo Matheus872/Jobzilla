@@ -17,37 +17,37 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/applicant")
+@RequestMapping("/api/v1/opportunity")
 @AllArgsConstructor() 
 public class OpportunityController {
  
     private OpportunityService opportunityService;
 
-    @PostMapping
+    @PostMapping(path="/create")
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createOpportunity(@RequestBody @Valid OpportunityDTO opportunityDTO) {
         return opportunityService.createOpportunity(opportunityDTO);
     }
 
-    @GetMapping
+    @GetMapping(path="/listAll")
     @ResponseStatus(HttpStatus.OK)
     public List<OpportunityDTO> listAll(){
         return opportunityService.listAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(path="/list/{id}")
     @ResponseStatus(HttpStatus.OK)
     public OpportunityDTO findById(@PathVariable Long id) throws OpportunityNotFoundException {
         return opportunityService.findById(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(path="/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws OpportunityNotFoundException {
         opportunityService.deleteById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path="/update/{id}")
     @ResponseStatus
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid OpportunityDTO opportunityDTO) throws  OpportunityNotFoundException {
         return opportunityService.updateById(id, opportunityDTO);

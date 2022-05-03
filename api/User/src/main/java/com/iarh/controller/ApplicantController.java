@@ -14,37 +14,37 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/appliicant")
+@RequestMapping("/api/v1/applicant")
 @AllArgsConstructor()  //onConstructor = @__(@Autowired)
 public class ApplicantController {
 
     private ApplicantService applicantService;
 
-    @PostMapping(path="/criar")
+    @PostMapping(path="/create")
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createApplicant(@RequestBody @Valid ApplicantDTO applicantDTO) {
         return applicantService.createApplicant(applicantDTO);
     }
 
-    @GetMapping("/encontrar")
+    @GetMapping(path="/listAll")
     @ResponseStatus(HttpStatus.OK)
     public List<ApplicantDTO> listAll(){
         return applicantService.listAll();
     }
 
-    @GetMapping("/encontrar/{id}")
+    @GetMapping(path="/list/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ApplicantDTO findById(@PathVariable Long id) throws ApplicantNotFoundException {
         return applicantService.findById(id);
     }
 
-    @DeleteMapping("/excluir/{id}")
+    @DeleteMapping(path="/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws ApplicantNotFoundException {
         applicantService.deleteById(id);
     }
 
-    @PutMapping("/atualizar/{id}")
+    @PutMapping(path="/update/{id}")
     @ResponseStatus
     public MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid ApplicantDTO applicantDTO) throws ApplicantNotFoundException {
         return applicantService.updateById(id, applicantDTO);
