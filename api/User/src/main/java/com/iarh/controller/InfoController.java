@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping
 public class InfoController {
 
-    @GetMapping("/")
+   // @GetMapping("/")
     @CrossOrigin
     @ResponseStatus(code = HttpStatus.OK)
     public String helloMenssage(){

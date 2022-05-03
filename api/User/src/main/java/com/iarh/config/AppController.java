@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AppController {
 
-    @Value("${app.message}")
+    @Value("$ {app.message}")
     private String appMessage;
 
-    @Value("${ENV_DB_URL:NENHUMA}")
+    @Value("$ {ENV_DB_URL:NENHUMA}")
     private String dbEnvironmentVariable;
 
     @GetMapping("/")
