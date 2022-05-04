@@ -16,6 +16,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   late ThemeData _theme = getTheme();
   final _viewModel = Modular.get<LoginViewModel>();
 
+  final _usernameTextFieldController = TextEditingController();
+  final _passwordTextFieldController = TextEditingController();
+  bool _passwordVisibility = false;
+
   void _login() {
     _viewModel.login();
   }
@@ -68,7 +72,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
         onChanged: (value) {
           _viewModel.username = value;
         },
-        enabled: !store.isLoading,
+        enabled: !_viewModel.isLoading,
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
@@ -95,9 +99,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
         onChanged: (value) {
           _viewModel.password = value;
         },
-        enabled: !store.isLoading,
-        obscureText: true,
-        //TODO: Password visibility with controller
+        enabled: !_viewModel.isLoading,
+        obscureText: !_passwordVisibility,
+        controller: _passwordTextFieldController,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
@@ -118,8 +122,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
             borderRadius: BorderRadius.circular(20),
           ),
           suffixIcon: InkWell(
+            onTap: () => setState(
+              () => _passwordVisibility = !_passwordVisibility,
+            ),
             child: Icon(
-              Icons.visibility_off_outlined,
+              _passwordVisibility
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
               color: AppColors.dark_secondaryText,
               size: 22,
             ),
@@ -129,6 +138,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   Widget get _loginButton => ElevatedButton(
         child: Text('login'.i18n()),
         onPressed: () {
+          FocusScope.of(context).unfocus();
           _login();
         },
         style: ElevatedButton.styleFrom(
@@ -196,7 +206,12 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: GestureDetector(
-            onTap: () => FocusScope.of(context).unfocus(),
+            onTap: () {
+              FocusScopeNode currentFocus = FocusScope.of(context);
+              if (!currentFocus.hasPrimaryFocus) {
+                currentFocus.unfocus();
+              }
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

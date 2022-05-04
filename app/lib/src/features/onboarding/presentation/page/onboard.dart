@@ -22,12 +22,10 @@ class _OnboardingWidgetState extends State<Onboarding> {
 
   Widget get _imageOne => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 80),
-        child: Expanded(
-          child: Image.asset(
-            'lib/assets/images/hq.png',
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
+        child: Image.asset(
+          'lib/assets/images/hq.png',
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
         ),
       );
   Widget get _titleOne => Padding(
@@ -44,21 +42,14 @@ class _OnboardingWidgetState extends State<Onboarding> {
       );
   Widget get _textOne => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Mé faiz elementum girarzis, nisi eros vermeio.Si num tem leite então bota uma pinga aí cumpadi!',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  color: Color(0xFF95A1AC),
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-            ),
-          ],
+        child: Text(
+          'Mussum Ipsum, cacilds vidis litro abertis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Mé faiz elementum girarzis, nisi eros vermeio.Si num tem leite então bota uma pinga aí cumpadi!',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            color: Color(0xFF95A1AC),
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
+          ),
         ),
       );
   Widget get _onboard1 => Padding(
@@ -76,12 +67,10 @@ class _OnboardingWidgetState extends State<Onboarding> {
 
   Widget get _imageTwo => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-        child: Expanded(
-          child: Image.asset(
-            'lib/assets/images/completeHq.png',
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover,
-          ),
+        child: Image.asset(
+          'lib/assets/images/completeHq.png',
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.cover,
         ),
       );
   Widget get _titleTwo => Padding(
@@ -98,15 +87,13 @@ class _OnboardingWidgetState extends State<Onboarding> {
       );
   Widget get _textTwo => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Expanded(
-          child: Text(
-            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-            style: TextStyle(
-              fontFamily: 'Nunito',
-              color: Color(0xFF95A1AC),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+        child: Text(
+          'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            color: Color(0xFF95A1AC),
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
           ),
         ),
       );
@@ -147,15 +134,13 @@ class _OnboardingWidgetState extends State<Onboarding> {
       );
   Widget get _textTree => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Expanded(
-          child: Text(
-            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-            style: TextStyle(
-              fontFamily: 'Nunito',
-              color: Color(0xFF95A1AC),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+        child: Text(
+          'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            color: Color(0xFF95A1AC),
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
           ),
         ),
       );
@@ -194,29 +179,25 @@ class _OnboardingWidgetState extends State<Onboarding> {
       );
   Widget get _firstTextFour => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Expanded(
-          child: Text(
-            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
-            style: TextStyle(
-              fontFamily: 'Nunito',
-              color: Color(0xFF95A1AC),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+        child: Text(
+          'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            color: Color(0xFF95A1AC),
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
           ),
         ),
       );
   Widget get _secondTextFour => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Expanded(
-          child: Text(
-            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
-            style: TextStyle(
-              fontFamily: 'Nunito',
-              color: Color(0xFF95A1AC),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+        child: Text(
+          'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            color: Color(0xFF95A1AC),
+            fontSize: 14,
+            fontWeight: FontWeight.normal,
           ),
         ),
       );
