@@ -13,9 +13,25 @@ class homePage extends StatefulWidget {
 
 class _homePageState extends ModularState<homePage, LoginViewModel> {
   late ThemeData _theme = getTheme();
+  final _pageViewController = PageController(
+    initialPage: 0,
+    keepPage: true,
+    viewportFraction: 1,
+  );
   int _selectedIndex = 0;
 
-  Widget get _homePage => Container();
+  Widget get _homePage => ElevatedButton(
+        child: Text('login'.i18n()),
+        onPressed: () {
+          Modular.to.navigate('/');
+        },
+        style: ElevatedButton.styleFrom(
+          textStyle: getTheme().textTheme.subtitle2,
+          primary: _theme.colorScheme.primary,
+          fixedSize: const Size(300, 50),
+          shape: const StadiumBorder(),
+        ),
+      );
 
   Widget get _userHeader => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
@@ -979,9 +995,17 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
         ),
       );
 
-  void _onItemTapped(int index) {
+  void _pageChanged(int index) {
     setState(() {
       _selectedIndex = index;
+    });
+  }
+
+  void _navBarIndexChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+      _pageViewController.animateToPage(index,
+          curve: Curves.easeIn, duration: const Duration(milliseconds: 300));
     });
   }
 
@@ -995,6 +1019,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           child: Stack(
             children: [
               PageView(
+                controller: _pageViewController,
                 children: [
                   SingleChildScrollView(child: _homePage),
                   SingleChildScrollView(child: _jobsPage),
@@ -1002,6 +1027,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                   SingleChildScrollView(child: _chatPage),
                   SingleChildScrollView(child: _profilePage),
                 ],
+                onPageChanged: _pageChanged,
               ),
             ],
           ),
@@ -1032,8 +1058,8 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.light_accent,
-        unselectedItemColor: AppColors.light_primary,
-        onTap: _onItemTapped,
+        unselectedItemColor: AppColors.light_primaryDark,
+        onTap: _navBarIndexChanged,
       ),
     );
   }

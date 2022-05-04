@@ -17,35 +17,29 @@ class Onboarding extends StatefulWidget {
 class _OnboardingWidgetState extends State<Onboarding> {
   //PageController pageViewController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final controller =
+  final _pageIndicatorController =
       PageController(initialPage: 0, viewportFraction: 0.8, keepPage: true);
 
   Widget get _imageOne => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 80),
-        child: Container(
+        child: Expanded(
           child: Image.asset(
             'lib/assets/images/hq.png',
-            width: 300,
-            height: 250,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
       );
   Widget get _titleOne => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'onboard_title_one'.i18n(),
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
+        child: Text(
+          'onboard_title_one'.i18n(),
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       );
   Widget get _textOne => Padding(
@@ -55,7 +49,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           children: [
             Expanded(
               child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Mé faiz elementum girarzis, nisi eros vermeio.Si num tem leite então bota uma pinga aí cumpadi!',
+                'Mussum Ipsum, cacilds vidis litro abertis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Mé faiz elementum girarzis, nisi eros vermeio.Si num tem leite então bota uma pinga aí cumpadi!',
                 style: TextStyle(
                   fontFamily: 'Nunito',
                   color: Color(0xFF95A1AC),
@@ -70,7 +64,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
   Widget get _onboard1 => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _imageOne,
@@ -82,55 +76,44 @@ class _OnboardingWidgetState extends State<Onboarding> {
 
   Widget get _imageTwo => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-        child: Container(
+        child: Expanded(
           child: Image.asset(
             'lib/assets/images/completeHq.png',
-            width: 300,
-            height: 400,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
       );
   Widget get _titleTwo => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'onboard_title_two'.i18n(),
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
+        child: Text(
+          'onboard_title_two'.i18n(),
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       );
   Widget get _textTwo => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  color: Color(0xFF95A1AC),
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+        child: Expanded(
+          child: Text(
+            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
+            style: TextStyle(
+              fontFamily: 'Nunito',
+              color: Color(0xFF95A1AC),
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
             ),
-          ],
+          ),
         ),
       );
   Widget get _onboard2 => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _imageTwo,
@@ -145,52 +128,41 @@ class _OnboardingWidgetState extends State<Onboarding> {
         child: Container(
           child: Image.asset(
             'lib/assets/images/cuteZilla.png',
-            width: 300,
-            height: 300,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
       );
   Widget get _titleTree => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'slogan'.i18n(),
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
+        child: Text(
+          'slogan'.i18n(),
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       );
   Widget get _textTree => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  color: Color(0xFF95A1AC),
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+        child: Expanded(
+          child: Text(
+            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
+            style: TextStyle(
+              fontFamily: 'Nunito',
+              color: Color(0xFF95A1AC),
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
             ),
-          ],
+          ),
         ),
       );
   Widget get _onboard3 => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _imageTree,
@@ -205,8 +177,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
         child: Container(
           child: Image.asset(
             'lib/assets/images/apprentice.png',
-            width: 300,
-            height: 200,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
@@ -216,54 +187,43 @@ class _OnboardingWidgetState extends State<Onboarding> {
         child: Container(
           child: Image.asset(
             'lib/assets/images/level.png',
-            width: 298,
-            height: 205,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
       );
   Widget get _firstTextFour => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  color: Color(0xFF95A1AC),
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+        child: Expanded(
+          child: Text(
+            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
+            style: TextStyle(
+              fontFamily: 'Nunito',
+              color: Color(0xFF95A1AC),
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
             ),
-          ],
+          ),
         ),
       );
   Widget get _secondTextFour => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Text(
-                'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
-                style: TextStyle(
-                  fontFamily: 'Nunito',
-                  color: Color(0xFF95A1AC),
-                  fontSize: 14,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
+        child: Expanded(
+          child: Text(
+            'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
+            style: TextStyle(
+              fontFamily: 'Nunito',
+              color: Color(0xFF95A1AC),
+              fontSize: 14,
+              fontWeight: FontWeight.normal,
             ),
-          ],
+          ),
         ),
       );
   Widget get _onboard4 => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _firstTextFour,
@@ -276,20 +236,16 @@ class _OnboardingWidgetState extends State<Onboarding> {
 
   Widget get _titleFive => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Text(
-              'JobZilla',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 36,
-                fontWeight: FontWeight.w400,
-              ),
+        child: Center(
+          child: Text(
+            'JobZilla',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              color: Colors.white,
+              fontSize: 36,
+              fontWeight: FontWeight.w400,
             ),
-          ],
+          ),
         ),
       );
   Widget get _imageFive => Padding(
@@ -297,28 +253,21 @@ class _OnboardingWidgetState extends State<Onboarding> {
         child: Container(
           child: Image.asset(
             'lib/assets/images/godzilla.png',
-            width: 300,
-            height: 250,
+            width: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
           ),
         ),
       );
   Widget get _textFive => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 42, 12, 50),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'slogan'.i18n(),
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
+        child: Text(
+          'slogan'.i18n(),
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       );
   Widget get _buttonFive => ElevatedButton(
@@ -336,7 +285,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
   Widget get _onboard5 => Padding(
         padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _titleFive,
@@ -352,11 +301,11 @@ class _OnboardingWidgetState extends State<Onboarding> {
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
           child: SmoothPageIndicator(
-            controller: controller,
+            controller: _pageIndicatorController,
             count: 5,
             axisDirection: Axis.horizontal,
             onDotClicked: (i) {
-              controller.animateToPage(
+              _pageIndicatorController.animateToPage(
                 i,
                 duration: Duration(milliseconds: 500),
                 curve: Curves.ease,
@@ -387,6 +336,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           child: Stack(
             children: [
               PageView(
+                controller: _pageIndicatorController,
                 children: [
                   _onboard1,
                   _onboard2,
