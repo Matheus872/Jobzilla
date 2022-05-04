@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../domain/model/user.dart';
 import '../../domain/usecase/login_usecase.dart';
 
 part 'login_viewmodel.g.dart';
@@ -20,9 +21,13 @@ abstract class _LoginViewModelBase with Store {
   @observable
   bool isLoading = false;
 
+  void _signIn() {
+    Modular.to.navigate('/home');
+  }
+
   @action
   void validateUsername() {
-    error.username = _usecase.validateUsername(username);
+    error.password = _usecase.validateUsername(username);
   }
 
   @action
@@ -39,12 +44,20 @@ abstract class _LoginViewModelBase with Store {
     if (!error.hasErrors) {
       isLoading = true;
       try {
-        await _usecase.login(username, password);
-      } on UnimplementedError {
-        error.login = 'Função não implementada!';
+        User? response = (await _usecase.login(username, password));
+        if (response != null) {
+          _signIn();
+        }
+      } catch (e) {
+        error.login = "erro ${e.toString()}";
       } finally {
         isLoading = false;
       }
+    } else {
+      print("Erro não rastreado - login_viewmodel");
+      print(error.login);
+      print(error.username);
+      print(error.password);
     }
   }
 }

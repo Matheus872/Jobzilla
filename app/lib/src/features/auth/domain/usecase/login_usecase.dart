@@ -22,7 +22,7 @@ class LoginUseCase {
     return null;
   }
 
-  Future<User> login(String username, String password) {
+  Future<User?> login(String username, String password) {
     return repository.login(User(username, password));
   }
 }

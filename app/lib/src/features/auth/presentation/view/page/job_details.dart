@@ -24,7 +24,7 @@ class _JobDetailsPageState
           image: DecorationImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'lib/assets/images/exampleCompany.png',
+              'lib/assets/images/companyBanner.jpg',
             ).image,
           ),
         ),
@@ -52,7 +52,7 @@ class _JobDetailsPageState
       );
   Widget get _backButton => ElevatedButton(
         onPressed: () {
-          Modular.to.navigate('/login');
+          Modular.to.navigate('/home');
         },
         child: Icon(
           Icons.arrow_back_ios_rounded,

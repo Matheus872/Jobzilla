@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
+import 'dart:async';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,6 +14,19 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   late ThemeData _theme = getTheme();
+  final _viewModel = Modular.get<LoginViewModel>();
+
+  void _login() {
+    _viewModel.login();
+  }
+
+  void _signUp() {
+    Modular.to.navigate('/signup');
+  }
+
+  void _forgotPassword() {
+    Modular.to.navigate('/forgotpswd');
+  }
 
   Widget get _headerImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(40, 20, 40, 10),
@@ -51,6 +65,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
         //ElevatedButton(onPressed: onPressed, child: child)
       ]);
   Widget get _emailTextField => TextFormField(
+        onChanged: (value) {
+          _viewModel.username = value;
+        },
+        enabled: !store.isLoading,
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
@@ -74,6 +92,10 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
         ),
       );
   Widget get _passwordTextField => TextFormField(
+        onChanged: (value) {
+          _viewModel.password = value;
+        },
+        enabled: !store.isLoading,
         obscureText: true,
         //TODO: Password visibility with controller
         style: _theme.textTheme.bodyText2,
@@ -107,7 +129,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
   Widget get _loginButton => ElevatedButton(
         child: Text('login'.i18n()),
         onPressed: () {
-          Modular.to.navigate('/home');
+          _login();
         },
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
@@ -125,7 +147,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
       );
   Widget get _createAccountButton => TextButton(
       onPressed: () {
-        Modular.to.navigate('/signup');
+        _signUp();
       },
       child: Text(
         'create_account'.i18n(),
@@ -134,7 +156,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
       ));
   Widget get _forgotPasswordButton => TextButton(
       onPressed: () {
-        Modular.to.navigate('/forgotpswd');
+        _forgotPassword();
       },
       child: Text(
         'forgot_password'.i18n(),
