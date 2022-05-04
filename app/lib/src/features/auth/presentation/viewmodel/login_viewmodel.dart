@@ -27,7 +27,7 @@ abstract class _LoginViewModelBase with Store {
 
   @action
   void validateUsername() {
-    error.password = _usecase.validateUsername(username);
+    error.username = _usecase.validateUsername(username);
   }
 
   @action

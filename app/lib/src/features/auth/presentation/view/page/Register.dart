@@ -14,6 +14,11 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
   late ThemeData _theme = getTheme();
 
+  final _usernameTextFieldController = TextEditingController();
+  final _passwordTextFieldController = TextEditingController();
+  bool _passwordVisibility = false;
+  bool _passwordConfirmationVisibility = false;
+
   Widget get _headerImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(40, 20, 40, 10),
         child: Container(
@@ -78,8 +83,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         ),
       );
   Widget get _choosePasswordTextField => TextFormField(
-        obscureText: true,
-        //TODO: Password visibility with controller
+        obscureText: !_passwordVisibility,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
@@ -100,8 +104,13 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
             borderRadius: BorderRadius.circular(20),
           ),
           suffixIcon: InkWell(
+            onTap: () => setState(
+              () => _passwordVisibility = !_passwordVisibility,
+            ),
             child: Icon(
-              Icons.visibility_off_outlined,
+              _passwordVisibility
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
               color: AppColors.dark_secondaryText,
               size: 22,
             ),
@@ -109,8 +118,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         ),
       );
   Widget get _confirmPasswordTextField => TextFormField(
-        obscureText: true,
-        //TODO: Password visibility with controller
+        obscureText: !_passwordConfirmationVisibility,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
@@ -131,8 +139,14 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
             borderRadius: BorderRadius.circular(20),
           ),
           suffixIcon: InkWell(
+            onTap: () => setState(
+              () => _passwordConfirmationVisibility =
+                  !_passwordConfirmationVisibility,
+            ),
             child: Icon(
-              Icons.visibility_off_outlined,
+              _passwordConfirmationVisibility
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined,
               color: AppColors.dark_secondaryText,
               size: 22,
             ),
@@ -141,7 +155,9 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
       );
   Widget get _createAccountButton => ElevatedButton(
         child: Text('create_account'.i18n()),
-        onPressed: () {},
+        onPressed: () {
+          FocusScope.of(context).unfocus();
+        },
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
           primary: _theme.colorScheme.primary,
