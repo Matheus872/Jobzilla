@@ -35,6 +35,6 @@ public class Applicant extends User{
     @Column(nullable = false)
     private Gender gender;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private List<Phone> phones;
+    /*@OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    private List<Phone> phones;*/
 }
