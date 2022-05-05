@@ -1,6 +1,6 @@
 {
     "app_name" : "JobZilla",
-    "slogan": "Procurar emprego não precisa\n ser assustador",
+    "slogan": "Procurar emprego não precisa ser assustador",
 
     "username_hint": "Endereço de e-mail",
     "password_hint": "Senha",
@@ -60,5 +60,11 @@
     "change_password": "Redefinir Senha",
     "onboard_title_one": "Cansado de procurar emprego ?",
     "onboard_title_two": "Apresentamos: JobZilla",
-    "onboard_button": "Explorar"
+    "onboard_button": "Explorar",
+
+
+    "username_required": "Requer Nome de Usuário!",
+    "password_required": "Requer Senha!",
+    "password_confirmation_required": "Requer Confirmação de senha!",
+    "password_confirmation_must_be_the_same_as_password": "A Confirmação de Senha deve ser igual à senha!"
 }

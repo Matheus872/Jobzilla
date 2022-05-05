@@ -1,8 +1,10 @@
-/* import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../domain/model/user.dart';
 import '../../domain/usecase/sign_up_usecase.dart';
+
+part 'sign_up_viewmodel.g.dart';
 
 class SignUpViewModel = _SignUpViewModelBase with _$SignUpViewModel;
 
@@ -22,7 +24,7 @@ abstract class _SignUpViewModelBase with Store {
   @observable
   bool isLoading = false;
 
-  void _signIn() {
+  void _signedUp() {
     Modular.to.navigate('/home');
   }
 
@@ -42,25 +44,39 @@ abstract class _SignUpViewModelBase with Store {
         _usecase.validatePasswordConfirmation(passwordConfirmation);
   }
 
+  @action
+  void validatePasswordConfirmationEqualPassword() {
+    error.passwordConfirmationEquality =
+        _usecase.validatePasswordConfirmationEqualPassword(
+            password, passwordConfirmation);
+  }
+
   void signUp() async {
     error.clear();
 
     validateUsername();
     validatePassword();
     validatePasswordConfirmation();
+    validatePasswordConfirmationEqualPassword();
 
     if (!error.hasErrors) {
       isLoading = true;
-      try {} catch (e) {
+      try {
+        User? response = (await _usecase.signUp(username, password));
+        if (response != null) {
+          _signedUp();
+        }
+      } catch (e) {
         error.signUp = "erro ${e.toString()}";
       } finally {
         isLoading = false;
       }
     } else {
-      print("Erro não rastreado - login_viewmodel");
+      print("Erro - sign_up_viewmodel");
       print(error.username);
       print(error.password);
       print(error.passwordConfirmation);
+      print(error.passwordConfirmationEquality);
       print(error.signUp);
     }
   }
@@ -79,6 +95,9 @@ abstract class _SignUpErrorBase with Store {
   String? passwordConfirmation;
 
   @observable
+  String? passwordConfirmationEquality;
+
+  @observable
   String? signUp;
 
   @computed
@@ -86,6 +105,7 @@ abstract class _SignUpErrorBase with Store {
       username != null ||
       password != null ||
       passwordConfirmation != null ||
+      passwordConfirmationEquality != null ||
       signUp != null;
 
   void clear() {
@@ -95,4 +115,3 @@ abstract class _SignUpErrorBase with Store {
     signUp = null;
   }
 }
- */

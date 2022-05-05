@@ -1,6 +1,6 @@
 {
     "app_name" : "JobZilla",
-    "slogan": "Find a job don't have to be\nscary",
+    "slogan": "Find a job don't have to be scary",
 
     "username_hint": "Email Adress",
     "password_hint": "Password",
@@ -65,5 +65,12 @@
     "change_password": "Reset Password",
     "onboard_title_one": "Tired of looking for a job ?",
     "onboard_title_two": "We introduce you to JobZilla",
-    "onboard_button": "Explore"
+    "onboard_button": "Explore",
+
+
+    "username_required": "Username Required!",
+    "password_required": "Password Required!",
+    "password_confirmation_required": "Password Confirmation Required!",
+    "password_confirmation_must_be_the_same_as_password": "Password Confirmation must be the same as password!"
+
 }

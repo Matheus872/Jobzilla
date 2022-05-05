@@ -54,7 +54,7 @@ abstract class _LoginViewModelBase with Store {
         isLoading = false;
       }
     } else {
-      print("Erro não rastreado - login_viewmodel");
+      print("Erro - login_viewmodel");
       print(error.login);
       print(error.username);
       print(error.password);

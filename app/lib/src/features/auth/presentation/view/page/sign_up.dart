@@ -4,15 +4,18 @@ import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+import '../../viewmodel/sign_up_viewmodel.dart';
+
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
+class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
   late ThemeData _theme = getTheme();
+  final _viewModel = Modular.get<SignUpViewModel>();
 
   final _usernameTextFieldController = TextEditingController();
   final _passwordTextFieldController = TextEditingController();
@@ -64,6 +67,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
+        onChanged: (value) => _viewModel.username = value,
         decoration: InputDecoration(
           hintText: 'username_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
@@ -87,6 +91,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
+        onChanged: (value) => _viewModel.password = value,
         decoration: InputDecoration(
           hintText: 'choose_password_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
@@ -122,6 +127,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
+        onChanged: (value) => _viewModel.passwordConfirmation = value,
         decoration: InputDecoration(
           hintText: 'confirm_password_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
@@ -157,6 +163,7 @@ class _RegisterPageState extends ModularState<RegisterPage, LoginViewModel> {
         child: Text('create_account'.i18n()),
         onPressed: () {
           FocusScope.of(context).unfocus();
+          _viewModel.signUp();
         },
         style: ElevatedButton.styleFrom(
           textStyle: getTheme().textTheme.subtitle2,
