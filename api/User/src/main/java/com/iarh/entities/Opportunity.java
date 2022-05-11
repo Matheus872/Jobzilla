@@ -30,14 +30,8 @@ public class Opportunity {
     @Column(nullable = false, unique = true)
     private String cnpjCompany;
 
-    @Column
-    private Float salary;
-
     @Column(nullable = false)
     private String companyName;
-
-    @Column(nullable = false)
-    private String workplace;
 
     @Column(nullable = false)
     private String trainingArea;
@@ -49,13 +43,7 @@ public class Opportunity {
     private EducationLevel educationLevel;
 
     @Column
-    private String language;
-
-    @Column
     private LevelLanguage levelLanguage;
-
-    @Column
-    private String experience;
 
     @Column(nullable = false)
     private String requirementDescription;
