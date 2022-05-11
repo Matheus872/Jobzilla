@@ -1,16 +1,16 @@
-import 'dart:collection';
-import 'dart:math';
-
 import 'package:basearch/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../viewmodel/login_viewmodel.dart';
+import '../../../domain/model/localization.dart';
+import '../../viewmodel/job_localization_viewmodel.dart';
 
 class JobLocalizationPage extends StatefulWidget {
-  const JobLocalizationPage({Key? key, required this.title}) : super(key: key);
+  const JobLocalizationPage({Key? key, required this.title, required this.id})
+      : super(key: key);
 
+  final int id;
   final String title;
 
   @override
@@ -18,19 +18,22 @@ class JobLocalizationPage extends StatefulWidget {
 }
 
 class _JobLocalizationPageState
-    extends ModularState<JobLocalizationPage, LoginViewModel> {
+    extends ModularState<JobLocalizationPage, JobLocalizationViewModel> {
   late GoogleMapController mapController;
-
+  final _viewModel = JobLocalizationViewModel();
+  //final Future<Localization> localization = _viewModel.getLocalization(widget.id);
   final LatLng _center = const LatLng(-15.834971, -47.912889);
+
+  final localization = Localization('iesb-sul', LatLng(-15.834971, -47.912889),
+      'IESB - Campus Sul', 'SGAS Quadra 613/614, Via L2 Sul - Asa Sul');
+
   final Map<String, Marker> _markers = {};
-  final Set<Circle> _circles = HashSet();
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
     setState(() {
       addMarker('iesb-sul', _center, 'IESB - Campus Sul',
           'SGAS Quadra 613/614, Via L2 Sul - Asa Sul');
-      addCircle('iesb-sul-circle', _center, 100);
     });
   }
 
@@ -43,17 +46,6 @@ class _JobLocalizationPageState
           snippet: snippet,
         ));
     _markers[id] = iesbSulMarker;
-  }
-
-  void addCircle(String id, LatLng point, double radius) {
-    final circle = Circle(
-        circleId: CircleId(id),
-        center: point,
-        radius: radius,
-        fillColor: Colors.blueGrey,
-        strokeWidth: 3,
-        strokeColor: Colors.blueAccent);
-    _circles.add(circle);
   }
 
   @override
@@ -84,10 +76,6 @@ class _JobLocalizationPageState
           zoom: 14.0,
         ),
         markers: _markers.values.toSet(),
-        circles: _circles,
-        onLongPress: (latlng) => setState(() {
-          addCircle(Random().nextInt(10000).toString(), latlng, 100);
-        }),
       ),
     );
   }
