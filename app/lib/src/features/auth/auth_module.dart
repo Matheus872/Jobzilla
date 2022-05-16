@@ -1,16 +1,20 @@
+import 'package:basearch/src/features/auth/domain/repository/forgot_password_interface.dart';
 import 'package:basearch/src/features/auth/domain/repository/sign_up_interface.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/sign_up.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/forgot_password.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/home.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_localization.dart';
+import 'package:basearch/src/features/auth/presentation/viewmodel/forgot_password_viewmodel.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/sign_up_viewmodel.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../onboarding/presentation/page/onboard.dart';
+import 'data/repository/forgot_password_repository.dart';
 import 'data/repository/login_repository.dart';
 import 'data/repository/sign_up_repository.dart';
 import 'domain/repository/login_interface.dart';
+import 'domain/usecase/forgot_password_usecase.dart';
 import 'domain/usecase/login_usecase.dart';
 import 'domain/usecase/sign_up_usecase.dart';
 import 'presentation/view/page/login.dart';
@@ -25,6 +29,9 @@ class AuthModule extends Module {
         Bind.factory((i) => SignUpViewModel()),
         Bind.factory((i) => SignUpUseCase()),
         Bind.factory<ISignUp>((i) => SignUpRepository()),
+        Bind.factory((i) => ForgotPasswordViewModel()),
+        Bind.factory((i) => ForgotPasswordUseCase()),
+        Bind.factory<IForgotPassword>((i) => ForgotPasswordRepository()),
       ];
 
   @override

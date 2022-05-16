@@ -108,6 +108,17 @@ mixin _$SignUpViewModel on _SignUpViewModelBase, Store {
   }
 
   @override
+  void validatePasswordConfirmationEqualPassword() {
+    final _$actionInfo = _$_SignUpViewModelBaseActionController.startAction(
+        name: '_SignUpViewModelBase.validatePasswordConfirmationEqualPassword');
+    try {
+      return super.validatePasswordConfirmationEqualPassword();
+    } finally {
+      _$_SignUpViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 username: ${username},
@@ -174,6 +185,23 @@ mixin _$SignUpError on _SignUpErrorBase, Store {
     });
   }
 
+  final _$passwordConfirmationEqualityAtom =
+      Atom(name: '_SignUpErrorBase.passwordConfirmationEquality');
+
+  @override
+  String? get passwordConfirmationEquality {
+    _$passwordConfirmationEqualityAtom.reportRead();
+    return super.passwordConfirmationEquality;
+  }
+
+  @override
+  set passwordConfirmationEquality(String? value) {
+    _$passwordConfirmationEqualityAtom
+        .reportWrite(value, super.passwordConfirmationEquality, () {
+      super.passwordConfirmationEquality = value;
+    });
+  }
+
   final _$signUpAtom = Atom(name: '_SignUpErrorBase.signUp');
 
   @override
@@ -195,6 +223,7 @@ mixin _$SignUpError on _SignUpErrorBase, Store {
 username: ${username},
 password: ${password},
 passwordConfirmation: ${passwordConfirmation},
+passwordConfirmationEquality: ${passwordConfirmationEquality},
 signUp: ${signUp},
 hasErrors: ${hasErrors}
     ''';

@@ -58,6 +58,7 @@
     "confirm_new_password": "Confirme a nova senha",
     "confirmnewpassword_hint": "Confirme a sua nova senha",
     "change_password": "Redefinir Senha",
+
     "onboard_title_one": "Cansado de procurar emprego ?",
     "onboard_title_two": "Apresentamos: JobZilla",
     "onboard_button": "Explorar",
@@ -66,5 +67,25 @@
     "username_required": "Requer Nome de Usuário!",
     "password_required": "Requer Senha!",
     "password_confirmation_required": "Requer Confirmação de senha!",
-    "password_confirmation_must_be_the_same_as_password": "A Confirmação de Senha deve ser igual à senha!"
+    "password_confirmation_must_be_the_same_as_password": "A Confirmação de Senha deve ser igual à senha!",
+    "email_required": "*Requer endereço de email!",
+    "email_not_valid":"*Insira um email válido",
+
+    "email_verification": "Verificação de Email",
+    "enter_code_sent": "Insira o código enviado para ",
+    "did_not_receive_code": "Não recebeu o código? ",
+    "resend_code":"REENVIAR",
+    "verify": "Verificar",
+    "new_password_required" : "Requer Nova Senha!",
+    "new_password_confirmation_required": "Requer Confirmação da Nova Senha!",
+    "choose_new_password_hint" : "Escolha uma nova senha",
+    "confirm_new_password_hint" : "Confirme sua nova senha",
+    "set_new_password":"Defina uma nova senha para acesso à sua conta",
+    "reset_password" : "Redefinir Senha",
+
+    "fill_properly:":"*Por favor preencha o campo de forma adequada",
+    "pin_required":"Requer código pin!",
+    "pin_six_digits:":"*O código pin deve conter 6 dígitos",
+    "pin_incorrect":"*O código pin não corresponde ao enviado"
+
 }

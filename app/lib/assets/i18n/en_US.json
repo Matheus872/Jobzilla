@@ -1,7 +1,9 @@
 {
+    
+    
     "app_name" : "JobZilla",
     "slogan": "Find a job don't have to be scary",
-
+    
     "username_hint": "Email Adress",
     "password_hint": "Password",
     "login": "Log In",
@@ -63,6 +65,7 @@
     "confirm_new_password": "Confirme new password",
     "confirmnewpassword_hint": "Confirm your new password",
     "change_password": "Reset Password",
+
     "onboard_title_one": "Tired of looking for a job ?",
     "onboard_title_two": "We introduce you to JobZilla",
     "onboard_button": "Explore",
@@ -71,6 +74,25 @@
     "username_required": "Username Required!",
     "password_required": "Password Required!",
     "password_confirmation_required": "Password Confirmation Required!",
-    "password_confirmation_must_be_the_same_as_password": "Password Confirmation must be the same as password!"
+    "password_confirmation_must_be_the_same_as_password": "Password Confirmation must be the same as password!",
+    "email_required": "*Email Required!",
+    "email_not_valid":"*Insert a valid email",
+
+    "email_verification": "Email Verification",
+    "enter_code_sent": "Enter the code sent to ",
+    "did_not_receive_code": "Didn't receive the code? ",
+    "resend_code":"RESEND",
+    "verify": "Verify",
+    "new_password_required" : "New Password Required!",
+    "new_password_confirmation_required": "New Password Confirmation Required!",
+    "choose_new_password_hint" : "Choose a new password",
+    "confirm_new_password_hint" : "Confirm your new password",
+    "set_new_password":"Set a new password to acess your account",
+    "reset_password" : "Reset Password",
+    
+    "fill_properly:":"*Please fill up all the cells properly",
+    "pin_required":"*Pin code required!",
+    "pin_six_digits:":"*The pin code must have 6 digits",
+    "pin_incorrect":"*Pin code does not match sent"
 
 }
