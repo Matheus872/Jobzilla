@@ -1,5 +1,4 @@
 #PROD environment
-
 app:
   message: This is the property file for the ${spring.application.name} specific to PROD Environment
 
@@ -8,4 +7,3 @@ spring:
     url: <POSTGRESS_URL>
     username: <USERNAME>
     password: <PASSWORD>
-
