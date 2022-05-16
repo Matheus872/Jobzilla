@@ -5,7 +5,10 @@ app:
 
 spring:
     driver-class-name: org.h2.Driver
-    url: <POSTGRESS_URL>
-    username: <USERNAME>
-    password: <PASSWORD>
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 0911Af
+    #url: <POSTGRESS_URL>
+    #username: <USERNAME>
+    #password: <PASSWORD>
 

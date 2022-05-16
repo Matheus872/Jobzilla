@@ -59,7 +59,7 @@ public class OpportunityService {
 
     private MessageResponseDTO createMessageResponse(Long id) {
         return MessageResponseDTO.builder()
-                .message("Created Applicant with ID: " + id)
+                .message("Created Opportunity with ID: " + id)
                 .build();
     }
 }
