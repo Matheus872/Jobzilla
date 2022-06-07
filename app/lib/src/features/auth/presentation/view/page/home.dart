@@ -12,7 +12,7 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends ModularState<homePage, LoginViewModel> {
-  late ThemeData _theme = getTheme();
+  late ThemeData _theme = getLightTheme();
   final _pageViewController = PageController(
     initialPage: 0,
     keepPage: true,
@@ -26,7 +26,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           Modular.to.navigate('/');
         },
         style: ElevatedButton.styleFrom(
-          textStyle: getTheme().textTheme.subtitle2,
+          textStyle: _theme.textTheme.subtitle2,
           primary: _theme.colorScheme.primary,
           fixedSize: const Size(300, 50),
           shape: const StadiumBorder(),
@@ -1012,7 +1012,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.light_primaryLight,
+      backgroundColor: _theme.colorScheme.background,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -1057,7 +1057,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.light_accent,
+        selectedItemColor: _theme.colorScheme.primary,
         unselectedItemColor: AppColors.light_primaryDark,
         onTap: _navBarIndexChanged,
       ),

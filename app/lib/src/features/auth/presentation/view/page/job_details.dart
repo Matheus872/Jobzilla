@@ -13,7 +13,7 @@ class JobDetailsPage extends StatefulWidget {
 
 class _JobDetailsPageState
     extends ModularState<JobDetailsPage, LoginViewModel> {
-  late ThemeData _theme = getTheme();
+  late ThemeData _theme = ThemeData();
   bool _isChecked = false;
 
   Widget get _topSection => Container(
@@ -56,7 +56,7 @@ class _JobDetailsPageState
         },
         child: Icon(
           Icons.arrow_back_ios_rounded,
-          color: getTheme().colorScheme.primary,
+          color: _theme.colorScheme.primary,
           size: 15,
         ),
         style: ElevatedButton.styleFrom(
@@ -457,7 +457,7 @@ class _JobDetailsPageState
                 Modular.to.navigate('/login');
               },
               style: ElevatedButton.styleFrom(
-                textStyle: getTheme().textTheme.subtitle2,
+                textStyle: _theme.textTheme.subtitle2,
                 primary: _theme.colorScheme.primary,
                 fixedSize: const Size(350, 30),
               ),
@@ -498,7 +498,7 @@ class _JobDetailsPageState
             Modular.to.navigate('/login');
           },
           style: ElevatedButton.styleFrom(
-            textStyle: getTheme().textTheme.subtitle2,
+            textStyle: _theme.textTheme.subtitle2,
             primary: _theme.colorScheme.primary,
             fixedSize: const Size(350, 50),
           ),

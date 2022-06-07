@@ -9,7 +9,7 @@ class LoginRepository implements ILogin {
   Future<User> login(User user) async {
     final dto = UserDto.fromDomain(user);
     final response = await Dio().post(
-      'https://gq0o9.mocklab.io/login',
+      'https://ol0ll.mocklab.io/login',
       data: dto.toJson(),
     );
     if (response.statusCode == 200) {

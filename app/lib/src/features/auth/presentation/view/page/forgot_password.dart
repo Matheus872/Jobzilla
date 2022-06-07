@@ -13,10 +13,22 @@ class ForgotPasswordPage extends StatefulWidget {
 
 class _ForgotPasswordPageState
     extends ModularState<ForgotPasswordPage, LoginViewModel> {
-  late ThemeData _theme = getTheme();
+  late ThemeData _theme;
+  bool darkModeOn = false;
+
+  Widget get _userForm => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.66,
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Column(
+          children: [
+            _emailTextField,
+            _sendLinkButton,
+          ],
+        ),
+      );
 
   Widget get _emailTextField => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(30, 25, 30, 20),
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 20),
         child: TextFormField(
           obscureText: false,
           style: _theme.textTheme.bodyText2,
@@ -26,16 +38,17 @@ class _ForgotPasswordPageState
             hintText: 'recovery_email_hint'.i18n(),
             hintStyle: _theme.textTheme.bodyText2,
             filled: true,
-            fillColor: const Color(0xFF14181B),
+            fillColor: _theme.colorScheme.onBackground,
             enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.dark_foreground,
+              borderSide: BorderSide(
+                color: _theme.colorScheme.onBackground,
                 width: 20,
               ),
               borderRadius: BorderRadius.circular(20),
             ),
             focusedBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(color: AppColors.black, width: 20),
+              borderSide: BorderSide(
+                  color: _theme.colorScheme.primaryContainer, width: 20),
               borderRadius: BorderRadius.circular(20),
             ),
           ),
@@ -43,38 +56,39 @@ class _ForgotPasswordPageState
       );
 
   Widget get _sendLinkButton => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 270),
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
         child: ElevatedButton(
           child: Text('send_reset_link'.i18n()),
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            textStyle: getTheme().textTheme.subtitle2,
+            textStyle: _theme.textTheme.subtitle2,
             primary: _theme.colorScheme.primary,
-            fixedSize: const Size(300, 50),
+            fixedSize: const Size(320, 50),
             shape: const StadiumBorder(),
           ),
         ),
       );
 
-  Widget get _baseboardImage => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        child: Center(
-          child: Container(
-              width: 1125,
-              height: 170,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                      "lib/assets/images/launchScreenBottonImage.png"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: null),
-        ),
-      );
+  Widget get _baseboardImage => darkModeOn
+      ? SizedBox(
+          height: MediaQuery.of(context).size.height * 0.27,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            'lib/assets/images/launchScreenBottonImage.png',
+          ),
+        )
+      : SizedBox(
+          height: MediaQuery.of(context).size.height * 0.27,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            'lib/assets/images/launchScreenBottonImage_light.png',
+          ),
+        );
 
   @override
   Widget build(BuildContext context) {
+    _theme = Theme.of(context);
+    darkModeOn = _theme.brightness == Brightness.dark;
     return Scaffold(
       backgroundColor: _theme.colorScheme.background,
       appBar: AppBar(
@@ -84,15 +98,15 @@ class _ForgotPasswordPageState
           onTap: () async {
             Modular.to.navigate('/login');
           },
-          child: const Icon(
+          child: Icon(
             Icons.chevron_left_rounded,
-            color: Colors.white,
+            color: _theme.colorScheme.primaryContainer,
             size: 32,
           ),
         ),
         title: Text(
           'forgot_password_title'.i18n(),
-          style: getTheme().textTheme.subtitle2,
+          style: _theme.textTheme.subtitle2,
         ),
         actions: [],
         centerTitle: false,
@@ -107,8 +121,7 @@ class _ForgotPasswordPageState
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                _emailTextField,
-                _sendLinkButton,
+                _userForm,
                 _baseboardImage,
               ],
             ),
