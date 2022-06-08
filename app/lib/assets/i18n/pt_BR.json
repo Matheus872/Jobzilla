@@ -86,6 +86,7 @@
     "fill_properly:":"*Por favor preencha o campo de forma adequada",
     "pin_required":"Requer código pin!",
     "pin_six_digits:":"*O código pin deve conter 6 dígitos",
-    "pin_incorrect":"*O código pin não corresponde ao enviado"
+    "pin_incorrect":"*O código pin não corresponde ao enviado",
+    "see_jobs_recomendations": "See all jobs recomendations"
 
 }

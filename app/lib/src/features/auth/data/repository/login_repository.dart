@@ -12,6 +12,7 @@ class LoginRepository implements ILogin {
       'http://10.0.0.102:8080/api/v1/auth/signin',
       data: dto.toJson(),
     );
+    print(response);
     if (response.statusCode == 200) {
       final token = response.headers.value('Authorization');
       final domain = User(user.username, null, user.email, token: token);

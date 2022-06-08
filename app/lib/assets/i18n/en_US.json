@@ -93,6 +93,10 @@
     "fill_properly:":"*Please fill up all the cells properly",
     "pin_required":"*Pin code required!",
     "pin_six_digits:":"*The pin code must have 6 digits",
-    "pin_incorrect":"*Pin code does not match sent"
+    "pin_incorrect":"*Pin code does not match sent",
+
+
+
+    "see_jobs_recomendations": "See all jobs recomendations"
 
 }

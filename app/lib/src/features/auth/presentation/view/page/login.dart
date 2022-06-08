@@ -41,7 +41,6 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
             width: MediaQuery.of(context).size.width * 0.8,
             child: Image.asset(
               'lib/assets/images/logo.png',
-              fit: BoxFit.cover,
             ),
           ),
         )
@@ -120,7 +119,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
         enabled: !_viewModel.isLoading,
         obscureText: !_passwordVisibility,
         controller: _passwordTextFieldController,
-        style: ThemeData().textTheme.bodyText2,
+        style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(

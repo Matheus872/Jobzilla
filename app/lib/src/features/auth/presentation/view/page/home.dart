@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
+import 'package:graphic/graphic.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class homePage extends StatefulWidget {
 }
 
 class _homePageState extends ModularState<homePage, LoginViewModel> {
-  late ThemeData _theme = getLightTheme();
+  late ThemeData _theme;
+  late bool darkModeOn;
   final _pageViewController = PageController(
     initialPage: 0,
     keepPage: true,
@@ -20,21 +22,18 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
   );
   int _selectedIndex = 0;
 
-  Widget get _homePage => ElevatedButton(
-        child: Text('login'.i18n()),
-        onPressed: () {
-          Modular.to.navigate('/');
-        },
-        style: ElevatedButton.styleFrom(
-          textStyle: _theme.textTheme.subtitle2,
-          primary: _theme.colorScheme.primary,
-          fixedSize: const Size(300, 50),
-          shape: const StadiumBorder(),
-        ),
+  Widget get _homePage => Column(
+        children: [
+          _userHeader,
+          _banner,
+          _statistics,
+          _jobRecomendations,
+          _seeAllJobsRecomendations,
+        ],
       );
 
   Widget get _userHeader => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20, 30, 0, 0),
         child: Row(
           children: [
             _userHeaderImage,
@@ -61,164 +60,126 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           children: [
             Text(
               'Matheus Henrique',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Poppins',
                 fontSize: 14,
-                color: AppColors.black,
+                color: _theme.colorScheme.surface,
               ),
             ),
             Text(
               'Matheus@exemplo.com',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Questrial',
                 fontSize: 12,
-                color: AppColors.black,
+                color: _theme.colorScheme.surface,
               ),
             ),
           ],
         ),
       );
 
-  Widget get _homePageBottomSection => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 70, 0, 0),
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 4,
-                color: Color(0x5B000000),
-                offset: Offset(0, -2),
-              )
-            ],
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0),
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
-            ),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                _jobRecomendations,
-              ],
-            ),
-          ),
-        ),
-      );
-
-  Widget get _jobRecomendations => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_jobRecomendationText, _companyCard],
-      );
-
-  Widget get _jobRecomendationText => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-        child: Text(
-          'Vagas sugeridas',
-          style: const TextStyle(
-            fontFamily: 'Poppins',
-            fontSize: 16,
-            color: AppColors.black,
-          ),
-        ),
-      );
-
-  Widget get _jobsPage => Column(
-        children: [
-          _jobsPageSearchBar,
-          _companyCard,
-        ],
-      );
-  Widget get _jobsPageSearchBar => Container(
-        width: MediaQuery.of(context).size.width,
-        height: 120,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 8),
-              child: Text(
-                'Jobs'.i18n(),
-                style: const TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 18,
-                  color: AppColors.black,
+  Widget get _banner => Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.25,
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: GestureDetector(
+            onTap: () {},
+            child: Container(
+              decoration: BoxDecoration(
+                color: _theme.colorScheme.shadow,
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: Image.asset(
+                    'lib/assets/images/banner2.png',
+                  ).image,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 5,
+                    color: _theme.colorScheme.shadow,
+                    offset: Offset(0, 3),
+                  )
+                ],
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(8),
+                  bottomRight: Radius.circular(8),
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(8),
                 ),
               ),
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: TextFormField(
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        hintText: 'search_bar_hint'.i18n(),
-                        hintStyle: const TextStyle(
-                          fontFamily: 'Questrial',
-                          fontSize: 14,
-                          color: AppColors.light_foreground,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFF1F4F8),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFF1F4F8),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.search_rounded,
-                          color: Color(0xFF95A1AC),
-                        ),
-                      ),
-                      style: const TextStyle(
-                        fontFamily: 'Questrial',
-                        fontSize: 14,
-                        color: AppColors.light_foreground,
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.filter_alt,
-                      color: AppColors.light_primaryDark,
-                      size: 16,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      //shape: CircleBorder(),
-                      padding: EdgeInsets.all(15),
-                      primary: AppColors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+          ),
         ),
       );
-  Widget get _companyCard => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 15),
+
+  Widget get _statistics => darkModeOn
+      ? Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 10),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.25,
+            width: MediaQuery.of(context).size.width * 0.85,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: _theme.colorScheme.shadow,
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: Image.asset(
+                      'lib/assets/images/charts_dark.png',
+                    ).image,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
+      : Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 10),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.25,
+            width: MediaQuery.of(context).size.width * 0.85,
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: _theme.colorScheme.shadow,
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: Image.asset(
+                      'lib/assets/images/charts.png',
+                    ).image,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+  Widget get _jobRecomendations =>
+      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        _jobRecomendationText,
+        _recomendation,
+      ]);
+
+  Widget get _jobRecomendationText => SizedBox(
+        width: MediaQuery.of(context).size.width * 0.85,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(5, 25, 0, 0),
+          child: Text(
+            'Vagas sugeridas',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 16,
+              color: _theme.colorScheme.surface,
+            ),
+          ),
+        ),
+      );
+  Widget get _recomendation => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.2,
+        width: MediaQuery.of(context).size.width * 0.85,
         child: GestureDetector(
           onTap: () {
             Modular.to.navigate('/job');
@@ -229,7 +190,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 150,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: _theme.colorScheme.onBackground,
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: Image.asset(
@@ -255,7 +216,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 175,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: _theme.colorScheme.onBackground,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
@@ -284,7 +245,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 18,
-                              color: AppColors.black,
+                              color: _theme.colorScheme.surface,
                             ),
                           ),
                         ),
@@ -293,7 +254,228 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                               20, 10, 0, 0),
                           child: Icon(
                             Icons.chevron_right_rounded,
-                            color: Colors.black,
+                            color: _theme.colorScheme.surface,
+                            size: 24,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(12, 10, 0, 0),
+                      child: Text(
+                        'Tempo Integral - Senior',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 12,
+                          color: _theme.colorScheme.surface,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(15, 15, 0, 0),
+                      child: Text(
+                        'Clique para ver detalhes',
+                        style: TextStyle(
+                            fontFamily: 'Questrial',
+                            fontSize: 12,
+                            color: _theme.colorScheme.surfaceVariant),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+  Widget get _seeAllJobsRecomendations => SizedBox(
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextButton(
+                  onPressed: () {},
+                  child: Text('see_jobs_recomendations'.i18n(),
+                      style: _theme.textTheme.labelMedium)),
+            ],
+          ),
+        ),
+      );
+
+// -----------------------------------------------------------------------------
+  Widget get _jobsPage => Column(
+        children: [
+          _jobsPageSearchBar,
+          _companyCard,
+        ],
+      );
+  Widget get _jobsPageSearchBar => Container(
+        width: MediaQuery.of(context).size.width,
+        height: 120,
+        decoration: BoxDecoration(
+          color: _theme.colorScheme.background,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 8),
+              child: Text(
+                'Jobs'.i18n(),
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 18,
+                  color: _theme.colorScheme.surface,
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: TextFormField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'search_bar_hint'.i18n(),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Questrial',
+                          fontSize: 14,
+                          color: AppColors.light_foreground,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: _theme.colorScheme.onBackground,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFF1F4F8),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search_rounded,
+                          color: Color(0xFF95A1AC),
+                        ),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: 'Questrial',
+                        fontSize: 14,
+                        color: AppColors.light_foreground,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.filter_alt,
+                      color: AppColors.light_primaryDark,
+                      size: 16,
+                    ),
+                    style: darkModeOn
+                        ? ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(15),
+                            primary: AppColors.dark_divider,
+                          )
+                        : ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(15),
+                            primary: AppColors.white),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
+  Widget get _companyCard => Padding(
+        padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 15),
+        child: GestureDetector(
+          onTap: () {
+            Modular.to.navigate('/job');
+          },
+          child: Row(
+            children: [
+              Container(
+                width: 150,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: _theme.colorScheme.onBackground,
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: Image.asset(
+                      'lib/assets/images/companyBanner.jpg',
+                    ).image,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 3,
+                      color: Color(0x33000000),
+                      offset: Offset(0, 2),
+                    )
+                  ],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(0),
+                    topLeft: Radius.circular(8),
+                    topRight: Radius.circular(0),
+                  ),
+                ),
+              ),
+              Container(
+                width: 175,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: _theme.colorScheme.onBackground,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 3,
+                      color: Color(0x33000000),
+                      offset: Offset(0, 2),
+                    )
+                  ],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0),
+                    bottomRight: Radius.circular(8),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(8),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10, 10, 0, 0),
+                          child: Text(
+                            'Designer',
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              color: _theme.colorScheme.surface,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20, 10, 0, 0),
+                          child: Icon(
+                            Icons.chevron_right_rounded,
+                            color: _theme.colorScheme.surface,
                             size: 24,
                           ),
                         ),
@@ -307,7 +489,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 12,
-                          color: AppColors.black,
+                          color: _theme.colorScheme.surface,
                         ),
                       ),
                     ),
@@ -329,7 +511,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           ),
         ),
       );
-
+// -----------------------------------------------------------------------------
   Widget get _explorePage => Column(
         children: [
           _seachBar,
@@ -342,8 +524,8 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
   Widget get _seachBar => Container(
         width: MediaQuery.of(context).size.width,
         height: 120,
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: _theme.colorScheme.background,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -352,49 +534,75 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
               padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 8),
               child: Text(
                 'Navegate'.i18n(),
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18,
-                  color: AppColors.black,
+                  color: _theme.colorScheme.surface,
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
-              child: TextFormField(
-                obscureText: false,
-                decoration: InputDecoration(
-                  hintText: 'search_bar_hint'.i18n(),
-                  hintStyle: const TextStyle(
-                    fontFamily: 'Questrial',
-                    fontSize: 14,
-                    color: AppColors.light_foreground,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFF1F4F8),
-                      width: 2,
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 10),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: TextFormField(
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        hintText: 'search_bar_hint'.i18n(),
+                        hintStyle: const TextStyle(
+                          fontFamily: 'Questrial',
+                          fontSize: 14,
+                          color: AppColors.light_foreground,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: _theme.colorScheme.onBackground,
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFF1F4F8),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search_rounded,
+                          color: Color(0xFF95A1AC),
+                        ),
+                      ),
+                      style: const TextStyle(
+                        fontFamily: 'Questrial',
+                        fontSize: 14,
+                        color: AppColors.light_foreground,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFFF1F4F8),
-                      width: 2,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  prefixIcon: Icon(
-                    Icons.search_rounded,
-                    color: Color(0xFF95A1AC),
                   ),
                 ),
-                style: const TextStyle(
-                  fontFamily: 'Questrial',
-                  fontSize: 14,
-                  color: AppColors.light_foreground,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 10),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.filter_alt,
+                      color: AppColors.light_primaryDark,
+                      size: 16,
+                    ),
+                    style: darkModeOn
+                        ? ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(15),
+                            primary: AppColors.dark_divider,
+                          )
+                        : ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(15),
+                            primary: AppColors.white),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
@@ -728,7 +936,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           ),
         ),
       );
-
+// -----------------------------------------------------------------------------
   Widget get _chatPage => Column(
         children: [
           _chatPageAppBar,
@@ -737,7 +945,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
   Widget get _chatPageAppBar => Container(
         width: MediaQuery.of(context).size.width,
         height: 120,
-        color: AppColors.white,
+        color: _theme.colorScheme.background,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -745,17 +953,17 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
               padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
               child: Text(
                 'Conversations'.i18n(),
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18,
-                  color: AppColors.black,
+                  color: _theme.colorScheme.surface,
                 ),
               ),
             ),
           ],
         ),
       );
-
+// -----------------------------------------------------------------------------
   Widget get _profilePage => Column(
         children: [
           _profilePageTopSection,
@@ -769,7 +977,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
   Widget get _profilePageTopSection => Container(
         width: MediaQuery.of(context).size.width,
         height: 120,
-        color: AppColors.light_accent,
+        color: _theme.colorScheme.primary,
         child: Column(
           children: [
             _profileImage,
@@ -809,18 +1017,18 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 children: [
                   Text(
                     'Matheus Henrique',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 20,
-                      color: AppColors.black,
+                      color: _theme.colorScheme.outline,
                     ),
                   ),
                   Text(
                     'Matheus872@example.com',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Questrial',
                       fontSize: 14,
-                      color: AppColors.black,
+                      color: _theme.colorScheme.outline,
                     ),
                   ),
                 ],
@@ -858,10 +1066,10 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Text(
                       'Config.'.i18n(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 14,
-                        color: AppColors.black,
+                        color: _theme.colorScheme.onSurface,
                       ),
                     ),
                   ),
@@ -892,10 +1100,10 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Text(
                       'Sair'.i18n(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 14,
-                        color: AppColors.black,
+                        color: _theme.colorScheme.onSurface,
                       ),
                     ),
                   ),
@@ -911,14 +1119,14 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                     onPressed: () {
                       Modular.to.navigate('/login');
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.support_agent,
                       color: AppColors.light_primaryDark,
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
-                      padding: EdgeInsets.all(15),
+                      shape: const CircleBorder(),
+                      padding: const EdgeInsets.all(15),
                       primary: AppColors.white,
                     ),
                   ),
@@ -926,10 +1134,10 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                     child: Text(
                       'Ajuda'.i18n(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 14,
-                        color: AppColors.black,
+                        color: _theme.colorScheme.onSurface,
                       ),
                     ),
                   ),
@@ -1011,6 +1219,8 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
 
   @override
   Widget build(BuildContext context) {
+    _theme = Theme.of(context);
+    darkModeOn = _theme.brightness == Brightness.dark;
     return Scaffold(
       backgroundColor: _theme.colorScheme.background,
       body: SafeArea(
@@ -1058,7 +1268,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: _theme.colorScheme.primary,
-        unselectedItemColor: AppColors.light_primaryDark,
+        unselectedItemColor: _theme.colorScheme.primaryContainer,
         onTap: _navBarIndexChanged,
       ),
     );

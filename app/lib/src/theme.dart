@@ -94,6 +94,8 @@ ThemeData getLightTheme() {
       onBackground: AppColors.light_foreground,
       surface: AppColors.light_primaryText,
       surfaceVariant: AppColors.light_secondaryText,
+      shadow: const Color(0x33000000),
+      outline: AppColors.black,
     ),
     textTheme: const TextTheme(
       bodyText2: TextStyle(
@@ -134,14 +136,16 @@ ThemeData getDarkTheme() {
       background: AppColors.dark_background,
       primary: AppColors.dark_primary,
       onPrimary: AppColors.dark_textIcons,
-      primaryContainer: AppColors.dark_primaryDark,
+      primaryContainer: AppColors.dark_textIcons,
       onPrimaryContainer: AppColors.dark_primaryText,
       secondary: AppColors.dark_secondaryText,
       tertiary: AppColors.dark_accent,
       onTertiary: AppColors.dark_textIcons,
       onBackground: AppColors.dark_foreground,
-      surface: AppColors.white,
+      surface: AppColors.dark_divider,
       surfaceVariant: AppColors.dark_secondaryText,
+      shadow: AppColors.dark_secondaryText,
+      outline: AppColors.white,
     ),
     textTheme: const TextTheme(
       bodyText2: TextStyle(
@@ -159,7 +163,11 @@ ThemeData getDarkTheme() {
         color: AppColors.white,
       ),
       labelMedium: TextStyle(
-          fontFamily: 'Poppins', fontSize: 14, color: AppColors.white),
+          fontSize: 14,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+          color: AppColors.dark_secondaryText),
       overline: TextStyle(
           fontSize: 14,
           fontFamily: 'Poppins',

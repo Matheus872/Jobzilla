@@ -27,7 +27,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
       ? Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width * 0.8,
             child: Image.asset(
               'lib/assets/images/logo.png',
@@ -38,7 +38,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
       : Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width * 0.8,
             child: Image.asset(
               'lib/assets/images/logo_light.png',
