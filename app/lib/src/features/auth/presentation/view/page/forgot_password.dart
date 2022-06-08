@@ -122,7 +122,7 @@ class _ForgotPasswordPageState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(30, 25, 30, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 80, 0, 0),
             child: TextFormField(
               obscureText: false,
               style: _theme.textTheme.bodyText2,
@@ -150,7 +150,7 @@ class _ForgotPasswordPageState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(45, 10, 10, 40),
+            padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 10, 35),
             child: Text(
               emailHasError ? emailErrorString : "",
               style: const TextStyle(
@@ -227,10 +227,10 @@ class _ForgotPasswordPageState
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: Text(
                 'email_verification'.i18n(),
-                style: const TextStyle(
+                style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
-                    color: AppColors.white),
+                    color: _theme.colorScheme.surface),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -243,12 +243,14 @@ class _ForgotPasswordPageState
                     children: [
                       TextSpan(
                           text: _viewModel.email,
-                          style: const TextStyle(
-                              color: Colors.white,
+                          style: TextStyle(
+                              color: _theme.colorScheme.surfaceVariant,
                               fontWeight: FontWeight.bold,
                               fontSize: 15)),
                     ],
-                    style: const TextStyle(color: Colors.white, fontSize: 15)),
+                    style: TextStyle(
+                        color: _theme.colorScheme.surfaceVariant,
+                        fontSize: 15)),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -281,7 +283,7 @@ class _ForgotPasswordPageState
                         borderRadius: BorderRadius.circular(5),
                         fieldHeight: 50,
                         fieldWidth: 40,
-                        activeFillColor: AppColors.dark_primary,
+                        activeFillColor: _theme.colorScheme.primary,
                         inactiveFillColor: AppColors.white),
                     cursorColor: Colors.black,
                     animationDuration: const Duration(milliseconds: 300),
@@ -327,7 +329,8 @@ class _ForgotPasswordPageState
               children: [
                 Text(
                   "did_not_receive_code".i18n(),
-                  style: const TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(
+                      color: _theme.colorScheme.surfaceVariant, fontSize: 15),
                 ),
                 TextButton(
                   onPressed: () {}, // => snackBar("OTP resend!!"),
