@@ -16,12 +16,13 @@ class ForgotPasswordPage extends StatefulWidget {
 
 class _ForgotPasswordPageState
     extends ModularState<ForgotPasswordPage, ForgotPasswordViewModel> {
-  late ThemeData _theme = getTheme();
   final _viewModel = Modular.get<ForgotPasswordViewModel>();
   bool _passwordVisibility = false;
   bool _passwordConfirmationVisibility = false;
   bool codeSended = false;
   bool _pinVerified = false;
+  late ThemeData _theme;
+  bool darkModeOn = false;
 
   TextEditingController textEditingController = TextEditingController();
   StreamController<ErrorAnimationType>? errorController;
@@ -70,19 +71,30 @@ class _ForgotPasswordPageState
           onTap: () async {
             Modular.to.navigate('/login');
           },
-          child: const Icon(
+          child: Icon(
             Icons.chevron_left_rounded,
-            color: Colors.white,
+            color: _theme.colorScheme.primaryContainer,
             size: 32,
           ),
         ),
         title: Text(
           'forgot_password_title'.i18n(),
-          style: getTheme().textTheme.subtitle2,
+          style: _theme.textTheme.subtitle2,
         ),
         actions: [],
         centerTitle: false,
         elevation: 0,
+      );
+
+  Widget get _userForm => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.66,
+        width: MediaQuery.of(context).size.width * 0.8,
+        child: Column(
+          children: [
+            _emailTextField,
+            _sendLinkButton,
+          ],
+        ),
       );
 
   Widget get _sendPinScreen => SingleChildScrollView(
@@ -99,8 +111,7 @@ class _ForgotPasswordPageState
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                _emailTextField,
-                _sendLinkButton,
+                _userForm,
                 _baseboardImage,
               ],
             ),
@@ -122,17 +133,17 @@ class _ForgotPasswordPageState
                 hintText: 'recovery_email_hint'.i18n(),
                 hintStyle: _theme.textTheme.bodyText2,
                 filled: true,
-                fillColor: const Color(0xFF14181B),
+                fillColor: _theme.colorScheme.onBackground,
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: const BorderSide(
-                    color: AppColors.dark_foreground,
+                  borderSide: BorderSide(
+                    color: _theme.colorScheme.onBackground,
                     width: 20,
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: AppColors.black, width: 20),
+                  borderSide: BorderSide(
+                      color: _theme.colorScheme.primaryContainer, width: 20),
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
@@ -152,7 +163,7 @@ class _ForgotPasswordPageState
       );
 
   Widget get _sendLinkButton => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 230),
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
         child: ElevatedButton(
           child: Text('send_reset_link'.i18n()),
           onPressed: () {
@@ -174,29 +185,29 @@ class _ForgotPasswordPageState
             build(context); */
           },
           style: ElevatedButton.styleFrom(
-            textStyle: getTheme().textTheme.subtitle2,
+            textStyle: _theme.textTheme.subtitle2,
             primary: _theme.colorScheme.primary,
-            fixedSize: const Size(300, 50),
+            fixedSize: const Size(320, 50),
             shape: const StadiumBorder(),
           ),
         ),
       );
-  Widget get _baseboardImage => Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-        child: Center(
-          child: Container(
-            width: 1125,
-            height: 170,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image:
-                    AssetImage("lib/assets/images/launchScreenBottonImage.png"),
-                fit: BoxFit.cover,
-              ),
-            ),
+
+  Widget get _baseboardImage => darkModeOn
+      ? SizedBox(
+          height: MediaQuery.of(context).size.height * 0.27,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            'lib/assets/images/launchScreenBottonImage.png',
           ),
-        ),
-      );
+        )
+      : SizedBox(
+          height: MediaQuery.of(context).size.height * 0.27,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            'lib/assets/images/launchScreenBottonImage_light.png',
+          ),
+        );
 
   Widget get _pinVerificationScreen => SizedBox(
         height: MediaQuery.of(context).size.height,
@@ -348,9 +359,9 @@ class _ForgotPasswordPageState
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  textStyle: getTheme().textTheme.subtitle2,
+                  textStyle: _theme.textTheme.subtitle2,
                   primary: _theme.colorScheme.primary,
-                  fixedSize: const Size(300, 50),
+                  fixedSize: const Size(320, 50),
                   shape: const StadiumBorder(),
                 ),
               ),
@@ -380,24 +391,7 @@ class _ForgotPasswordPageState
           ),
         ),
       );
-  Widget get _userForm => Column(children: [
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 30, 0),
-          child: _resetPasswordScreenTitle,
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 30, 0),
-          child: _choosePasswordTextField,
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 30, 15),
-          child: _confirmPasswordTextField,
-        ),
-        Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-          child: _resetPasswordButton,
-        ),
-      ]);
+
   Widget get _resetPasswordScreenTitle => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(12, 42, 12, 50),
         child: Text(
@@ -492,9 +486,9 @@ class _ForgotPasswordPageState
             _viewModel.resetPassword();
           },
           style: ElevatedButton.styleFrom(
-            textStyle: getTheme().textTheme.subtitle2,
+            textStyle: _theme.textTheme.subtitle2,
             primary: _theme.colorScheme.primary,
-            fixedSize: const Size(300, 50),
+            fixedSize: const Size(320, 50),
             shape: const StadiumBorder(),
           ),
         ),
@@ -502,6 +496,8 @@ class _ForgotPasswordPageState
 
   @override
   Widget build(BuildContext context) {
+    _theme = Theme.of(context);
+    darkModeOn = _theme.brightness == Brightness.dark;
     return Scaffold(
         backgroundColor: _theme.colorScheme.background,
         appBar: _appBar,

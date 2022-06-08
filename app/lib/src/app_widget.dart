@@ -15,6 +15,8 @@ class AppWidget extends StatelessWidget {
     return MaterialApp.router(
       scrollBehavior: AppScrollBehavior(),
       title: 'app_name'.i18n(),
+      theme: getLightTheme(),
+      darkTheme: getDarkTheme(),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

@@ -16,6 +16,7 @@ class Onboarding extends StatefulWidget {
 
 class _OnboardingWidgetState extends State<Onboarding> {
   //PageController pageViewController;
+  late ThemeData _theme;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _pageIndicatorController =
       PageController(initialPage: 0, viewportFraction: 0.8, keepPage: true);
@@ -34,7 +35,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'onboard_title_one'.i18n(),
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.white,
+            color: _theme.colorScheme.surface,
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
@@ -46,7 +47,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'Mussum Ipsum, cacilds vidis litro abertis.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.Mé faiz elementum girarzis, nisi eros vermeio.Si num tem leite então bota uma pinga aí cumpadi!',
           style: TextStyle(
             fontFamily: 'Nunito',
-            color: Color(0xFF95A1AC),
+            color: _theme.colorScheme.surfaceVariant,
             fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
@@ -79,7 +80,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'onboard_title_two'.i18n(),
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.white,
+            color: _theme.colorScheme.surface,
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
@@ -91,7 +92,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
           style: TextStyle(
             fontFamily: 'Nunito',
-            color: Color(0xFF95A1AC),
+            color: _theme.colorScheme.surfaceVariant,
             fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
@@ -126,7 +127,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'slogan'.i18n(),
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.white,
+            color: _theme.colorScheme.surface,
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
@@ -138,7 +139,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
           style: TextStyle(
             fontFamily: 'Nunito',
-            color: Color(0xFF95A1AC),
+            color: _theme.colorScheme.surfaceVariant,
             fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
@@ -183,7 +184,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
           style: TextStyle(
             fontFamily: 'Nunito',
-            color: Color(0xFF95A1AC),
+            color: _theme.colorScheme.surfaceVariant,
             fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
@@ -195,7 +196,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo.',
           style: TextStyle(
             fontFamily: 'Nunito',
-            color: Color(0xFF95A1AC),
+            color: _theme.colorScheme.surfaceVariant,
             fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
@@ -222,7 +223,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
             'JobZilla',
             style: TextStyle(
               fontFamily: 'Poppins',
-              color: Colors.white,
+              color: _theme.colorScheme.surface,
               fontSize: 36,
               fontWeight: FontWeight.w400,
             ),
@@ -245,7 +246,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
           'slogan'.i18n(),
           style: TextStyle(
             fontFamily: 'Poppins',
-            color: Colors.white,
+            color: _theme.colorScheme.surface,
             fontSize: 18,
             fontWeight: FontWeight.w400,
           ),
@@ -257,8 +258,8 @@ class _OnboardingWidgetState extends State<Onboarding> {
           Modular.to.navigate("/login");
         },
         style: ElevatedButton.styleFrom(
-          textStyle: getTheme().textTheme.subtitle2,
-          primary: getTheme().colorScheme.primary,
+          textStyle: _theme.textTheme.subtitle2,
+          primary: _theme.colorScheme.primary,
           fixedSize: const Size(300, 50),
           shape: const StadiumBorder(),
         ),
@@ -299,7 +300,7 @@ class _OnboardingWidgetState extends State<Onboarding> {
               dotWidth: 16,
               dotHeight: 4,
               dotColor: Color(0xFF22282F),
-              activeDotColor: AppColors.dark_primary,
+              activeDotColor: _theme.colorScheme.primary,
               paintStyle: PaintingStyle.fill,
             ),
           ),
@@ -308,9 +309,10 @@ class _OnboardingWidgetState extends State<Onboarding> {
 
   @override
   Widget build(BuildContext context) {
+    _theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF1A1F24),
+      backgroundColor: _theme.colorScheme.background,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),

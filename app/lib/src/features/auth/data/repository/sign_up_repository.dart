@@ -11,7 +11,7 @@ class SignUpRepository implements ISignUp {
     print(user.username);
     print(user.password);
     final response = await Dio().post(
-      'https://gq0o9.mocklab.io/signup',
+      'http://ol0ll.mocklab.io/signup',
       data: dto.toJson(),
     );
     print(response);
