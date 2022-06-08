@@ -9,15 +9,16 @@ class SignUpRepository implements ISignUp {
   Future<User> signUp(User user) async {
     final dto = UserDto.fromDomain(user);
     print(user.username);
+    print(user.email);
     print(user.password);
     final response = await Dio().post(
-      'http://ol0ll.mocklab.io/signup',
+      'http://10.0.0.102:8080/api/v1/auth/signup',
       data: dto.toJson(),
     );
     print(response);
-    if (response.statusCode == 201) {
+    if (response.statusCode == 200) {
       final token = response.headers.value('Authorization');
-      final domain = User(user.username, null, token: token);
+      final domain = User(user.username, null, user.email, token: token);
       return Future.value(domain);
     } else {
       throw Exception("Erro ao criar o usuário");

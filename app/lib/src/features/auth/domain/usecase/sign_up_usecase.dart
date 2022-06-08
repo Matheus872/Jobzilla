@@ -15,6 +15,16 @@ class SignUpUseCase {
     return null;
   }
 
+  String validateEmail(String email) {
+    if (email.isEmpty) {
+      return 'email_required'.i18n();
+    }
+    if (!email.contains('@')) {
+      return 'email_not_valid'.i18n();
+    }
+    return " ";
+  }
+
   String? validatePassword(String password) {
     if (password.isEmpty) {
       return 'password_required'.i18n();
@@ -37,7 +47,11 @@ class SignUpUseCase {
     return null;
   }
 
-  Future<User?> signUp(String username, String password) {
-    return repository.signUp(User(username, password));
+  Future<User?> signUp(String username, String email, String password) {
+    return repository.signUp(User(
+      username,
+      password,
+      email,
+    ));
   }
 }

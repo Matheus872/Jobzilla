@@ -2,7 +2,8 @@
     "app_name" : "JobZilla",
     "slogan": "Procurar emprego não precisa ser assustador",
 
-    "username_hint": "Endereço de e-mail",
+    "username_hint": "Nome de usuário",
+    "email_hint": "Endereço de e-mail",
     "password_hint": "Senha",
     "login": "Entrar",
     "create_account_label": "Não tem uma conta?",
@@ -47,7 +48,6 @@
     "phone": "Telefone",
     "phone_hint": "Informe o seu telefone",
     "email": "E-mail",
-    "email_hint":"Informe o seu e-mail",
     "create_password_hint": "Informe a sua senha",
     "save": "Salvar",
     "create_user": "Cadastro",

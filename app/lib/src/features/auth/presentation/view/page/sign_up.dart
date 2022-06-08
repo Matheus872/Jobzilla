@@ -18,16 +18,16 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
   bool darkModeOn = false;
   final _viewModel = Modular.get<SignUpViewModel>();
 
-  final _usernameTextFieldController = TextEditingController();
+  final _emailTextFieldController = TextEditingController();
   final _passwordTextFieldController = TextEditingController();
   bool _passwordVisibility = false;
   bool _passwordConfirmationVisibility = false;
 
   Widget get _headerImage => darkModeOn
       ? Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 40),
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.2,
             width: MediaQuery.of(context).size.width * 0.8,
             child: Image.asset(
               'lib/assets/images/logo.png',
@@ -36,9 +36,9 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
           ),
         )
       : Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 40),
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.2,
             width: MediaQuery.of(context).size.width * 0.8,
             child: Image.asset(
               'lib/assets/images/logo_light.png',
@@ -50,6 +50,10 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
         child: Column(children: [
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            child: _usernameTextField,
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
             child: _emailTextField,
           ),
           Padding(
@@ -78,14 +82,41 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
           ),
         ]),
       );
+
+  Widget get _usernameTextField => TextFormField(
+        obscureText: false,
+        style: _theme.textTheme.bodyText2,
+        textAlign: TextAlign.start,
+        keyboardType: TextInputType.name,
+        onChanged: (value) => _viewModel.username = value,
+        decoration: InputDecoration(
+          hintText: 'username_hint'.i18n(),
+          hintStyle: _theme.textTheme.bodyText2,
+          filled: true,
+          fillColor: _theme.colorScheme.onBackground,
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: _theme.colorScheme.onBackground,
+              width: 20,
+            ),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          focusedBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+                color: _theme.colorScheme.primaryContainer, width: 20),
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      );
+
   Widget get _emailTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value) => _viewModel.username = value,
+        onChanged: (value) => _viewModel.email = value,
         decoration: InputDecoration(
-          hintText: 'username_hint'.i18n(),
+          hintText: 'email_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,

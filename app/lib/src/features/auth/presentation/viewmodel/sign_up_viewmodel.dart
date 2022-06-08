@@ -16,6 +16,9 @@ abstract class _SignUpViewModelBase with Store {
   String username = '';
 
   @observable
+  String email = '';
+
+  @observable
   String password = '';
 
   @observable
@@ -31,6 +34,17 @@ abstract class _SignUpViewModelBase with Store {
   @action
   void validateUsername() {
     error.username = _usecase.validateUsername(username);
+  }
+
+  @action
+  void validateEmail() {
+    error.email = _usecase.validateEmail(email);
+  }
+
+  @action
+  String validateEmailMessage() {
+    validateEmail();
+    return error.email;
   }
 
   @action
@@ -55,6 +69,7 @@ abstract class _SignUpViewModelBase with Store {
     error.clear();
 
     validateUsername();
+    validateEmail();
     validatePassword();
     validatePasswordConfirmation();
     validatePasswordConfirmationEqualPassword();
@@ -62,12 +77,13 @@ abstract class _SignUpViewModelBase with Store {
     if (!error.hasErrors) {
       isLoading = true;
       try {
-        User? response = (await _usecase.signUp(username, password));
+        User? response = (await _usecase.signUp(username, email, password));
         if (response != null) {
           _signedUp();
         }
       } catch (e) {
         error.signUp = "erro ${e.toString()}";
+        print(error.signUp);
       } finally {
         isLoading = false;
       }
@@ -89,6 +105,9 @@ abstract class _SignUpErrorBase with Store {
   String? username;
 
   @observable
+  String email = '';
+
+  @observable
   String? password;
 
   @observable
@@ -103,6 +122,7 @@ abstract class _SignUpErrorBase with Store {
   @computed
   bool get hasErrors =>
       username != null ||
+      email != " " ||
       password != null ||
       passwordConfirmation != null ||
       passwordConfirmationEquality != null ||

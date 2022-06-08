@@ -50,6 +50,7 @@ abstract class _LoginViewModelBase with Store {
         }
       } catch (e) {
         error.login = "erro ${e.toString()}";
+        isLoading = false;
       } finally {
         isLoading = false;
       }
