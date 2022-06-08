@@ -227,7 +227,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
     return Scaffold(
       backgroundColor: _theme.colorScheme.background,
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        //physics: NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),

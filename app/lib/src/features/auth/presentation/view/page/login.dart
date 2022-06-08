@@ -72,7 +72,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
             child: _loginButton,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 10, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
             child: Row(
               children: [
                 _createAccountLabel,
@@ -215,7 +215,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginViewModel> {
     return Scaffold(
       backgroundColor: _theme.colorScheme.background,
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        //physics: NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: GestureDetector(
             onTap: () {
