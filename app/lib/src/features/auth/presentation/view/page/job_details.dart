@@ -13,7 +13,7 @@ class JobDetailsPage extends StatefulWidget {
 
 class _JobDetailsPageState
     extends ModularState<JobDetailsPage, LoginViewModel> {
-  late ThemeData _theme = ThemeData();
+  late ThemeData _theme;
   bool _isChecked = false;
 
   Widget get _topSection => Container(
@@ -60,9 +60,9 @@ class _JobDetailsPageState
           size: 15,
         ),
         style: ElevatedButton.styleFrom(
-          shape: CircleBorder(),
-          padding: EdgeInsets.all(15),
-          primary: AppColors.white,
+          shape: const CircleBorder(),
+          padding: const EdgeInsets.all(15),
+          primary: _theme.colorScheme.secondaryContainer,
         ),
       );
   Widget get _pageLabel => Padding(
@@ -72,7 +72,7 @@ class _JobDetailsPageState
           style: TextStyle(
             fontFamily: 'Questrial',
             fontSize: 14,
-            color: AppColors.black,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
@@ -83,7 +83,7 @@ class _JobDetailsPageState
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 20,
-            color: AppColors.black,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
@@ -94,25 +94,25 @@ class _JobDetailsPageState
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 12,
-            color: AppColors.black,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
 
   Widget get _bottonSection => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0, 190, 0, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 190, 0, 0),
         child: Container(
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: _theme.colorScheme.background,
             boxShadow: [
               BoxShadow(
                 blurRadius: 4,
-                color: Color(0x5B000000),
-                offset: Offset(0, -2),
+                color: _theme.colorScheme.shadow,
+                offset: const Offset(0, -2),
               )
             ],
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0),
               bottomRight: Radius.circular(0),
               topLeft: Radius.circular(20),
@@ -142,14 +142,14 @@ class _JobDetailsPageState
         ),
       );
   Widget get _companyTitle => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(25, 12, 0, 5),
+        padding: const EdgeInsetsDirectional.fromSTEB(25, 12, 0, 5),
         child: Text(
           'IBM enterprise business job',
           textAlign: TextAlign.start,
           style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 18,
-            color: AppColors.black,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
@@ -163,7 +163,7 @@ class _JobDetailsPageState
               width: 45,
               height: 45,
               clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
               ),
               child: Image.asset(
@@ -174,10 +174,10 @@ class _JobDetailsPageState
               padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
               child: Text(
                 'Senior',
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 16,
-                  color: AppColors.dark_textIcons,
+                  color: _theme.colorScheme.surfaceVariant,
                 ),
               ),
             ),
@@ -192,17 +192,17 @@ class _JobDetailsPageState
           children: [
             Icon(
               Icons.work_rounded,
-              color: AppColors.black,
+              color: _theme.colorScheme.surface,
               size: 25,
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(5, 3, 0, 0),
               child: Text(
                 'Tempo integral',
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Questrial',
                   fontSize: 16,
-                  color: AppColors.dark_textIcons,
+                  color: _theme.colorScheme.surfaceVariant,
                 ),
               ),
             ),
@@ -210,7 +210,7 @@ class _JobDetailsPageState
               padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
               child: Icon(
                 Icons.place,
-                color: AppColors.black,
+                color: _theme.colorScheme.surface,
                 size: 25,
               ),
             ),
@@ -218,10 +218,10 @@ class _JobDetailsPageState
               padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
               child: Text(
                 'Escritório IBM',
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Questrial',
                   fontSize: 16,
-                  color: AppColors.dark_textIcons,
+                  color: _theme.colorScheme.surfaceVariant,
                 ),
               ),
             ),
@@ -236,17 +236,17 @@ class _JobDetailsPageState
           children: [
             Icon(
               Icons.attach_money,
-              color: AppColors.black,
+              color: _theme.colorScheme.surface,
               size: 25,
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
               child: Text(
                 'Faixa salarial: R\$ 2.000,00',
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Questrial',
                   fontSize: 16,
-                  color: AppColors.dark_textIcons,
+                  color: _theme.colorScheme.surfaceVariant,
                 ),
               ),
             ),
@@ -261,17 +261,17 @@ class _JobDetailsPageState
           children: [
             Icon(
               Icons.card_giftcard_rounded,
-              color: AppColors.black,
+              color: _theme.colorScheme.surface,
               size: 25,
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(3, 0, 0, 0),
               child: Text(
                 'Benefícios: Vale transporte mensal',
-                style: const TextStyle(
+                style: TextStyle(
                   fontFamily: 'Questrial',
                   fontSize: 16,
-                  color: AppColors.dark_textIcons,
+                  color: _theme.colorScheme.surfaceVariant,
                 ),
               ),
             ),
@@ -284,7 +284,7 @@ class _JobDetailsPageState
         child: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Color(0xFFDBE2E7),
+              color: _theme.colorScheme.onBackground, //Color(0xFFDBE2E7),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
@@ -299,10 +299,10 @@ class _JobDetailsPageState
         padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
         child: Text(
           'job_description'.i18n(),
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 12,
-            color: AppColors.dark_textIcons,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
@@ -310,10 +310,10 @@ class _JobDetailsPageState
         padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
         child: Text(
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 12,
-            color: AppColors.black,
+            color: _theme.colorScheme.surfaceVariant,
           ),
         ),
       );
@@ -323,7 +323,7 @@ class _JobDetailsPageState
         child: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Color(0xFFDBE2E7),
+              color: _theme.colorScheme.onBackground, //Color(0xFFDBE2E7),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
@@ -338,10 +338,10 @@ class _JobDetailsPageState
         padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
         child: Text(
           'job_details'.i18n(),
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 12,
-            color: AppColors.dark_textIcons,
+            color: _theme.colorScheme.surface,
           ),
         ),
       );
@@ -349,10 +349,10 @@ class _JobDetailsPageState
         padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
         child: Text(
           'Mussum Ipsum, cacilds vidis litro abertis. In elementis mé pra quem é amistosis quis leo. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis.',
-          style: const TextStyle(
+          style: TextStyle(
             fontFamily: 'Poppins',
             fontSize: 12,
-            color: AppColors.black,
+            color: _theme.colorScheme.surfaceVariant,
           ),
         ),
       );
@@ -373,7 +373,7 @@ class _JobDetailsPageState
         child: Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Color(0xFFDBE2E7),
+              color: _theme.colorScheme.onBackground, //Color(0xFFDBE2E7),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
@@ -383,8 +383,9 @@ class _JobDetailsPageState
       );
   Widget get _localizationCardImage => Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-        child: Container(
-          //height: 200,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height * 0.25,
+          width: MediaQuery.of(context).size.width * 0.9,
           child: GestureDetector(
             onTap: () {
               Modular.to.navigate('/localization');
@@ -405,17 +406,17 @@ class _JobDetailsPageState
               children: [
                 Icon(
                   Icons.supervisor_account,
-                  color: AppColors.black,
+                  color: _theme.colorScheme.surface,
                   size: 30,
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                   child: Text(
                     'Contato: ',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Questrial',
                       fontSize: 16,
-                      color: AppColors.dark_textIcons,
+                      color: _theme.colorScheme.surfaceVariant,
                     ),
                   ),
                 ),
@@ -427,10 +428,10 @@ class _JobDetailsPageState
                 children: [
                   Text(
                     'Nome: Thais Cristina',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Questrial',
                       fontSize: 16,
-                      color: AppColors.dark_textIcons,
+                      color: _theme.colorScheme.surfaceVariant,
                     ),
                   ),
                 ],
@@ -442,10 +443,10 @@ class _JobDetailsPageState
                 children: [
                   Text(
                     'Departamento: RH',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Questrial',
                       fontSize: 16,
-                      color: AppColors.dark_textIcons,
+                      color: _theme.colorScheme.surfaceVariant,
                     ),
                   ),
                 ],
@@ -466,7 +467,7 @@ class _JobDetailsPageState
         ),
       );
   Widget get _sendPitchVideo => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(15, 0, 5, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 5, 0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -481,10 +482,10 @@ class _JobDetailsPageState
             ),
             Text(
               'Enviar vídeo de apresentação',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Questrial',
                 fontSize: 16,
-                color: AppColors.dark_textIcons,
+                color: _theme.colorScheme.surfaceVariant,
               ),
             ),
           ],
@@ -507,6 +508,7 @@ class _JobDetailsPageState
 
   @override
   Widget build(BuildContext context) {
+    _theme = Theme.of(context);
     return Scaffold(
       backgroundColor: _theme.colorScheme.background,
       body: SingleChildScrollView(

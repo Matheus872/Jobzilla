@@ -24,6 +24,21 @@ mixin _$SignUpViewModel on _SignUpViewModelBase, Store {
     });
   }
 
+  final _$emailAtom = Atom(name: '_SignUpViewModelBase.email');
+
+  @override
+  String get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
+    });
+  }
+
   final _$passwordAtom = Atom(name: '_SignUpViewModelBase.password');
 
   @override
@@ -86,6 +101,28 @@ mixin _$SignUpViewModel on _SignUpViewModelBase, Store {
   }
 
   @override
+  void validateEmail() {
+    final _$actionInfo = _$_SignUpViewModelBaseActionController.startAction(
+        name: '_SignUpViewModelBase.validateEmail');
+    try {
+      return super.validateEmail();
+    } finally {
+      _$_SignUpViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  String validateEmailMessage() {
+    final _$actionInfo = _$_SignUpViewModelBaseActionController.startAction(
+        name: '_SignUpViewModelBase.validateEmailMessage');
+    try {
+      return super.validateEmailMessage();
+    } finally {
+      _$_SignUpViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void validatePassword() {
     final _$actionInfo = _$_SignUpViewModelBaseActionController.startAction(
         name: '_SignUpViewModelBase.validatePassword');
@@ -122,6 +159,7 @@ mixin _$SignUpViewModel on _SignUpViewModelBase, Store {
   String toString() {
     return '''
 username: ${username},
+email: ${email},
 password: ${password},
 passwordConfirmation: ${passwordConfirmation},
 isLoading: ${isLoading}
@@ -150,6 +188,21 @@ mixin _$SignUpError on _SignUpErrorBase, Store {
   set username(String? value) {
     _$usernameAtom.reportWrite(value, super.username, () {
       super.username = value;
+    });
+  }
+
+  final _$emailAtom = Atom(name: '_SignUpErrorBase.email');
+
+  @override
+  String get email {
+    _$emailAtom.reportRead();
+    return super.email;
+  }
+
+  @override
+  set email(String value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
     });
   }
 
@@ -221,6 +274,7 @@ mixin _$SignUpError on _SignUpErrorBase, Store {
   String toString() {
     return '''
 username: ${username},
+email: ${email},
 password: ${password},
 passwordConfirmation: ${passwordConfirmation},
 passwordConfirmationEquality: ${passwordConfirmationEquality},

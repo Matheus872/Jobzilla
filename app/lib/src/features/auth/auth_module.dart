@@ -1,11 +1,13 @@
 import 'package:basearch/src/features/auth/domain/repository/forgot_password_interface.dart';
 import 'package:basearch/src/features/auth/domain/repository/sign_up_interface.dart';
+import 'package:basearch/src/features/auth/presentation/view/page/profile_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/sign_up.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/forgot_password.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/home.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_localization.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/forgot_password_viewmodel.dart';
+import 'package:basearch/src/features/auth/presentation/viewmodel/profile_details_viewmodel.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/sign_up_viewmodel.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -16,6 +18,7 @@ import 'data/repository/sign_up_repository.dart';
 import 'domain/repository/login_interface.dart';
 import 'domain/usecase/forgot_password_usecase.dart';
 import 'domain/usecase/login_usecase.dart';
+import 'domain/usecase/profile_details_usecase.dart';
 import 'domain/usecase/sign_up_usecase.dart';
 import 'presentation/view/page/login.dart';
 import 'presentation/viewmodel/login_viewmodel.dart';
@@ -32,6 +35,8 @@ class AuthModule extends Module {
         Bind.factory((i) => ForgotPasswordViewModel()),
         Bind.factory((i) => ForgotPasswordUseCase()),
         Bind.factory<IForgotPassword>((i) => ForgotPasswordRepository()),
+        Bind.factory((i) => ProfileDetailsViewModel()),
+        Bind.factory((i) => ProfileDetailsUseCase()),
       ];
 
   @override
@@ -50,5 +55,7 @@ class AuthModule extends Module {
                 ),
             children: []),
         ChildRoute('/home', child: (_, __) => const homePage(), children: []),
+        ChildRoute('/profile',
+            child: (_, __) => const ProfileDetailsPage(), children: []),
       ];
 }

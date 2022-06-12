@@ -17,6 +17,7 @@ class AppColors {
   //Dark theme
   static const dark_background = Color(0xfff090f13);
   static const dark_foreground = Color(0xfff14181b);
+  static const dark_foregroundVariant = Color(0xfff2a3339);
   static const dark_primary = Color(0xfff4B39EF);
   static const dark_primaryDark = Color(0xfff372ab4);
   static const dark_primaryLight = Color(0xfff7a63ff);
@@ -83,20 +84,20 @@ TextStyle get _bodyText2 => const TextStyle(
 ThemeData getLightTheme() {
   final light = ThemeData.light().copyWith(
     colorScheme: const ColorScheme.light().copyWith(
-      background: AppColors.light_background,
-      primary: AppColors.light_accent,
-      onPrimary: AppColors.black,
-      primaryContainer: AppColors.light_primaryDark,
-      onPrimaryContainer: AppColors.light_primaryText,
-      secondary: AppColors.light_secondaryText,
-      tertiary: AppColors.light_primary,
-      onTertiary: AppColors.light_textIcons,
-      onBackground: AppColors.light_foreground,
-      surface: AppColors.light_primaryText,
-      surfaceVariant: AppColors.light_secondaryText,
-      shadow: const Color(0x33000000),
-      outline: AppColors.black,
-    ),
+        background: AppColors.light_background,
+        primary: AppColors.light_accent,
+        onPrimary: AppColors.black,
+        primaryContainer: AppColors.light_primaryDark,
+        onPrimaryContainer: AppColors.light_primaryText,
+        secondary: AppColors.light_secondaryText,
+        tertiary: Color(0xFFDBE2E7),
+        onTertiary: AppColors.light_textIcons,
+        onBackground: AppColors.light_foreground,
+        surface: AppColors.light_primaryText,
+        surfaceVariant: AppColors.light_secondaryText,
+        shadow: const Color(0x33000000),
+        outline: AppColors.black,
+        secondaryContainer: AppColors.white),
     textTheme: const TextTheme(
       bodyText2: TextStyle(
         fontSize: 14,
@@ -133,20 +134,20 @@ ThemeData getLightTheme() {
 ThemeData getDarkTheme() {
   final dark = ThemeData.dark().copyWith(
     colorScheme: const ColorScheme.dark().copyWith(
-      background: AppColors.dark_background,
-      primary: AppColors.dark_primary,
-      onPrimary: AppColors.dark_textIcons,
-      primaryContainer: AppColors.dark_textIcons,
-      onPrimaryContainer: AppColors.dark_primaryText,
-      secondary: AppColors.dark_secondaryText,
-      tertiary: AppColors.dark_accent,
-      onTertiary: AppColors.dark_textIcons,
-      onBackground: AppColors.dark_foreground,
-      surface: AppColors.dark_divider,
-      surfaceVariant: AppColors.dark_secondaryText,
-      shadow: AppColors.dark_secondaryText,
-      outline: AppColors.white,
-    ),
+        background: AppColors.dark_background,
+        primary: AppColors.dark_primary,
+        onPrimary: AppColors.dark_textIcons,
+        primaryContainer: AppColors.dark_textIcons,
+        onPrimaryContainer: AppColors.dark_primaryText,
+        secondary: AppColors.dark_secondaryText,
+        tertiary: Color(0xFFDBE2E7),
+        onTertiary: AppColors.dark_textIcons,
+        onBackground: AppColors.dark_foreground,
+        surface: AppColors.dark_divider,
+        surfaceVariant: AppColors.dark_secondaryText,
+        shadow: AppColors.dark_secondaryText,
+        outline: AppColors.white,
+        secondaryContainer: AppColors.dark_foregroundVariant),
     textTheme: const TextTheme(
       bodyText2: TextStyle(
         fontSize: 14,

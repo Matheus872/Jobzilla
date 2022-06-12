@@ -3,7 +3,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../theme.dart';
 import '../../viewmodel/login_viewmodel.dart';
 import 'package:localization/localization.dart';
-import 'package:graphic/graphic.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -41,16 +40,19 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
           ],
         ),
       );
-  Widget get _userHeaderImage => Align(
-        child: Container(
-          width: 60,
-          height: 60,
-          clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-          ),
-          child: Image.asset(
-            'lib/assets/images/user.png',
+  Widget get _userHeaderImage => GestureDetector(
+        onTap: () => Modular.to.navigate('/profile'),
+        child: Align(
+          child: Container(
+            width: 60,
+            height: 60,
+            clipBehavior: Clip.antiAlias,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+            ),
+            child: Image.asset(
+              'lib/assets/images/user.png',
+            ),
           ),
         ),
       );
@@ -117,7 +119,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
       ? Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 10),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.22,
             width: MediaQuery.of(context).size.width * 0.85,
             child: GestureDetector(
               onTap: () {},
@@ -138,7 +140,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
       : Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 10),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.22,
             width: MediaQuery.of(context).size.width * 0.85,
             child: GestureDetector(
               onTap: () {},
@@ -190,7 +192,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 150,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: _theme.colorScheme.onBackground,
+                  color: _theme.colorScheme.secondaryContainer,
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: Image.asset(
@@ -200,11 +202,11 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
-                      offset: Offset(0, 2),
+                      color: _theme.colorScheme.shadow,
+                      offset: const Offset(0, 2),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(0),
                     topLeft: Radius.circular(8),
@@ -216,15 +218,15 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 175,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: _theme.colorScheme.onBackground,
+                  color: _theme.colorScheme.secondaryContainer,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
-                      offset: Offset(0, 2),
+                      color: _theme.colorScheme.shadow,
+                      offset: const Offset(0, 2),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(0),
                     bottomRight: Radius.circular(8),
                     topLeft: Radius.circular(0),
@@ -411,7 +413,7 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 150,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: _theme.colorScheme.onBackground,
+                  color: _theme.colorScheme.secondaryContainer,
                   image: DecorationImage(
                     fit: BoxFit.fill,
                     image: Image.asset(
@@ -421,11 +423,11 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
-                      offset: Offset(0, 2),
+                      color: _theme.colorScheme.shadow,
+                      offset: const Offset(0, 2),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(0),
                     topLeft: Radius.circular(8),
@@ -437,15 +439,15 @@ class _homePageState extends ModularState<homePage, LoginViewModel> {
                 width: 175,
                 height: 140,
                 decoration: BoxDecoration(
-                  color: _theme.colorScheme.onBackground,
+                  color: _theme.colorScheme.secondaryContainer,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 3,
-                      color: Color(0x33000000),
-                      offset: Offset(0, 2),
+                      color: _theme.colorScheme.shadow,
+                      offset: const Offset(0, 2),
                     )
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(0),
                     bottomRight: Radius.circular(8),
                     topLeft: Radius.circular(0),
