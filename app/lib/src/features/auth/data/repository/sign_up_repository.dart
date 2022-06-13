@@ -12,7 +12,7 @@ class SignUpRepository implements ISignUp {
     print(user.email);
     print(user.password);
     final response = await Dio().post(
-      'http://10.0.0.102:8080/api/v1/auth/signup',
+      'https://jobzillaapp.herokuapp.com/api/v1/auth/signup',
       data: dto.toJson(),
     );
     print(response);

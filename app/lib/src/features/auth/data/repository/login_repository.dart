@@ -9,7 +9,7 @@ class LoginRepository implements ILogin {
   Future<User> login(User user) async {
     final dto = UserDto.fromDomain(user);
     final response = await Dio().post(
-      'http://10.0.0.102:8080/api/v1/auth/signin',
+      'https://jobzillaapp.herokuapp.com/api/v1/auth/signin',
       data: dto.toJson(),
     );
     print(response);
