@@ -34,7 +34,7 @@ abstract class _SignUpViewModelBase with Store {
     profileType == 1
         ? Modular.to.navigate('/home')
         : profileType == 2
-            ? Modular.to.navigate('/job')
+            ? Modular.to.navigate('/companyhome')
             : print("Tipo de perfil inválido");
   }
 

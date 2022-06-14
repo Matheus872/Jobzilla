@@ -27,7 +27,7 @@ abstract class _LoginViewModelBase with Store {
     profiletype == 1
         ? Modular.to.navigate('/home')
         : profiletype == 2
-            ? Modular.to.navigate('/job')
+            ? Modular.to.navigate('/companyhome')
             : print("Tipo de perfil inválido");
   }
 

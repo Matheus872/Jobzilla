@@ -71,6 +71,21 @@ mixin _$SignUpViewModel on _SignUpViewModelBase, Store {
     });
   }
 
+  final _$profileTypeAtom = Atom(name: '_SignUpViewModelBase.profileType');
+
+  @override
+  int get profileType {
+    _$profileTypeAtom.reportRead();
+    return super.profileType;
+  }
+
+  @override
+  set profileType(int value) {
+    _$profileTypeAtom.reportWrite(value, super.profileType, () {
+      super.profileType = value;
+    });
+  }
+
   final _$isLoadingAtom = Atom(name: '_SignUpViewModelBase.isLoading');
 
   @override
@@ -162,6 +177,7 @@ username: ${username},
 email: ${email},
 password: ${password},
 passwordConfirmation: ${passwordConfirmation},
+profileType: ${profileType},
 isLoading: ${isLoading}
     ''';
   }
