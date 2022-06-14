@@ -17,6 +17,8 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
   late ThemeData _theme;
   bool darkModeOn = false;
   final _viewModel = Modular.get<SignUpViewModel>();
+  bool _value = false;
+  int val = -1;
 
   final _emailTextFieldController = TextEditingController();
   final _passwordTextFieldController = TextEditingController();
@@ -25,7 +27,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
 
   Widget get _headerImage => darkModeOn
       ? Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width * 0.8,
@@ -36,7 +38,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
           ),
         )
       : Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width * 0.8,
@@ -45,6 +47,7 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
             ),
           ),
         );
+
   Widget get _userForm => SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
         child: Column(children: [
@@ -61,11 +64,19 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
             child: _choosePasswordTextField,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 15),
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 20),
             child: _confirmPasswordTextField,
           ),
           Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+            child: _profileTypeLabel,
+          ),
+          Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+            child: _radioButtons,
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
             child: _createAccountButton,
           ),
           Padding(
@@ -73,16 +84,18 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
             child: Row(
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 10, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20, 10, 10, 0),
                   child: _haveAccountLabel,
                 ),
-                _haveAccountButton,
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 10, 0),
+                  child: _haveAccountButton,
+                ),
               ],
             ),
           ),
         ]),
       );
-
   Widget get _usernameTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
@@ -108,7 +121,6 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
           ),
         ),
       );
-
   Widget get _emailTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
@@ -209,6 +221,57 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
           ),
         ),
       );
+  Widget get _profileTypeLabel => Text(
+        'profile_type_label'.i18n(),
+        style: _theme.textTheme.overline,
+      );
+  Widget get _radioButtons => Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 35,
+            child: ListTile(
+              title: Text(
+                "candidate".i18n(),
+                style: _theme.textTheme.overline,
+              ),
+              leading: Radio(
+                value: 1,
+                groupValue: val,
+                onChanged: (value) {
+                  setState(() {
+                    val = value as int;
+                    _viewModel.profileType = val;
+                  });
+                },
+                activeColor: _theme.colorScheme.primary,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 35,
+            child: ListTile(
+              title: Text(
+                "recruiter".i18n(),
+                style: _theme.textTheme.overline,
+              ),
+              leading: Radio(
+                value: 2,
+                groupValue: val,
+                onChanged: (value) {
+                  setState(() {
+                    val = value as int;
+                    _viewModel.profileType = val;
+                  });
+                },
+                activeColor: _theme.colorScheme.primary,
+              ),
+            ),
+          ),
+        ],
+      );
+
   Widget get _createAccountButton => ElevatedButton(
         child: Text('create_account'.i18n()),
         onPressed: () {
@@ -232,7 +295,12 @@ class _SignUpPageState extends ModularState<SignUpPage, SignUpViewModel> {
       },
       child: Text(
         'have_account'.i18n(),
-        style: _theme.textTheme.labelMedium,
+        style: TextStyle(
+            fontSize: 14,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            fontStyle: FontStyle.normal,
+            color: _theme.colorScheme.surface),
       ));
 
   Widget get _baseboardImage => darkModeOn

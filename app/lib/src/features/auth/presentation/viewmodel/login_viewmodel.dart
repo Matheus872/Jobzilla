@@ -21,8 +21,14 @@ abstract class _LoginViewModelBase with Store {
   @observable
   bool isLoading = false;
 
+  int? profiletype = 1;
+
   void _signIn() {
-    Modular.to.navigate('/home');
+    profiletype == 1
+        ? Modular.to.navigate('/home')
+        : profiletype == 2
+            ? Modular.to.navigate('/job')
+            : print("Tipo de perfil inválido");
   }
 
   @action
@@ -46,6 +52,8 @@ abstract class _LoginViewModelBase with Store {
       try {
         User? response = (await _usecase.login(username, password));
         if (response != null) {
+          print(response.profileType.toString());
+          profiletype = response.profileType;
           _signIn();
         }
       } catch (e) {

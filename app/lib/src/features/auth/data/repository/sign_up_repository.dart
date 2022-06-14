@@ -11,6 +11,7 @@ class SignUpRepository implements ISignUp {
     print(user.username);
     print(user.email);
     print(user.password);
+    print(dto.toJson());
     final response = await Dio().post(
       'https://jobzillaapp.herokuapp.com/api/v1/auth/signup',
       data: dto.toJson(),
@@ -18,7 +19,9 @@ class SignUpRepository implements ISignUp {
     print(response);
     if (response.statusCode == 200) {
       final token = response.headers.value('Authorization');
-      final domain = User(user.username, null, user.email, token: token);
+      print(user.profileType.toString());
+      final domain =
+          User(user.username, null, user.email, user.profileType, token: token);
       return Future.value(domain);
     } else {
       throw Exception("Erro ao criar o usuário");

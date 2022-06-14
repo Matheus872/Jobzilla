@@ -47,11 +47,8 @@ class SignUpUseCase {
     return null;
   }
 
-  Future<User?> signUp(String username, String email, String password) {
-    return repository.signUp(User(
-      username,
-      password,
-      email,
-    ));
+  Future<User?> signUp(
+      String username, String email, String password, int profileType) {
+    return repository.signUp(User(username, password, email, profileType));
   }
 }

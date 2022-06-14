@@ -87,6 +87,9 @@
     "pin_required":"Requer código pin!",
     "pin_six_digits:":"*O código pin deve conter 6 dígitos",
     "pin_incorrect":"*O código pin não corresponde ao enviado",
-    "see_jobs_recomendations": "See all jobs recomendations"
+    "see_jobs_recomendations": "See all jobs recomendations",
+    "candidate":"Canditato",
+    "recruiter":"Recrutador",
+    "profile_type_label":"Você é um cadidato ou um recrutador?"
 
 }

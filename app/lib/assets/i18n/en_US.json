@@ -97,6 +97,9 @@
 
 
 
-    "see_jobs_recomendations": "See all jobs recomendations"
+    "see_jobs_recomendations": "See all jobs recomendations",
+    "candidate":"Canditate",
+    "recruiter":"Recruiter",
+    "profile_type_label":"Are you a cadidate or an recruiter?"
 
 }

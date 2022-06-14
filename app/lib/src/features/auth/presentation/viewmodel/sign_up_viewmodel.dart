@@ -25,10 +25,17 @@ abstract class _SignUpViewModelBase with Store {
   String passwordConfirmation = '';
 
   @observable
+  int profileType = 1;
+
+  @observable
   bool isLoading = false;
 
   void _signedUp() {
-    Modular.to.navigate('/home');
+    profileType == 1
+        ? Modular.to.navigate('/home')
+        : profileType == 2
+            ? Modular.to.navigate('/job')
+            : print("Tipo de perfil inválido");
   }
 
   @action
@@ -77,7 +84,8 @@ abstract class _SignUpViewModelBase with Store {
     if (!error.hasErrors) {
       isLoading = true;
       try {
-        User? response = (await _usecase.signUp(username, email, password));
+        User? response =
+            (await _usecase.signUp(username, email, password, profileType));
         if (response != null) {
           _signedUp();
         }

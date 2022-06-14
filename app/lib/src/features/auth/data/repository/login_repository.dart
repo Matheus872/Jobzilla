@@ -15,7 +15,10 @@ class LoginRepository implements ILogin {
     print(response);
     if (response.statusCode == 200) {
       final token = response.headers.value('Authorization');
-      final domain = User(user.username, null, user.email, token: token);
+      final profileType = (response.data["profileType"]);
+      print(profileType.toString());
+      final domain =
+          User(user.username, null, user.email, profileType, token: token);
       return Future.value(domain);
     } else {
       throw Exception("Usuário ou Senha Inválidos!");
