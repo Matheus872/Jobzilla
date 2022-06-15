@@ -39,11 +39,11 @@ Matrícula - 1712130023}
 \maketitle
 
 \begin{resumo}
-O presente projeto consiste em desenvolver um aplicativo na linguagem flutter, que inclui técnicas de inteligência artificial para selecionar automaticamente o candidato que se encaixar melhor com a oportunidade de emprego. Para o desenvolvimento da aplicação, com o objetivo de ter um projeto mais limpo, organizado e fácil de receber manutenção, foram implementados alguns recursos, sendo eles: arquitetura limpa (Clean Architecture), padrão de projeto MVVM, spring boot e lombok na API em Java etc.
+O presente projeto consiste em desenvolver um aplicativo na linguagem flutter, que inclui técnicas de inteligência artificial para selecionar automaticamente o candidato que se encaixa melhor com a oportunidade de emprego em questão. Para o desenvolvimento da aplicação, com o objetivo de ter um projeto mais limpo, organizado e fácil de receber manutenção, foram implementados alguns recursos, sendo eles: arquitetura limpa (Clean Architecture), padrão de projeto MVVM, spring boot e lombok na API em Java etc.
 \end{resumo}
 
 \begin{IEEEpalavrachave}
-inteligência artificial
+inteligência artificial, regressão linear.
 \end{IEEEpalavrachave}
 
 \begin{abstract}
@@ -51,7 +51,7 @@ The present project consists in developing an application in flutter language, t
 \end{abstract}
 
 \begin{IEEEkeywords}
-artificial intelligence
+artificial intelligence, linear regression.
 \end{IEEEkeywords}
 
 \section{Introdução}
@@ -59,7 +59,7 @@ O uso da inteligência artificial dentro da área de recursos humanos traz muito
 
 \section{Contextualização}
 
-A candidatura às vagas de emprego geralmente é bastante concorrida tendo muitos participantes para fazer a avaliação do perfil, tornando o processo de contratação lento na maioria das vezes. Sendo assim, é interessante agilizar o processo de seleção, visto que a demora pode prejudicar tanto a empresa quanto os interessados pela vaga.
+A candidatura às vagas de emprego geralmente é bastante concorrida pelo fato de ter muitos participantes para fazer a avaliação do perfil, tornando o processo de contratação lento na maioria das vezes. Sendo assim, é interessante agilizar o processo de seleção, visto que a demora pode prejudicar tanto a empresa quanto os interessados pela vaga. 
 
 Portanto, muitas empresas quando estão contratando, ficam com certas demandas paradas somente esperando o novo funcionário assumir o cargo para então dar andamento e prosseguimento às tarefas, sendo que até o novo funcionário se adaptar às atividades leva algum tempo, o que pode levar ao atraso do cumprimento das demandas e regressão na produtividade da equipe como um todo. Quanto ao candidato, este permanece disponível para o mercado de trabalho por mais tempo do que deveria, perdendo até outras oportunidades de emprego. 
 
@@ -78,25 +78,96 @@ Desenvolver um aplicativo para dispositivos móveis com sistema operacional Andr
 \item Desenvolver funcionalidades para cadastro e autenticação de usuários;
 \item Conectar no banco de dados PostgreSQL;
 \item Subir aplicação para o Heroku;
-\item Aplicar a inteligência artificial para a tomada de decisão e ligação de variáveis;
+\item •	Aplicar a regressão linear para selecionar o candidato que é o mais apto para vaga de emprego;
 \item Incluir chat bot e mapa no projeto.
 \end{itemize}
 
 \section{Referencial Teórico}
-É possível perceber que a inteligência artificial está cada vez mais presente dentro das empresas, porém, o seu processo de aplicação em uma determinada área pode ser complexo e lento a depender da forma como é feito a coleta de dados e o treinamento da IA. Algumas das técnicas de inteligência artificial, que podem ser aplicadas na área de recursos humanos para selecionar interessados em uma vaga de emprego, são: Lógica Fuzzy, Sistema Especialista, Redes Neurais Artificiais, Sistemas Baseados em Casos, Algoritmos de Classificação e Regressão Linear etc.
+É possível perceber que a inteligência artificial está cada vez mais presente dentro das empresas, porém, o seu processo de aplicação em uma determinada área pode ser complexo e lento a depender da forma como é feito a coleta de dados e o treinamento da IA. Algumas das técnicas de inteligência artificial que podem ser aplicadas na área de recursos humanos para selecionar interessados em uma vaga de emprego, são: Lógica Fuzzy, Sistema Especialista, Redes Neurais Artificiais, Sistemas Baseados em Casos, Algoritmos de Classificação e Regressão Linear etc.
 
 O uso de Redes Neurais Artificiais (RNA) auxilia o RH pelo motivo de ter a capacidade de prever os candidatos que seriam os mais adequados às vagas, além de ter uma enorme habilidade em aprender no ambiente em que está inserido. Assim, o RNA, com o aumento das informações que adquire ao longo das avaliações dos currículos dos candidatos, cada vez mais a sua escolha se tornará mais assertiva, pois ele aprende com base na experiência.
 
 Já o método denominado como Sistema Especialista, consiste em um sistema que se comporta como um ser humano experiente em uma determinada área de atuação, podendo ser utilizado para fazer o papel de um especialista em RH. No Sistema Especialista, inicialmente é feita a coleta de dados a partir de um profissional experiente na sua área de atuação para que ele possa transmitir os seus conhecimentos para o sistema especialista. Logo em seguida, é criada uma base de conhecimento ou regras e, a partir disso, ela consegue fazer a inferência e dedução de novos conhecimentos sendo utilizada para a tomada de decisão, como decidir se vai selecionar ou não um candidato à vaga. 
 
-Entretanto, apesar das técnicas mencionadas acima funcionarem muito bem, o Algoritmo de Regressão Linear é o mais adequado para o tema proposto. Como a técnica de análise de perfil para seleção envolve a comparação entre variáveis em que existe uma boa associação entre os dados, sendo elas as habilidades do candidato (Y) e os requisitos das vagas de emprego (X), a regressão linear verifica o quanto uma variável independente X está relacionada à outra variável dependente Y, fazendo um ajuste linear nos pontos do eixo (x,y), conforme mostra imagem abaixo:
+Entretanto, apesar das técnicas mencionadas acima funcionarem muito bem, no trabalho proposto será utilizado o Algoritmo de Regressão Linear por se enquadrar melhor com o contexto. Portanto, como a técnica de análise de perfil para seleção envolve a ligação entre variáveis que existem uma boa correlação entre si, a regressão linear consegue verificar o quanto uma variável está relacionada à outra, por exemplo, comparando as habilidades do candidato com os requisitos das vagas de emprego, fazendo um ajuste linear nos dados obtidos em um diagrama de dispersão, conforme mostra o gráfico abaixo:
 
 \vspace{7mm}
 \centerline{\includegraphics[width=80mm,height=600mm,keepaspectratio]{ExRegressaoLinear.png}}
 \vspace{7mm}
 
+\subsection{Regressão Linear}
+A regressão linear é um algoritmo supervisionado que aprende a fazer previsões a partir de análises de dados históricos que já tenham resultados pré-definidos, passando a obter um modelo de referência do que pode estar certo ou errado. 
+
+Para o procedimento da regressão linear aplicado na seleção de candidatos, é necessário utilizar um dataset que contenha dados históricos de um processo seletivo com a finalidade de treinar o algoritmo para que ele tenha a capacidade de prever os candidatos mais aptos para uma área específica. Para isso, será necessário definir quais serão as variáveis independentes, os atributos, que representam os requisitos e habilidades exigidas pela vaga em si.
+Além disso, é necessário obter os valores da variável dependente, ou seja, o resultado da seleção individual de cada candidato. Por se tratar de resultados que possuem uma variável numérica, o método utilizado deverá ser o da regressão linear, pois para os casos em que o dado é categórico, utiliza-se a técnica de classificação linear.
+
+Logo abaixo, tem-se um exemplo de um dataset voltado para vaga de Administrador de Banco de Dados (DBA):
+
+\vspace{7mm}
+\centerline{\includegraphics[width=90mm,height=600mm,keepaspectratio]{Tabela1.png}}
+\vspace{7mm}
+
+Para a regressão linear, todos os valores dos atributos deverão ser numéricos, pois é necessário realizar o cálculo da correlação linear de modo a medir o quanto aquela habilidade influência nos resultados. Este cálculo da correlação, serve para selecionar quais variáveis independentes devem ser levadas em consideração no teste e treinamento do algoritmo, de modo a minimizar as diferenças entre o resultado esperado e o obtido.
+
+Após converter os dados categóricos em numéricos, tem-se a seguinte tabela:
+
+\vspace{7mm}
+\centerline{\includegraphics[width=90mm,height=600mm,keepaspectratio]{Tabela2.png}}
+\vspace{7mm}
+
+O próximo passo é calcular o valor da correlação cujo resultado varia entre -1 e 1. Assim, quanto mais próximo de 1, maior é a ligação da variável independente com a dependente (resultado), sendo congruente selecionar os requisitos que possuem estas características. Neste contexto, a correlação é classificada da seguinte forma:
+
+\begin{itemize}
+\item Correlação Positiva: valor igual ou próximo de 1.
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Diagrama1.png}}
+\vspace{7mm}
+\item Correlação Negativa: valor igual ou próximo de -1.
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Diagrama2.png}}
+\vspace{7mm}
+\item Sem correlação: o resultado é igual a 0.
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Diagrama3.png}}
+\vspace{7mm}
+\end{itemize}
+
+Para os testes e treinamentos do algoritmo, serão levados em conta os atributos com correlação linear que são mais próximos de 1.
+
+Utilizando a função “correl” fornecida pelo Excel para calcular a correlação linear entre cada variável independente com a dependente, foram encontrados os seguintes valores:
+
+\begin{itemize}
+\item Inglês: 0,556634432;
+\item Grau de Instrução: 0,482764478;
+\item Gênero: -0,027866615;
+\item Java: 0,179739668;
+\item MySQL: 0,526908128;
+\item PostgreSQL: 0,863721481;
+\item Oracle: 0,772389972;
+\item MongoDB: -0,292189954;
+\item PHP: 0,04692566;
+\item Git: -0,236983287;
+\item Excel: 0,36176396;
+\end{itemize}
+
+Abaixo, tem-se dois exemplos do diagrama de dispersão, sendo o primeiro com correlação negativa e o segundo com a correlação positiva:
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Grafico1.png}}
+\vspace{7mm}
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Grafico2.png}}
+\vspace{7mm}
+
 \section*{Trabalhos Correlatos}
-Entre inúmeras tecnologias existentes que automatizam processos, existem as que auxiliam no processo de contratação de candidatos às vagas de emprego. Como por exemplo, tem-se a ferramenta HireVue que é utilizada nas entrevistas online, sendo capaz de interpretar a análise da linguagem corporal, expressões faciais e tom de voz. Como estratégia de avaliação para decidir se o candidato é bom ou ruim, o entrevistado é comparado com os melhores funcionários da empresa, e a partir disso, selecionam os melhores para os recrutadores.
+Entre as inúmeras tecnologias existentes que automatizam processos, existem as que auxiliam no processo de contratação de candidatos às vagas de emprego. Como por exemplo, tem-se a ferramenta HireVue que é utilizada nas entrevistas online, sendo capaz de interpretar a análise da linguagem corporal, expressões faciais e tom de voz. Como estratégia de avaliação para decidir se o candidato é bom ou ruim, o entrevistado é comparado com os melhores funcionários da empresa, e a partir disso, selecionam os melhores para os recrutadores.
+
+A técnica conhecida como Lógica Fuzzy representa muito bem as incertezas e questões nebulosas que envolvem o contexto real no processo de seleção de um candidato para uma determinada vaga. Uma das formas de representar essa incerteza em conjunto com a Lógica Fuzzy, é utilizando o grau de pertinência para definir o resultado, ou seja, ao invés de designar que um perfil é bom ou ruim, a inteligência artificial quantifica esses atributos, transformando-os em um intervalo de valores, que varia entre 0 e 1, tornando possível inferir que um perfil pode ser 0.8 bom e 0.5 ruim, por exemplo.
+
 
 \section*{Metodologia}
 A implementação do projeto é dividida em duas partes, sendo elas o aplicativo e a API. Para o desenvolvimento da API, foi utilizada a linguagem de programação Java, incluindo os frameworks spring boot e lombok. Já a parte do aplicativo, foi desenvolvido na linguagem flutter e para que ele rode no projeto, é necessário executar o seguinte comando no terminal, dentro da pasta onde fica o projeto:
@@ -104,10 +175,11 @@ A implementação do projeto é dividida em duas partes, sendo elas o aplicativo
 \vspace{3mm}
 \centerline{flutter pub get}
 \vspace{3mm}
+A execução do aplicativo em si, é feita no arquivo que possuir a extensão “.main”. Já para testar o funcionamento da parte da API, o código deverá ser rodado no arquivo que contém a classe denominada “Application”.
 
 Este projeto poderá ser rodado nas IDE`s Visual Studio Code e no IntelliJ IDEA.
 
-Para o armazenamento e manutenção dos dados, foi utilizado um banco de dados relacional PostgreSQL. Contudo, o projeto foi projetado para criar as tabelas de forma automática no momento da execução do programa, sem a necessidade de cria-las no banco usando o comando “Create Table”.
+Para o armazenamento e manutenção dos dados, foi utilizado um banco de dados relacional PostgreSQL. Contudo, o projeto foi projetado para criar as tabelas de forma automática no momento da execução do programa, sem a necessidade de cria-las no banco usando o comando “Create Table”. 
 
 Com isso, as entidades da tabela foram definidas na pasta “entities”, sendo que cada arquivo representa uma tabela e os seus atributos indicam os campos desta entidade. Portanto, no momento da execução da API, a estrutura das tabelas ficará semelhante da forma que foi definida no algoritmo.
 
@@ -124,44 +196,22 @@ Além disso, devem ser colocadas neste mesmo arquivo, os dados para se conectar 
 \vspace{7mm}
 
 Com todos os pontos mencionados acima estando definidos, qualquer operação feita na API (criar, deletar, alterar, atualizar), será refletida automaticamente no banco de dados.
+Além disso, é necessário adicionar as seguintes dependências no arquivo "pom.xml", para possibilitar a conexão com o banco PostgreSQL:
 
-No projeto em Java, existe uma classe que é responsável por rodar a API, denominada Application. Já no app, a sua execução fica em um arquivo com a extensão “.main”.
+\vspace{7mm}
+\centerline{\includegraphics[width=80mm,height=200mm,keepaspectratio]{Postgresql2.png}}
+\vspace{7mm}
+
+Os endpoints (requisições http) da aplicação são definidos na pasta controller do projeto da API. Por padrão, o caminho da url é definido como “http://localhost:8080”, sendo que a porta 8080, é especificada na variável “server.port” que fica no arquivo de configuração “application-dev.properties”.
+Para cada classe do Controller, foi adicionada a anotação “@RequestMapping” do spring boot que recebe como parâmetro a url principal da página.
+
 
 \section*{Resultados Obtidos}
 
 
 
 \section*{Conclusão}
-Com o trabalho proposto, foi possível aprender como desenvolver um aplicativo móvel, usando boas práticas de programação, além de compreender melhor o funcionamento da inteligência artificial aplicada no processo de seleção de candidatos.
-
-\section*{Cronograma Completo}
-
-\begin{itemize}
-\item 23/03 - 30/03:
-\subitem Criação do repositório no github;
-\subitem Levantamento de requisitos;
-\subitem Diagramação de classes;
-\subitem Definição da arquitetura e do padrão de projeto a ser utilizado;
-\item 31/03 - 09/04:
-\subitem Desenvolvimento das APIs;
-\subitem Desenvolvimento da primeira parte do artigo;
-\subitem Desenvolvimento da interface do usuário;
-\subitem Criação das telas (onboarding, login, alteração de senha e cadastro de usuário);
-\item 10/04 - 27/04:
-\subitem Gestão de dependências;
-\item 28/04 - 04/05:
-\subitem Criação das telas específicas do tema do projeto;
-\item 05/05 - 11/05: 
-\subitem Consumo das APIs e integração com a interface do usuário;
-\subitem Definição da estrutura de relacionamento das tabelas no banco de dados PostgreSQL;
-\subitem Adição de mapa no aplicativo;
-\item 12/05 - 18/05:
-\subitem Desenvolvimento das funcionalidades de cadastro e autenticação de usuários; 
-\subitem Criação de chat bot usando Dialogflow;
-\item 19/05 - 15/06:
-\subitem Uso da inteligência artificial no aplicativo;
-\subitem Desenvolvimento da segunda parte do artigo.
-\end{itemize}
+Com o trabalho proposto, foi possível aprender como desenvolver um aplicativo móvel, usando boas práticas de programação, além de compreender melhor o funcionamento da inteligência artificial aplicada no processo de seleção de candidatos, principalmente o método da regressão linear.
 
 \begin{thebibliography}{00}
 \bibitem{b1} F. Bo-Shone, "Technology, Jobs e the Future of Work in Australia", Julho 2021.
@@ -170,6 +220,9 @@ Com o trabalho proposto, foi possível aprender como desenvolver um aplicativo m
 \bibitem{b5} S. Abhilasha e S. Apurva, "Impact of Artificial Intelligence on HR practices in the UAE".
 \bibitem{b6} R. Geetha e D. Bhanu Sree, "RECRUITMENT THROUGH ARTIFICIAL INTELLIGENCE: A CONCEPTUAL STUDY ".
 \bibitem{b7} J. Mariana Namen, "INTELIGÊNCIA ARTIFICIAL NO RECRUTAMENTO and SELEÇÃO:INOVAÇÃO E SEUS IMPACTOS PARA A GESTÃO DE RECURSOSHUMANOS", Fevereiro 2020.
+\bibitem{b8} F. Krykhtime, A. Morim, N. Vale, L. Fortes e A. Neto, “Aplicando Lógica Fuzzy em um Modelo de Seleção Multicritério para Multiclientes”, Outubro 2013.
+\bibitem{b9} E. Loiola, D. Silveira e M. Bittencourt, “E-Recruiting Utilizando Lógica Fuzzy”, Novembro 2022.
+\bibitem{b10} L. Silva, “Modelos de Regressão Fuzzy”, 2018.
 \end{thebibliography}
 \vspace{12pt}
 
