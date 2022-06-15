@@ -1,5 +1,7 @@
 import 'package:basearch/src/features/auth/domain/repository/forgot_password_interface.dart';
+import 'package:basearch/src/features/auth/domain/repository/register_job_interface.dart';
 import 'package:basearch/src/features/auth/domain/repository/sign_up_interface.dart';
+import 'package:basearch/src/features/auth/domain/usecase/register_job_usecase.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/company_home.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/profile_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/register_job.dart';
@@ -17,6 +19,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../onboarding/presentation/page/onboard.dart';
 import 'data/repository/forgot_password_repository.dart';
 import 'data/repository/login_repository.dart';
+import 'data/repository/register_job_repository.dart';
 import 'data/repository/sign_up_repository.dart';
 import 'domain/repository/login_interface.dart';
 import 'domain/usecase/forgot_password_usecase.dart';
@@ -41,6 +44,8 @@ class AuthModule extends Module {
         Bind.factory((i) => ProfileDetailsViewModel()),
         Bind.factory((i) => ProfileDetailsUseCase()),
         Bind.factory((i) => RegisterJobViewModel()),
+        Bind.factory((i) => RegisterJobUseCase()),
+        Bind.factory<IRegisterJob>((i) => RegisterJobRepository()),
       ];
 
   @override

@@ -90,6 +90,29 @@
     "see_jobs_recomendations": "See all jobs recomendations",
     "candidate":"Canditato",
     "recruiter":"Recrutador",
-    "profile_type_label":"Você é um cadidato ou um recrutador?"
+    "profile_type_label":"Você é um cadidato ou um recrutador?",
+
+    "title_label":"Insira o título da vaga:",
+    "subtitle_label":"Insira o subtítulo da vaga:",
+    "experience_label":"Selecione o nível de experiência exigido:",
+    "work_journey_label":"Jornada de trabalho:",
+    "place_label":"Local:",
+    "salary_label":"Salário",
+    "benefits_label":"Benefícios:",
+    "description_label":"Descrição:",
+    "skills_label":"Selecione habilidades desejadas:",
+    "offer_job":"Ofertar nova vaga",
+    "apprentice":"Aprendiz",
+    "treinee":"Estagiário",
+    "junior":"Júnior",
+    "full":"Pleno",
+    "senior":"Senior",
+    "job_title_hint":"Título da vaga",
+    "job_subtitle_hint":"Subtítulo da vaga",
+    "work_journey_hint":"Jornada de trabalho",
+    "local_hint":"Local",
+    "salary_hint":"Salário",
+    "benefits_hint":"Benefícios",
+    "description_hint":"Descrição"
 
 }

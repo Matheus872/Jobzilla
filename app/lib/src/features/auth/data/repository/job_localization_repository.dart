@@ -7,10 +7,10 @@ import '../dto/request/localization_dto.dart';
 class JobLocalizationRepository implements IJobLocalization {
   @override
   Future<Localization> getLocalization(int id) async {
-    final dto = JobDto.fromDomain(id);
+    //final dto = JobDto.fromDomain(id);
     final response = await Dio().post(
       'https://ol0ll.mocklab.io/login',
-      data: dto.toJson(),
+      //data: dto.toJson(),
     );
     if (response.statusCode == 200) {
       final id = response.headers.value('id');

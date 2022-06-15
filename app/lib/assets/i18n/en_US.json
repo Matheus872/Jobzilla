@@ -100,6 +100,29 @@
     "see_jobs_recomendations": "See all jobs recomendations",
     "candidate":"Canditate",
     "recruiter":"Recruiter",
-    "profile_type_label":"Are you a cadidate or an recruiter?"
+    "profile_type_label":"Are you a cadidate or an recruiter?",
+
+    "title_label":"Insert the job title:",
+    "subtitle_label":"Insert the job subtitle:",
+    "experience_label":"Select the experience level required:",
+    "work_journey_label":"Work Journey:",
+    "place_label":"Local:",
+    "salary_label":"Salary",
+    "benefits_label":"Benefits:",
+    "description_label":"Description:",
+    "skills_label":"Select desired skills:",
+    "offer_job":"Offer new job",
+    "apprentice":"Apprentice",
+    "treinee":"Treinee",
+    "junior":"Júnior",
+    "Full":"Full",
+    "Senior":"Senior",
+    "job_title_hint":"Job Title",
+    "job_subtitle_hint":"Job Subtitle",
+    "work_journey_hint":"Work Journey",
+    "local_hint":"Local",
+    "salary_hint":"Salary",
+    "benefits_hint":"Benefits",
+    "description_hint":"Description"
 
 }

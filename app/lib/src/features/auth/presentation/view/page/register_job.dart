@@ -18,13 +18,7 @@ class _RegisterJobState
   late ThemeData _theme;
   bool darkModeOn = false;
   final _viewModel = Modular.get<RegisterJobViewModel>();
-  bool _value = false;
   int val = -1;
-
-  final _emailTextFieldController = TextEditingController();
-  final _passwordTextFieldController = TextEditingController();
-  bool _passwordVisibility = false;
-  bool _passwordConfirmationVisibility = false;
 
   Widget get _userForm => SizedBox(
         width: MediaQuery.of(context).size.width * 0.8,
@@ -41,13 +35,17 @@ class _RegisterJobState
               child: _subtitleLabel,
             ),
             _subtitleTextField,
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(10, 25, 20, 20),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 25, 20, 10),
                   child: _experienceLabel,
                 ),
-                _experienceLvl,
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 20, 0),
+                  child: _experienceLvl,
+                ),
               ],
             ),
             Padding(
@@ -76,6 +74,17 @@ class _RegisterJobState
             ),
             _descriptionTextField,
             Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(10, 15, 0, 10),
+              child: _skillsLabel,
+            ),
+            Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(10, 15, 0, 10),
+                child: Wrap(
+                  spacing: 8,
+                  direction: Axis.horizontal,
+                  children: techChips(),
+                )),
+            Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
               child: _createAccountButton,
             ),
@@ -87,43 +96,72 @@ class _RegisterJobState
         'title_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _subtitleLabel => Text(
         'subtitle_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _experienceLabel => Text(
         'experience_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _workJourneyLabel => Text(
         'work_journey_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _placeLabel => Text(
         'place_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _salaryLabel => Text(
         'salary_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _benefitsLabel => Text(
         'benefits_label'.i18n(),
         style: _theme.textTheme.overline,
       );
-
   Widget get _descriptionLabel => Text(
         'description_label'.i18n(),
         style: _theme.textTheme.overline,
       );
+  Widget get _skillsLabel => Text(
+        'skills_label'.i18n(),
+        style: _theme.textTheme.overline,
+      );
 
-  String dropdownValue = 'Apprentice';
+  List<Tech> _chipsList = [
+    Tech("Android", AppColors.light_foreground, false),
+    Tech("Flutter", AppColors.light_foreground, false),
+    Tech("Ios", AppColors.light_foreground, false),
+    Tech("Python", AppColors.light_foreground, false),
+    Tech("Go lang", AppColors.light_foreground, false)
+  ];
+
+  List<Widget> techChips() {
+    List<Widget> chips = [];
+    for (int i = 0; i < _chipsList.length; i++) {
+      Widget item = Padding(
+        padding: const EdgeInsets.only(left: 10, right: 5),
+        child: FilterChip(
+          label: Text(_chipsList[i].label),
+          labelStyle: TextStyle(color: Colors.white),
+          backgroundColor: _chipsList[i].color,
+          selectedColor: _theme.colorScheme.primary,
+          selected: _chipsList[i].isSelected,
+          onSelected: (bool value) {
+            setState(() {
+              _chipsList[i].isSelected = value;
+              value ? _viewModel.skills.add(i) : _viewModel.skills.remove(i);
+            });
+          },
+        ),
+      );
+      chips.add(item);
+    }
+    return chips;
+  }
+
+  String dropdownValue = 'apprentice'.i18n();
   Widget get _experienceLvl => DropdownButton<String>(
       value: dropdownValue,
       icon: const Icon(Icons.arrow_downward),
@@ -136,10 +174,16 @@ class _RegisterJobState
       onChanged: (String? newValue) {
         setState(() {
           dropdownValue = newValue!;
+          _viewModel.experience = dropdownValue;
         });
       },
-      items: <String>['Apprentice', 'Treinee', 'Junior', 'Full', 'Senior']
-          .map<DropdownMenuItem<String>>((String value) {
+      items: <String>[
+        'apprentice'.i18n(),
+        'trainee'.i18n(),
+        'junior'.i18n(),
+        'full'.i18n(),
+        'senior'.i18n()
+      ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -151,9 +195,9 @@ class _RegisterJobState
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.name,
-        onChanged: (value) => _viewModel.username = value,
+        onChanged: (value) => _viewModel.title = value,
         decoration: InputDecoration(
-          hintText: 'username_hint'.i18n(),
+          hintText: 'job_title_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -176,9 +220,9 @@ class _RegisterJobState
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.subtitle = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'job_subtitle_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -196,15 +240,14 @@ class _RegisterJobState
           ),
         ),
       );
-
   Widget get _workJourneyTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.workJourney = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'work_journey_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -222,15 +265,14 @@ class _RegisterJobState
           ),
         ),
       );
-
   Widget get _placeTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.place = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'local_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -248,15 +290,14 @@ class _RegisterJobState
           ),
         ),
       );
-
   Widget get _salaryTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.salary = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'salary_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -274,15 +315,14 @@ class _RegisterJobState
           ),
         ),
       );
-
   Widget get _benefitsTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.benefits = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'benefits_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -300,15 +340,14 @@ class _RegisterJobState
           ),
         ),
       );
-
   Widget get _descriptionTextField => TextFormField(
         obscureText: false,
         style: _theme.textTheme.bodyText2,
         textAlign: TextAlign.start,
         keyboardType: TextInputType.emailAddress,
-        //onChanged: (value) => _viewModel.email = value,
+        onChanged: (value) => _viewModel.description = value,
         decoration: InputDecoration(
-          hintText: 'email_hint'.i18n(),
+          hintText: 'description_hint'.i18n(),
           hintStyle: _theme.textTheme.bodyText2,
           filled: true,
           fillColor: _theme.colorScheme.onBackground,
@@ -326,59 +365,12 @@ class _RegisterJobState
           ),
         ),
       );
-
-  Widget get _radioButtons => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 35,
-            child: ListTile(
-              title: Text(
-                "candidate".i18n(),
-                style: _theme.textTheme.overline,
-              ),
-              leading: Radio(
-                value: 1,
-                groupValue: val,
-                onChanged: (value) {
-                  setState(() {
-                    val = value as int;
-                    //_viewModel.profileType = val;
-                  });
-                },
-                activeColor: _theme.colorScheme.primary,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 35,
-            child: ListTile(
-              title: Text(
-                "recruiter".i18n(),
-                style: _theme.textTheme.overline,
-              ),
-              leading: Radio(
-                value: 2,
-                groupValue: val,
-                onChanged: (value) {
-                  setState(() {
-                    val = value as int;
-                    //_viewModel.profileType = val;
-                  });
-                },
-                activeColor: _theme.colorScheme.primary,
-              ),
-            ),
-          ),
-        ],
-      );
-
   Widget get _createAccountButton => ElevatedButton(
-        child: Text('anounce_job'.i18n()),
+        child: Text('offer_job'.i18n()),
         onPressed: () {
           FocusScope.of(context).unfocus();
-          //_viewModel.signUp();
+          _viewModel.registerJob();
+          print('apertou no botao');
         },
         style: ElevatedButton.styleFrom(
           textStyle: _theme.textTheme.subtitle2,
@@ -406,6 +398,7 @@ class _RegisterJobState
 
   @override
   Widget build(BuildContext context) {
+    bool selected = false;
     _theme = Theme.of(context);
     darkModeOn = _theme.brightness == Brightness.dark;
     return Scaffold(
@@ -423,7 +416,7 @@ class _RegisterJobState
             size: 32,
           ),
         ),
-        title: const Text('Ofertar nova vaga'),
+        title: Text('offer_job'.i18n()),
         actions: [],
         centerTitle: false,
         elevation: 0,
@@ -447,4 +440,11 @@ class _RegisterJobState
       ),
     );
   }
+}
+
+class Tech {
+  String label;
+  Color color;
+  bool isSelected;
+  Tech(this.label, this.color, this.isSelected);
 }
