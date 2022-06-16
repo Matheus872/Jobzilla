@@ -1,18 +1,20 @@
+import 'package:basearch/src/features/auth/domain/model/job.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../../../../theme.dart';
-import '../../viewmodel/login_viewmodel.dart';
+import '../../viewmodel/company_home_viewmodel.dart';
 import 'package:localization/localization.dart';
 
-class company_homePage extends StatefulWidget {
-  const company_homePage({Key? key}) : super(key: key);
+class CompanyHomePage extends StatefulWidget {
+  const CompanyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<company_homePage> createState() => _company_homePageState();
+  State<CompanyHomePage> createState() => _CompanyHomePageState();
 }
 
-class _company_homePageState
-    extends ModularState<company_homePage, LoginViewModel> {
+class _CompanyHomePageState
+    extends ModularState<CompanyHomePage, CompanyHomeViewModel> {
   late ThemeData _theme;
   late bool darkModeOn;
   final _pageViewController = PageController(
@@ -21,6 +23,7 @@ class _company_homePageState
     viewportFraction: 1,
   );
   int _selectedIndex = 0;
+  final _viewModel = Modular.get<CompanyHomeViewModel>();
 
   Widget get _company_homePage => Column(
         children: [
@@ -362,7 +365,12 @@ class _company_homePageState
   Widget get _jobsPage => Column(
         children: [
           _jobsPageSearchBar,
-          _companyCard,
+          Column(
+            children: [
+              _companyCard,
+              //Wrap(children: getJobs()),
+            ],
+          ),
         ],
       );
   Widget get _jobsPageSearchBar => Container(
@@ -377,7 +385,7 @@ class _company_homePageState
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 0, 8),
               child: Text(
-                'Jobs'.i18n(),
+                'my_jobs'.i18n(),
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18,
@@ -563,6 +571,132 @@ class _company_homePageState
           ),
         ),
       );
+
+  /* List<Job> getJobs() async {
+    List<Job> jobs = [];
+    jobs = await _viewModel.getJobs() as List<Job>;
+    List<Widget> cards = [];
+    for (int i = 0; i < jobs.length; i++) {
+      buildJob(jobs.elementAt(i));
+    }
+    return cards;
+  }
+*/
+
+  Widget buildJob(Job job) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.2,
+      width: MediaQuery.of(context).size.width * 0.85,
+      child: GestureDetector(
+        onTap: () {
+          Modular.to.navigate('/job');
+        },
+        child: Row(
+          children: [
+            Container(
+              width: 150,
+              height: 140,
+              decoration: BoxDecoration(
+                color: _theme.colorScheme.secondaryContainer,
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: Image.asset(
+                    'lib/assets/images/companyBanner.jpg',
+                  ).image,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 3,
+                    color: _theme.colorScheme.shadow,
+                    offset: const Offset(0, 2),
+                  )
+                ],
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(8),
+                  bottomRight: Radius.circular(0),
+                  topLeft: Radius.circular(8),
+                  topRight: Radius.circular(0),
+                ),
+              ),
+            ),
+            Container(
+              width: 175,
+              height: 140,
+              decoration: BoxDecoration(
+                color: _theme.colorScheme.secondaryContainer,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 3,
+                    color: _theme.colorScheme.shadow,
+                    offset: const Offset(0, 2),
+                  )
+                ],
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(8),
+                  topLeft: Radius.circular(0),
+                  topRight: Radius.circular(8),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+                        child: Text(
+                          job.title,
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 18,
+                            color: _theme.colorScheme.surface,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(20, 10, 0, 0),
+                        child: Icon(
+                          Icons.chevron_right_rounded,
+                          color: _theme.colorScheme.surface,
+                          size: 24,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(12, 10, 0, 0),
+                    child: Text(
+                      job.subtitle,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 12,
+                        color: _theme.colorScheme.surface,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 0, 0),
+                    child: Text(
+                      'Clique para ver detalhes',
+                      style: TextStyle(
+                          fontFamily: 'Questrial',
+                          fontSize: 12,
+                          color: _theme.colorScheme.surfaceVariant),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
 // -----------------------------------------------------------------------------
   Widget get _explorePage => Column(
         children: [

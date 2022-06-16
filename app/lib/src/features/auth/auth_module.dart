@@ -10,6 +10,7 @@ import 'package:basearch/src/features/auth/presentation/view/page/forgot_passwor
 import 'package:basearch/src/features/auth/presentation/view/page/home.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_details.dart';
 import 'package:basearch/src/features/auth/presentation/view/page/job_localization.dart';
+import 'package:basearch/src/features/auth/presentation/viewmodel/company_home_viewmodel.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/forgot_password_viewmodel.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/profile_details_viewmodel.dart';
 import 'package:basearch/src/features/auth/presentation/viewmodel/register_job_viewmodel.dart';
@@ -17,11 +18,14 @@ import 'package:basearch/src/features/auth/presentation/viewmodel/sign_up_viewmo
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../onboarding/presentation/page/onboard.dart';
+import 'data/repository/company_home_repository.dart';
 import 'data/repository/forgot_password_repository.dart';
 import 'data/repository/login_repository.dart';
 import 'data/repository/register_job_repository.dart';
 import 'data/repository/sign_up_repository.dart';
+import 'domain/repository/company_home.dart';
 import 'domain/repository/login_interface.dart';
+import 'domain/usecase/company_home_usecase.dart';
 import 'domain/usecase/forgot_password_usecase.dart';
 import 'domain/usecase/login_usecase.dart';
 import 'domain/usecase/profile_details_usecase.dart';
@@ -46,6 +50,9 @@ class AuthModule extends Module {
         Bind.factory((i) => RegisterJobViewModel()),
         Bind.factory((i) => RegisterJobUseCase()),
         Bind.factory<IRegisterJob>((i) => RegisterJobRepository()),
+        Bind.factory((i) => CompanyHomeViewModel()),
+        Bind.factory((i) => CompanyHomeUseCase()),
+        Bind.factory<ICompanyHome>((i) => CompanyHomeRepository()),
       ];
 
   @override
@@ -65,7 +72,7 @@ class AuthModule extends Module {
             children: []),
         ChildRoute('/home', child: (_, __) => const homePage(), children: []),
         ChildRoute('/companyhome',
-            child: (_, __) => const company_homePage(), children: []),
+            child: (_, __) => const CompanyHomePage(), children: []),
         ChildRoute('/registerjob',
             child: (_, __) => const RegisterJob(), children: []),
         ChildRoute('/profile',

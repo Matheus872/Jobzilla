@@ -370,7 +370,6 @@ class _RegisterJobState
         onPressed: () {
           FocusScope.of(context).unfocus();
           _viewModel.registerJob();
-          print('apertou no botao');
         },
         style: ElevatedButton.styleFrom(
           textStyle: _theme.textTheme.subtitle2,
