@@ -15,8 +15,6 @@
 
 }
 
-
-
 \author{\IEEEauthorblockN{1\textsuperscript{st} Francisca Amanda Miranda de Paula}
 \IEEEauthorblockA{\textit{Centro Universitário IESB} \\
 \textit{Centro Universitário Instituto de Educação Superior de Brasília}\\
@@ -43,7 +41,7 @@ O presente projeto consiste em desenvolver um aplicativo na linguagem flutter, q
 \end{resumo}
 
 \begin{IEEEpalavrachave}
-inteligência artificial, regressão linear.
+inteligência artificial, regressão linear, correlação linear.
 \end{IEEEpalavrachave}
 
 \begin{abstract}
@@ -51,11 +49,11 @@ The present project consists in developing an application in flutter language, t
 \end{abstract}
 
 \begin{IEEEkeywords}
-artificial intelligence, linear regression.
+artificial intelligence, linear regression, linear correlation.
 \end{IEEEkeywords}
 
 \section{Introdução}
-O uso da inteligência artificial dentro da área de recursos humanos traz muitos benefícios ao agilizar o processo de contratação, além de torná-los mais eficazes. 
+O uso da inteligência artificial dentro da área de recursos humanos traz muitos benefícios ao agilizar o processo de contratação, além de torná-los mais eficazes. Entre as diversas técnicas que podem ser aplicadas para implementar esta funcionalidade, existe a regressão linear que aprende a prever o melhor perfil treinando por meio de dados históricos que já vem com os resultados pré-definidos.
 
 \section{Contextualização}
 
@@ -78,18 +76,15 @@ Desenvolver um aplicativo para dispositivos móveis com sistema operacional Andr
 \item Desenvolver funcionalidades para cadastro e autenticação de usuários;
 \item Conectar no banco de dados PostgreSQL;
 \item Subir aplicação para o Heroku;
-\item •	Aplicar a regressão linear para selecionar o candidato que é o mais apto para vaga de emprego;
+\item Aplicar a regressão linear para selecionar o candidato que é o mais apto para vaga de emprego;
 \item Incluir chat bot e mapa no projeto.
 \end{itemize}
 
 \section{Referencial Teórico}
 É possível perceber que a inteligência artificial está cada vez mais presente dentro das empresas, porém, o seu processo de aplicação em uma determinada área pode ser complexo e lento a depender da forma como é feito a coleta de dados e o treinamento da IA. Algumas das técnicas de inteligência artificial que podem ser aplicadas na área de recursos humanos para selecionar interessados em uma vaga de emprego, são: Lógica Fuzzy, Sistema Especialista, Redes Neurais Artificiais, Sistemas Baseados em Casos, Algoritmos de Classificação e Regressão Linear etc.
 
-O uso de Redes Neurais Artificiais (RNA) auxilia o RH pelo motivo de ter a capacidade de prever os candidatos que seriam os mais adequados às vagas, além de ter uma enorme habilidade em aprender no ambiente em que está inserido. Assim, o RNA, com o aumento das informações que adquire ao longo das avaliações dos currículos dos candidatos, cada vez mais a sua escolha se tornará mais assertiva, pois ele aprende com base na experiência.
+No trabalho proposto, será estudado o funcionamento do Algoritmo de Regressão Linear dentro do contexto de recrutamento para vagas de emprego. Assim, como a técnica de análise de perfil para seleção envolve a ligação entre variáveis que existem uma boa correlação entre si, a regressão linear consegue verificar o quanto uma variável está relacionada à outra, por exemplo, comparando as habilidades do candidato com os requisitos das vagas de emprego, fazendo um ajuste linear nos dados obtidos em um diagrama de dispersão, conforme mostra o gráfico abaixo:
 
-Já o método denominado como Sistema Especialista, consiste em um sistema que se comporta como um ser humano experiente em uma determinada área de atuação, podendo ser utilizado para fazer o papel de um especialista em RH. No Sistema Especialista, inicialmente é feita a coleta de dados a partir de um profissional experiente na sua área de atuação para que ele possa transmitir os seus conhecimentos para o sistema especialista. Logo em seguida, é criada uma base de conhecimento ou regras e, a partir disso, ela consegue fazer a inferência e dedução de novos conhecimentos sendo utilizada para a tomada de decisão, como decidir se vai selecionar ou não um candidato à vaga. 
-
-Entretanto, apesar das técnicas mencionadas acima funcionarem muito bem, no trabalho proposto será utilizado o Algoritmo de Regressão Linear por se enquadrar melhor com o contexto. Portanto, como a técnica de análise de perfil para seleção envolve a ligação entre variáveis que existem uma boa correlação entre si, a regressão linear consegue verificar o quanto uma variável está relacionada à outra, por exemplo, comparando as habilidades do candidato com os requisitos das vagas de emprego, fazendo um ajuste linear nos dados obtidos em um diagrama de dispersão, conforme mostra o gráfico abaixo:
 
 \vspace{7mm}
 \centerline{\includegraphics[width=80mm,height=600mm,keepaspectratio]{ExRegressaoLinear.png}}
@@ -99,6 +94,7 @@ Entretanto, apesar das técnicas mencionadas acima funcionarem muito bem, no tra
 A regressão linear é um algoritmo supervisionado que aprende a fazer previsões a partir de análises de dados históricos que já tenham resultados pré-definidos, passando a obter um modelo de referência do que pode estar certo ou errado. 
 
 Para o procedimento da regressão linear aplicado na seleção de candidatos, é necessário utilizar um dataset que contenha dados históricos de um processo seletivo com a finalidade de treinar o algoritmo para que ele tenha a capacidade de prever os candidatos mais aptos para uma área específica. Para isso, será necessário definir quais serão as variáveis independentes, os atributos, que representam os requisitos e habilidades exigidas pela vaga em si.
+
 Além disso, é necessário obter os valores da variável dependente, ou seja, o resultado da seleção individual de cada candidato. Por se tratar de resultados que possuem uma variável numérica, o método utilizado deverá ser o da regressão linear, pois para os casos em que o dado é categórico, utiliza-se a técnica de classificação linear.
 
 Logo abaixo, tem-se um exemplo de um dataset voltado para vaga de Administrador de Banco de Dados (DBA):
@@ -139,21 +135,11 @@ Para os testes e treinamentos do algoritmo, serão levados em conta os atributos
 
 Utilizando a função “correl” fornecida pelo Excel para calcular a correlação linear entre cada variável independente com a dependente, foram encontrados os seguintes valores:
 
-\begin{itemize}
-\item Inglês: 0,556634432;
-\item Grau de Instrução: 0,482764478;
-\item Gênero: -0,027866615;
-\item Java: 0,179739668;
-\item MySQL: 0,526908128;
-\item PostgreSQL: 0,863721481;
-\item Oracle: 0,772389972;
-\item MongoDB: -0,292189954;
-\item PHP: 0,04692566;
-\item Git: -0,236983287;
-\item Excel: 0,36176396;
-\end{itemize}
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Tabela6.png}}
+\vspace{7mm}
 
-Abaixo, tem-se dois exemplos do diagrama de dispersão, sendo o primeiro com correlação negativa e o segundo com a correlação positiva:
+Abaixo, tem dois exemplos do diagrama de dispersão, sendo o primeiro uma correlação negativa e o segundo uma correlação positiva:
 
 \vspace{7mm}
 \centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Grafico1.png}}
@@ -163,10 +149,34 @@ Abaixo, tem-se dois exemplos do diagrama de dispersão, sendo o primeiro com cor
 \centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Grafico2.png}}
 \vspace{7mm}
 
+Após a obtenção dos resultados da correlação linear, foram excluídos os atributos que tinha valores próximos ou abaixo de 0, restando para análise as seguintes habilidades:
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Tabela3.png}}
+\vspace{7mm}
+
+Para obter o valor de cada resultado, foram utilizados diferentes pesos em cada habilidade, sendo estes escolhidos pelos recrutadores, considerando o nível de relevância de cada requisito existente para a vaga. Para o caso de uma das habilidades do candidato não ser um dos requisitos da vaga, neste será atribuído peso igual a zero. Sendo assim, o procedimento para chegar até o resultado, consiste em multiplicar cada pontuação que está na tabela pelo peso da respectiva habilidade, somando tudo no final. A seguir, tem-se um exemplo para calcular o resultado para o candidato de ID igual a 1 utilizando como exemplo, o dataset abaixo:
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Tabela7.png}}
+\vspace{7mm}
+
+\vspace{7mm}
+\centerline{\includegraphics[width=60mm,height=40mm,keepaspectratio]{Tabela4.png}}
+\vspace{7mm}
+
+(4×10) + (5×7) + (6×8) + (7×10) + (2×3) + (3×7) + (1×10) = 230
+
+O tipo de regressão linear abordada neste trabalho é a múltipla, pelo fato de possuir mais de uma variável independente. 
+
 \section*{Trabalhos Correlatos}
 Entre as inúmeras tecnologias existentes que automatizam processos, existem as que auxiliam no processo de contratação de candidatos às vagas de emprego. Como por exemplo, tem-se a ferramenta HireVue que é utilizada nas entrevistas online, sendo capaz de interpretar a análise da linguagem corporal, expressões faciais e tom de voz. Como estratégia de avaliação para decidir se o candidato é bom ou ruim, o entrevistado é comparado com os melhores funcionários da empresa, e a partir disso, selecionam os melhores para os recrutadores.
 
 A técnica conhecida como Lógica Fuzzy representa muito bem as incertezas e questões nebulosas que envolvem o contexto real no processo de seleção de um candidato para uma determinada vaga. Uma das formas de representar essa incerteza em conjunto com a Lógica Fuzzy, é utilizando o grau de pertinência para definir o resultado, ou seja, ao invés de designar que um perfil é bom ou ruim, a inteligência artificial quantifica esses atributos, transformando-os em um intervalo de valores, que varia entre 0 e 1, tornando possível inferir que um perfil pode ser 0.8 bom e 0.5 ruim, por exemplo.
+
+O uso de Redes Neurais Artificiais (RNA) auxilia o RH pelo motivo de ter a capacidade de prever os candidatos que seriam os mais adequados às vagas, além de ter uma enorme habilidade em aprender no ambiente em que está inserido. Assim, o RNA, com o aumento das informações que adquire ao longo das avaliações dos currículos dos candidatos, cada vez mais a sua escolha se tornará mais assertiva, pois ele aprende com base na experiência.
+
+Já o método denominado como Sistema Especialista, consiste em um sistema que se comporta como um ser humano experiente em uma determinada área de atuação, podendo ser utilizado para fazer o papel de um especialista em RH. No Sistema Especialista, inicialmente é feita a coleta de dados a partir de um profissional experiente na sua área de atuação para que ele possa transmitir os seus conhecimentos para o sistema especialista. Logo em seguida, é criada uma base de conhecimento ou regras e, a partir disso, ela consegue fazer a inferência e dedução de novos conhecimentos sendo utilizada para a tomada de decisão, como decidir se vai selecionar ou não um candidato à vaga. 
 
 
 \section*{Metodologia}
