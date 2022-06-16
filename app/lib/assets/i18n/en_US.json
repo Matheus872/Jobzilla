@@ -1,0 +1,128 @@
+{
+    
+    
+    "app_name" : "JobZilla",
+    "slogan": "Find a job don't have to be scary",
+    
+    "username_hint": "Username",
+    "email_hint": "Email Adress",
+    "password_hint": "Password",
+    "login": "Log In",
+    "create_account_label": "Don't have an account?",
+    "create_account": "Create Account",
+    "forgot_password": "Forgot Password?",
+    "forgot_password_title": "Forgot Password",
+
+    "choose_password_hint": "Choose Password",
+    "confirm_password_hint": "Confirm Password",
+
+    "have_account_label": "Already have an account?",
+    "have_account": "Login",
+
+    "recovery_email_hint": "Your Email Adress",
+    "send_reset_link": "Send Reset Link",
+
+    "job_details_page_label":"Job Details",
+    "job_description": "Job Description",
+    "job_details": "Details",
+
+    "localization": "Localization",
+
+
+    "jobs": "Jobs",
+
+    "navegate": "Navegate",
+    "search_bar_hint": "Type to search here...",
+
+    "conversations": "Conversations",
+
+
+
+
+
+
+    "first_name": "First Name",
+    "firstname_hint": "Inform your first name",
+    "last_name": "Last Name",
+    "lastname_hint": "Inform your last name",
+    "cpf": "CPF",
+    "cpf_hint": "Inform your CPF",
+    "birth_date": "Birth Date",
+    "birthdate_hint": "Inform your birth date",
+    "gender": "Gender",
+    "gender_hint": "Inform your gender",
+    "phone": "Phone",
+    "phone_hint": "Inform your phone",
+    "email": "Email",
+    "create_password_hint": "Inform your password",
+    "confirm_password": "Confirm Password",
+    "save": "Save",
+    "create_user": "Register",
+    "send_email": "The link to reset your password has been sent to your registered email. Please check your caixa inbox.",
+    "alter_password": "Alter my password",
+    "new_password": "Enter your new password",
+    "newpassword_hint": "Inform your new password",
+    "confirm_new_password": "Confirme new password",
+    "confirmnewpassword_hint": "Confirm your new password",
+    "change_password": "Reset Password",
+
+    "onboard_title_one": "Tired of looking for a job ?",
+    "onboard_title_two": "We introduce you to JobZilla",
+    "onboard_button": "Explore",
+
+
+    "username_required": "Username Required!",
+    "password_required": "Password Required!",
+    "password_confirmation_required": "Password Confirmation Required!",
+    "password_confirmation_must_be_the_same_as_password": "Password Confirmation must be the same as password!",
+    "email_required": "*Email Required!",
+    "email_not_valid":"*Insert a valid email",
+
+    "email_verification": "Email Verification",
+    "enter_code_sent": "Enter the code sent to ",
+    "did_not_receive_code": "Didn't receive the code? ",
+    "resend_code":"RESEND",
+    "verify": "Verify",
+    "new_password_required" : "New Password Required!",
+    "new_password_confirmation_required": "New Password Confirmation Required!",
+    "choose_new_password_hint" : "Choose a new password",
+    "confirm_new_password_hint" : "Confirm your new password",
+    "set_new_password":"Set a new password to acess your account",
+    "reset_password" : "Reset Password",
+    
+    "fill_properly:":"*Please fill up all the cells properly",
+    "pin_required":"*Pin code required!",
+    "pin_six_digits:":"*The pin code must have 6 digits",
+    "pin_incorrect":"*Pin code does not match sent",
+
+
+
+    "see_jobs_recomendations": "See all jobs recomendations",
+    "candidate":"Canditate",
+    "recruiter":"Recruiter",
+    "profile_type_label":"Are you a cadidate or an recruiter?",
+
+    "title_label":"Insert the job title:",
+    "subtitle_label":"Insert the job subtitle:",
+    "experience_label":"Select the experience level required:",
+    "work_journey_label":"Work Journey:",
+    "place_label":"Local:",
+    "salary_label":"Salary",
+    "benefits_label":"Benefits:",
+    "description_label":"Description:",
+    "skills_label":"Select desired skills:",
+    "offer_job":"Offer new job",
+    "apprentice":"Apprentice",
+    "treinee":"Treinee",
+    "junior":"Júnior",
+    "Full":"Full",
+    "Senior":"Senior",
+    "job_title_hint":"Job Title",
+    "job_subtitle_hint":"Job Subtitle",
+    "work_journey_hint":"Work Journey",
+    "local_hint":"Local",
+    "salary_hint":"Salary",
+    "benefits_hint":"Benefits",
+    "description_hint":"Description"
+
+}

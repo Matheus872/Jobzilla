@@ -1,0 +1,118 @@
+{
+    "app_name" : "JobZilla",
+    "slogan": "Procurar emprego não precisa ser assustador",
+
+    "username_hint": "Nome de usuário",
+    "email_hint": "Endereço de e-mail",
+    "password_hint": "Senha",
+    "login": "Entrar",
+    "create_account_label": "Não tem uma conta?",
+    "create_account": "Criar conta",
+    "forgot_password": "Esqueceu a senha?",
+    "forgot_password_title": "Esqueci a senha",
+
+    "choose_password_hint": "Escolha uma senha",
+    "confirm_password_hint": "Confirme sua senha",
+
+    "have_account_label": "Já tem uma conta?",
+    "have_account": "Entrar",
+
+    "recovery_email_hint": "Seu endereço de Email",
+    "send_reset_link": "Enviar link de Redefinição",
+
+    "job_details_page_label":"Detalhes da Oportunidade",
+    "job_description": "Descrição da vaga",
+    "job_details": "Detalhes",
+
+    "localization": "Localização",
+
+    "jobs": "Vagas",
+
+    "navegate": "Navegar",
+    "search_bar_hint": "Escreva para pesquisar aqui...",
+
+    "conversations": "Conversas",
+
+
+
+    "first_name": "Primeiro Nome",
+    "firstname_hint": "Informe o seu primeiro nome",
+    "last_name": "Sobrenome",
+    "lastname_hint": "Informe o seu sobrenome",
+    "cpf": "CPF",
+    "cpf_hint": "Informe o CPF",
+    "birth_date": "Data de Nascimento",
+    "birthdate_hint": "Informe a data de nascimento",
+    "gender": "Gênero",
+    "gender_hint": "Informe o gênero",
+    "phone": "Telefone",
+    "phone_hint": "Informe o seu telefone",
+    "email": "E-mail",
+    "create_password_hint": "Informe a sua senha",
+    "save": "Salvar",
+    "create_user": "Cadastro",
+    "send_email": "O link para redefinir sua senha foi enviado para o seu e-mail cadastrado. Favor verificar a sua caixa de entrada.",
+    "alter_password": "Alterar minha senha",
+    "new_password": "Digite a nova senha",
+    "newpassword_hint": "Informe a sua nova senha",
+    "confirm_new_password": "Confirme a nova senha",
+    "confirmnewpassword_hint": "Confirme a sua nova senha",
+    "change_password": "Redefinir Senha",
+
+    "onboard_title_one": "Cansado de procurar emprego ?",
+    "onboard_title_two": "Apresentamos: JobZilla",
+    "onboard_button": "Explorar",
+
+
+    "username_required": "Requer Nome de Usuário!",
+    "password_required": "Requer Senha!",
+    "password_confirmation_required": "Requer Confirmação de senha!",
+    "password_confirmation_must_be_the_same_as_password": "A Confirmação de Senha deve ser igual à senha!",
+    "email_required": "*Requer endereço de email!",
+    "email_not_valid":"*Insira um email válido",
+
+    "email_verification": "Verificação de Email",
+    "enter_code_sent": "Insira o código enviado para ",
+    "did_not_receive_code": "Não recebeu o código? ",
+    "resend_code":"REENVIAR",
+    "verify": "Verificar",
+    "new_password_required" : "Requer Nova Senha!",
+    "new_password_confirmation_required": "Requer Confirmação da Nova Senha!",
+    "choose_new_password_hint" : "Escolha uma nova senha",
+    "confirm_new_password_hint" : "Confirme sua nova senha",
+    "set_new_password":"Defina uma nova senha para acesso à sua conta",
+    "reset_password" : "Redefinir Senha",
+
+    "fill_properly:":"*Por favor preencha o campo de forma adequada",
+    "pin_required":"Requer código pin!",
+    "pin_six_digits:":"*O código pin deve conter 6 dígitos",
+    "pin_incorrect":"*O código pin não corresponde ao enviado",
+    "see_jobs_recomendations": "See all jobs recomendations",
+    "candidate":"Canditato",
+    "recruiter":"Recrutador",
+    "profile_type_label":"Você é um cadidato ou um recrutador?",
+
+    "title_label":"Insira o título da vaga:",
+    "subtitle_label":"Insira o subtítulo da vaga:",
+    "experience_label":"Selecione o nível de experiência exigido:",
+    "work_journey_label":"Jornada de trabalho:",
+    "place_label":"Local:",
+    "salary_label":"Salário",
+    "benefits_label":"Benefícios:",
+    "description_label":"Descrição:",
+    "skills_label":"Selecione habilidades desejadas:",
+    "offer_job":"Ofertar nova vaga",
+    "apprentice":"Aprendiz",
+    "treinee":"Estagiário",
+    "junior":"Júnior",
+    "full":"Pleno",
+    "senior":"Senior",
+    "job_title_hint":"Título da vaga",
+    "job_subtitle_hint":"Subtítulo da vaga",
+    "work_journey_hint":"Jornada de trabalho",
+    "local_hint":"Local",
+    "salary_hint":"Salário",
+    "benefits_hint":"Benefícios",
+    "description_hint":"Descrição"
+
+}
