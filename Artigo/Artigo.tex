@@ -26,12 +26,6 @@ Matrícula - 1812082052}
 \textit{Centro Universitário Instituto de Educação Superior de Brasília}\\
 Brasília, Brasil \\
 Matrícula - 1822082032}
-\and
-\IEEEauthorblockN{3\textsuperscript{rd} João Victor Resende}
-\IEEEauthorblockA{\textit{Centro Universitário IESB} \\
-\textit{Centro Universitário Instituto de Educação Superior de Brasília}\\
-Brasilia, Brasil \\
-Matrícula - 1712130023}
 }
 
 \maketitle
@@ -81,8 +75,6 @@ Desenvolver um aplicativo para dispositivos móveis com sistema operacional Andr
 \end{itemize}
 
 \section{Referencial Teórico}
-É possível perceber que a inteligência artificial está cada vez mais presente dentro das empresas, porém, o seu processo de aplicação em uma determinada área pode ser complexo e lento a depender da forma como é feito a coleta de dados e o treinamento da IA. Algumas das técnicas de inteligência artificial que podem ser aplicadas na área de recursos humanos para selecionar interessados em uma vaga de emprego, são: Lógica Fuzzy, Sistema Especialista, Redes Neurais Artificiais, Sistemas Baseados em Casos, Algoritmos de Classificação e Regressão Linear etc.
-
 No trabalho proposto, será estudado o funcionamento do Algoritmo de Regressão Linear dentro do contexto de recrutamento para vagas de emprego. Assim, como a técnica de análise de perfil para seleção envolve a ligação entre variáveis que existem uma boa correlação entre si, a regressão linear consegue verificar o quanto uma variável está relacionada à outra, por exemplo, comparando as habilidades do candidato com os requisitos das vagas de emprego, fazendo um ajuste linear nos dados obtidos em um diagrama de dispersão, conforme mostra o gráfico abaixo:
 
 
@@ -172,6 +164,8 @@ O tipo de regressão linear abordada neste trabalho é a múltipla, pelo fato de
 \section*{Trabalhos Correlatos}
 Entre as inúmeras tecnologias existentes que automatizam processos, existem as que auxiliam no processo de contratação de candidatos às vagas de emprego. Como por exemplo, tem-se a ferramenta HireVue que é utilizada nas entrevistas online, sendo capaz de interpretar a análise da linguagem corporal, expressões faciais e tom de voz. Como estratégia de avaliação para decidir se o candidato é bom ou ruim, o entrevistado é comparado com os melhores funcionários da empresa, e a partir disso, selecionam os melhores para os recrutadores.
 
+Entre as inúmeras tecnologias existentes que automatizam processos, existem as que auxiliam no processo de contratação de candidatos às vagas de emprego. Como por exemplo, tem-se a ferramenta HireVue que é utilizada nas entrevistas online, sendo capaz de interpretar a análise da linguagem corporal, expressões faciais e tom de voz. Como estratégia de avaliação para decidir se o candidato é bom ou ruim, o entrevistado é comparado com os melhores funcionários da empresa, e a partir disso, selecionam os melhores para os recrutadores.
+
 A técnica conhecida como Lógica Fuzzy representa muito bem as incertezas e questões nebulosas que envolvem o contexto real no processo de seleção de um candidato para uma determinada vaga. Uma das formas de representar essa incerteza em conjunto com a Lógica Fuzzy, é utilizando o grau de pertinência para definir o resultado, ou seja, ao invés de designar que um perfil é bom ou ruim, a inteligência artificial quantifica esses atributos, transformando-os em um intervalo de valores, que varia entre 0 e 1, tornando possível inferir que um perfil pode ser 0.8 bom e 0.5 ruim, por exemplo.
 
 O uso de Redes Neurais Artificiais (RNA) auxilia o RH pelo motivo de ter a capacidade de prever os candidatos que seriam os mais adequados às vagas, além de ter uma enorme habilidade em aprender no ambiente em que está inserido. Assim, o RNA, com o aumento das informações que adquire ao longo das avaliações dos currículos dos candidatos, cada vez mais a sua escolha se tornará mais assertiva, pois ele aprende com base na experiência.
@@ -213,8 +207,25 @@ Além disso, é necessário adicionar as seguintes dependências no arquivo "pom
 \vspace{7mm}
 
 Os endpoints (requisições http) da aplicação são definidos na pasta controller do projeto da API. Por padrão, o caminho da url é definido como “http://localhost:8080”, sendo que a porta 8080, é especificada na variável “server.port” que fica no arquivo de configuração “application-dev.properties”.
+
 Para cada classe do Controller, foi adicionada a anotação “@RequestMapping” do spring boot que recebe como parâmetro a url principal da página.
 
+Para subir a API para o heroku, inicialmente foi necessário criar um projeto através do endereço “heroku.com” e, após criado no menu “Deploy” foi selecionada a primeira opção denominada “Heroku Git”, sendo necessário instalar o programa Heroku CLI com a finalidade de conectar o git com o heroku.
+
+\vspace{7mm}
+\centerline{\includegraphics[width=80mm,height=600mm,keepaspectratio]{Heroku.png}}
+\vspace{7mm}
+
+Logo em seguida, foram executados os seguintes comandos no terminal, no diretório do projeto:
+
+\begin{itemize}
+\item heroku –version
+\item heroku login
+\item heroku git:remote -a nomedoprojeto
+\item git status
+\item git add .
+\item git push heroku master
+\end{itemize}
 
 \section*{Resultados Obtidos}
 
