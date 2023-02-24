@@ -1,10 +1,15 @@
 # Jobzilla
 
+O presente projeto consiste em desenvolver um aplicativo na linguagem flutter, que inclui técnicas de inteligência artificial para selecionar automaticamente o candidato que se encaixa melhor com a oportunidade de emprego em questão. Para o desenvolvimento da aplicação, com o objetivo de ter um projeto mais limpo, organizado e fácil de receber manutenção, foram implementados alguns recursos como arquitetura limpa (Clean Architecture) e padrão de projeto MVVMu (Usecase).
 
-Liguagens e recursos
+Você pode ler o artigo completo em: <a href="https://github.com/Matheus872/Jobzilla/blob/master/Artigo/Artigo.pdf">Artigo</a>
 
-- App -> Flutter com padrão de projeto MVVMu;
-- Backend -> API Java;
+<img alt="Article" src="./rsc/article.jpg"/> 
+
+## Languages and resources
+
+- App -> Flutter with MVVMu project pattern;
+- Backend -> Java REST API with SpringBoot;
 - Base de dados -> PostgreSQL.
 
 ## Back-End
