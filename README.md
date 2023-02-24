@@ -4,7 +4,7 @@ O presente projeto consiste em desenvolver um aplicativo na linguagem flutter, q
 
 Você pode ler o artigo completo em: <a href="https://github.com/Matheus872/Jobzilla/blob/master/Artigo/Artigo.pdf">Artigo</a>
 
-<img alt="Article" src="./rsc/article.jpg"/> 
+<img height="300" width="500" alt="Article" src="./rsc/article.jpg"/> 
 
 ## Languages and resources
 
@@ -80,5 +80,3 @@ ScrollView, MediaQuery and languages with i18n library<br>
 ## Other Features
 - User autentication with JWT token;
 - Chatbot with Dialog Flow.
-
-
